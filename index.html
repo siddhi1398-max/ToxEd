@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="theme-color" content="#C0392B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ToxPathway">
+<link rel="manifest" href="manifest.json">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ToxPathway — Emergency Toxicology Reference</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -366,6 +372,145 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 #back-top.show{opacity:1;pointer-events:all}
 #back-top svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
+
+/* GROUPED NAV */
+.nav-group{display:flex;align-items:stretch;position:relative}
+.nav-group-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);padding:0 12px 0 8px;display:flex;align-items:flex-end;padding-bottom:7px;opacity:.6;white-space:nowrap}
+.nav-group-sep{width:1px;background:var(--border2);margin:10px 4px;flex-shrink:0}
+
+/* GLOBAL SEARCH */
+.gsearch-wrap{position:relative;flex:1;max-width:320px}
+.gsearch-input{width:100%;padding:6px 12px 6px 32px;background:var(--surface2);border:1px solid var(--border2);border-radius:20px;font-family:var(--sans);font-size:13px;color:var(--text);outline:none;transition:all var(--t)}
+.gsearch-input:focus{border-color:var(--red);background:var(--surface);box-shadow:0 0 0 3px var(--red-dim)}
+.gsearch-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none;display:flex}
+.gsearch-icon svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.gsearch-dropdown{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-lg);box-shadow:0 8px 32px rgba(0,0,0,.12);z-index:500;display:none;overflow:hidden;max-height:380px;overflow-y:auto}
+.gsearch-dropdown.open{display:block;animation:fadeUp .15s ease}
+.gsearch-section{padding:6px 0}
+.gsearch-section-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);padding:4px 14px;display:block}
+.gsearch-item{padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:background var(--t)}
+.gsearch-item:hover{background:var(--surface2)}
+.gsearch-item-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.gsearch-item-name{font-size:13px;font-weight:500;color:var(--text)}
+.gsearch-item-sub{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.gsearch-empty{padding:20px;text-align:center;font-size:13px;color:var(--text3)}
+
+/* DOSING DISCLAIMER BANNER */
+.dose-disclaimer{display:flex;align-items:center;gap:9px;padding:8px 13px;background:var(--amber-dim);border:1px solid var(--amber-mid);border-radius:var(--r);margin-bottom:14px;font-size:12px;color:var(--amber);line-height:1.5}
+.dose-disclaimer svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.dose-disclaimer strong{color:var(--amber);font-weight:600}
+
+/* FAVORITES */
+.fav-btn{background:none;border:none;cursor:pointer;color:var(--text3);padding:4px;border-radius:var(--r-sm);transition:all var(--t);display:flex;align-items:center;flex-shrink:0}
+.fav-btn:hover{color:var(--amber)}
+.fav-btn.active{color:var(--amber)}
+.fav-btn svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fav-btn.active svg{fill:var(--amber)}
+
+/* FAVORITES PANEL */
+.fav-section{margin-bottom:20px;padding:13px 15px;background:var(--amber-dim);border:1px solid var(--amber-mid);border-radius:var(--r-lg)}
+.fav-section-title{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:9px;display:flex;align-items:center;gap:6px}
+
+/* TOAST */
+.toast{position:fixed;bottom:72px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);font-size:12px;padding:8px 16px;border-radius:20px;z-index:999;opacity:0;pointer-events:none;transition:opacity .2s;font-family:var(--mono);white-space:nowrap}
+.toast.show{opacity:1}
+
+/* OFFLINE BANNER */
+.offline-banner{background:var(--amber);color:#000;font-size:12px;font-weight:600;text-align:center;padding:6px;display:none;font-family:var(--mono)}
+.offline-banner.show{display:block}
+
+/* PWA INSTALL */
+.pwa-prompt{position:fixed;bottom:24px;left:24px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-lg);padding:14px 16px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:900;display:none;max-width:280px}
+.pwa-prompt.show{display:block;animation:fadeUp .3s ease}
+.pwa-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px}
+.pwa-sub{font-size:12px;color:var(--text3);margin-bottom:12px;line-height:1.5}
+.pwa-actions{display:flex;gap:8px}
+
+@media (max-width: 700px) {
+  .nav-group-label{display:none}
+  :root{--sidebar-w:100vw}
+  .app-layout{flex-direction:column;height:auto;overflow:visible}
+  .left-pane{padding:16px}
+  .right-panel{width:100%;border-left:none;border-top:1px solid var(--border2);height:auto;min-height:300px}
+  .calc-layout{grid-template-columns:1fr}
+  .matcher-layout{grid-template-columns:1fr}
+  .pw-wrap{grid-template-columns:1fr}
+  .pw-sidebar{display:none}
+  .gsearch-wrap{max-width:200px}
+}
+
+
+/* KEYBOARD SHORTCUT BADGE */
+.kb-hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-lg);padding:10px 18px;font-family:var(--mono);font-size:11px;color:var(--text3);z-index:800;display:none;box-shadow:0 4px 20px rgba(0,0,0,.1);white-space:nowrap}
+.kb-hint.show{display:flex;gap:14px;animation:fadeUp .2s ease}
+.kb-hint kbd{background:var(--surface2);border:1px solid var(--border2);border-radius:3px;padding:1px 6px;color:var(--text2);font-size:10px}
+
+/* RECENT HISTORY */
+.recent-section{margin-bottom:16px}
+.recent-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.recent-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.recent-pills{display:flex;gap:5px;flex-wrap:wrap}
+.recent-pill{font-size:11px;padding:3px 10px;border:1px solid var(--border2);background:var(--surface);color:var(--text3);border-radius:20px;cursor:pointer;transition:all var(--t);font-family:var(--mono);white-space:nowrap}
+.recent-pill:hover{color:var(--text);border-color:var(--border3)}
+
+/* MOBILE CLOSE PANEL */
+.panel-close-btn{display:none;position:sticky;top:0;z-index:10;width:100%;padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border2);font-family:var(--sans);font-size:13px;color:var(--text3);cursor:pointer;text-align:left;border:none;align-items:center;gap:8px}
+.panel-close-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:700px){.panel-close-btn{display:flex}}
+
+/* PRINT CARD */
+@media print{
+  .print-card-only .panel:not(.active){display:none!important}
+  .print-card-only header,.print-card-only .nav,.print-card-only .left-pane,.print-card-only #back-top{display:none!important}
+  .print-card-only .right-panel{width:100%!important;border:none!important;position:static}
+  .print-card-only .app-layout{display:block;height:auto;overflow:visible}
+}
+
+/* NOMOGRAM */
+.nomo-wrap{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--r);padding:14px;margin-top:12px}
+.nomo-title{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.nomo-canvas-wrap{position:relative}
+.nomo-canvas{width:100%;border-radius:4px;cursor:crosshair}
+.nomo-result{margin-top:8px;padding:8px 12px;border-radius:var(--r-sm);font-size:12px;font-weight:600;text-align:center;font-family:var(--mono)}
+.nomo-treat{background:var(--red-dim);color:var(--red);border:1px solid var(--red-mid)}
+.nomo-safe{background:var(--teal-dim);color:var(--teal);border:1px solid var(--teal-mid)}
+.nomo-grey{background:var(--surface3);color:var(--text3);border:1px solid var(--border2)}
+
+/* PERFORMANCE CHART */
+.perf-wrap{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--r-lg);overflow:hidden;margin-bottom:18px}
+.perf-head{padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border2);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);display:flex;align-items:center;justify-content:space-between}
+.perf-canvas{display:block;width:100%}
+.perf-empty{padding:20px;text-align:center;font-size:12px;color:var(--text3)}
+
+/* MISSED TOPICS */
+.missed-section{margin-top:18px}
+.missed-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.missed-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.missed-list{display:flex;flex-direction:column;gap:6px}
+.missed-item{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--surface);border:1px solid var(--red-mid);border-radius:var(--r);background:var(--red-dim)}
+.missed-name{font-size:13px;font-weight:500;color:var(--text)}
+.missed-count{font-family:var(--mono);font-size:10px;color:var(--red)}
+
+/* POISON CONTROL STRIP */
+.poison-strip{background:var(--red);color:#fff;padding:8px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-radius:var(--r);margin-bottom:18px;cursor:pointer;transition:opacity var(--t)}
+.poison-strip:hover{opacity:.9}
+.poison-strip-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.poison-strip-num{font-size:16px;font-weight:700;letter-spacing:.05em;font-family:var(--mono)}
+.poison-strip-sub{font-size:11px;opacity:.75;font-family:var(--mono)}
+
+/* COLORBLIND SYMBOLS */
+.cb-sym{font-size:9px;margin-left:3px;opacity:.8}
+
+/* FOCUS RING */
+:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:var(--r-sm)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* ACCESSIBILITY */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* SPACED REP FLAG */
+.srs-flag{font-family:var(--mono);font-size:9px;padding:2px 6px;border-radius:20px;background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-mid);margin-left:6px}
+
 /* PRINT */
 @media print{header,.nav,#back-top{display:none!important}body{background:#fff!important}.app-layout{display:block;height:auto;overflow:visible}.right-panel{width:100%;border:none}.left-pane{overflow:visible}}
 </style>
@@ -400,6 +545,16 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
   </defs>
 </svg>
 
+<div class="offline-banner" id="offline-banner">⚠ You are offline — ToxPathway is running from cache</div>
+<div class="toast" id="toast"></div>
+<div class="pwa-prompt" id="pwa-prompt">
+  <div class="pwa-title">Install ToxPathway</div>
+  <div class="pwa-sub">Add to home screen for offline access — works without internet in clinical settings.</div>
+  <div class="pwa-actions">
+    <button class="btn btn-primary" id="pwa-install" style="font-size:12px;padding:7px 14px">Install</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('pwa-prompt').classList.remove('show')" style="font-size:12px;padding:7px 14px">Later</button>
+  </div>
+</div>
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg><use href="#ic-chevup"/></svg></button>
 
 <header>
@@ -410,25 +565,37 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
       <div class="logo-sub">Emergency Toxicology Reference</div>
     </div>
   </div>
-  <div class="header-right">
+  <div class="header-right" style="gap:12px">
+    <div class="gsearch-wrap">
+      <span class="gsearch-icon"><svg><use href="#ic-search"/></svg></span>
+      <input class="gsearch-input" id="gsearch" placeholder="Search toxidromes, antidotes…" autocomplete="off" oninput="globalSearch(this.value)" onfocus="openGsearch()" onblur="setTimeout(closeGsearch,180)">
+      <div class="gsearch-dropdown" id="gsearch-dd"></div>
+    </div>
     <span class="source-badge">MoHFW · Goldfrank's</span>
-    <button class="hbtn" id="dark-toggle" onclick="toggleDark()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-moon"/></svg></button>
-    <button class="hbtn" onclick="window.print()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-print"/></svg> Print</button>
+    <button class="hbtn" id="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-moon"/></svg></button>
+    <button class="hbtn" onclick="window.print()" aria-label="Print page"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-print"/></svg> Print</button>
   </div>
 </header>
 
 <div class="nav">
   <div class="nav-inner">
-    <button class="ntab active" onclick="showTab('toxidromes',this)"><span class="ntab-icon"><svg><use href="#ic-flask"/></svg></span>Toxidromes</button>
-    <button class="ntab" onclick="showTab('antidotes',this)"><span class="ntab-icon"><svg><use href="#ic-pill"/></svg></span>Antidotes</button>
-    <button class="ntab" onclick="showTab('calculator',this)"><span class="ntab-icon"><svg><use href="#ic-calc"/></svg></span>Calculator</button>
-    <button class="ntab" onclick="showTab('compare',this)"><span class="ntab-icon"><svg><use href="#ic-compare"/></svg></span>Compare</button>
-    <button class="ntab" onclick="showTab('environmental',this)"><span class="ntab-icon"><svg><use href="#ic-leaf"/></svg></span>Environmental</button>
-    <button class="ntab" onclick="showTab('builder',this)"><span class="ntab-icon"><svg><use href="#ic-search"/></svg></span>Symptom Builder</button>
-    <button class="ntab" onclick="showTab('matcher',this)"><span class="ntab-icon"><svg><use href="#ic-microscope"/></svg></span>Cases</button>
-    <button class="ntab" onclick="showTab('sprint',this)"><span class="ntab-icon"><svg><use href="#ic-bolt"/></svg></span>Sprint</button>
-    <button class="ntab" onclick="showTab('pathway',this)"><span class="ntab-icon"><svg><use href="#ic-pathway"/></svg></span>Pathway</button>
-    <button class="ntab" onclick="showTab('quiz',this)"><span class="ntab-icon"><svg><use href="#ic-quiz"/></svg></span>Quiz</button>
+    <div class="nav-group">
+      <span class="nav-group-label">Reference</span>
+      <button class="ntab active" onclick="showTab('toxidromes',this)"><span class="ntab-icon"><svg><use href="#ic-flask"/></svg></span>Toxidromes</button>
+      <button class="ntab" onclick="showTab('antidotes',this)"><span class="ntab-icon"><svg><use href="#ic-pill"/></svg></span>Antidotes</button>
+      <button class="ntab" onclick="showTab('calculator',this)"><span class="ntab-icon"><svg><use href="#ic-calc"/></svg></span>Calculator</button>
+      <button class="ntab" onclick="showTab('compare',this)"><span class="ntab-icon"><svg><use href="#ic-compare"/></svg></span>Compare</button>
+      <button class="ntab" onclick="showTab('environmental',this)"><span class="ntab-icon"><svg><use href="#ic-leaf"/></svg></span>Environmental</button>
+    </div>
+    <div class="nav-group-sep"></div>
+    <div class="nav-group">
+      <span class="nav-group-label">Practice</span>
+      <button class="ntab" onclick="showTab('builder',this)"><span class="ntab-icon"><svg><use href="#ic-search"/></svg></span>Symptom Builder</button>
+      <button class="ntab" onclick="showTab('matcher',this)"><span class="ntab-icon"><svg><use href="#ic-microscope"/></svg></span>Cases</button>
+      <button class="ntab" onclick="showTab('sprint',this)"><span class="ntab-icon"><svg><use href="#ic-bolt"/></svg></span>Sprint</button>
+      <button class="ntab" onclick="showTab('pathway',this)"><span class="ntab-icon"><svg><use href="#ic-pathway"/></svg></span>Pathway</button>
+      <button class="ntab" onclick="showTab('quiz',this)"><span class="ntab-icon"><svg><use href="#ic-quiz"/></svg></span>Quiz</button>
+    </div>
   </div>
 </div>
 
@@ -440,6 +607,14 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
       <div class="section-head">
         <div class="section-title">Toxidromes</div>
         <div class="section-sub">Select a toxidrome to view body map and detailed management panel &rarr;</div>
+      </div>
+      <div class="poison-strip" onclick="callPoison()" role="button" aria-label="Call AIIMS Poison Control">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <div>
+          <div class="poison-strip-lbl">Poison Control</div>
+          <div class="poison-strip-num">AIIMS: 011-26589391</div>
+        </div>
+        <div style="margin-left:auto"><div class="poison-strip-sub">National Poison Info Centre</div><div class="poison-strip-sub">SMS Helpline: 9999-404-505</div></div>
       </div>
       <div class="search-wrap">
         <span class="search-icon"><svg><use href="#ic-search"/></svg></span>
@@ -463,6 +638,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
       <div class="section-head">
         <div class="section-title">Antidotes</div>
         <div class="section-sub">Dosing per MoHFW protocol and Goldfrank&rsquo;s Toxicologic Emergencies (12th ed). Click a row for full details &rarr;</div>
+      <div class="dose-disclaimer"><svg><use href="#ic-warning"/></svg><span><strong>Reference only.</strong> Always verify doses with your institutional protocol before administering. Source version: Goldfrank's 12th ed · MoHFW 2019.</span></div>
       </div>
       <div class="search-wrap">
         <span class="search-icon"><svg><use href="#ic-search"/></svg></span>
@@ -481,6 +657,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
       <div class="section-head">
         <div class="section-title">Antidote Calculator</div>
         <div class="section-sub">Weight-based dosing per Goldfrank&rsquo;s Toxicologic Emergencies. Always verify with institutional protocols.</div>
+      <div class="dose-disclaimer"><svg><use href="#ic-warning"/></svg><span><strong>Clinical Disclaimer:</strong> Doses are evidence-based references. Always verify with your institutional protocol, patient weight, renal/hepatic function, and current drug availability before administering.</span></div>
       </div>
       <div class="calc-layout">
         <div class="calc-sidebar">
@@ -577,6 +754,13 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
         <div class="section-title">Sprint Mode</div>
         <div class="section-sub">Rapid-fire timed cases. No second chances.</div>
       </div>
+      <div class="perf-wrap" id="sprint-perf-wrap">
+        <div class="perf-head">
+          <span>Sprint History</span>
+          <button class="btn btn-ghost" style="font-size:11px;padding:3px 8px" onclick="clearPerf('sprint')">Clear</button>
+        </div>
+        <canvas id="sprint-perf-canvas" class="perf-canvas" height="80"></canvas>
+      </div>
       <div id="sprint-content"></div>
     </div>
 
@@ -609,7 +793,14 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
     <div id="panel-quiz" class="panel">
       <div class="section-head">
         <div class="section-title">Self-Assessment Quiz</div>
-        <div class="section-sub">12 high-yield questions. Shuffled on each restart.</div>
+        <div class="section-sub">12 high-yield questions. Shuffled on each restart. Press <kbd style="font-family:var(--mono);font-size:10px;background:var(--surface2);border:1px solid var(--border2);border-radius:3px;padding:1px 5px">A–D</kbd> to answer, <kbd style="font-family:var(--mono);font-size:10px;background:var(--surface2);border:1px solid var(--border2);border-radius:3px;padding:1px 5px">Enter</kbd> for next.</div>
+      </div>
+      <div class="perf-wrap" id="quiz-perf-wrap">
+        <div class="perf-head">
+          <span>Score History</span>
+          <button class="btn btn-ghost" style="font-size:11px;padding:3px 8px" onclick="clearPerf('quiz')">Clear</button>
+        </div>
+        <canvas id="quiz-perf-canvas" class="perf-canvas" height="80"></canvas>
       </div>
       <div class="quiz-wrap">
         <div class="progress-bar"><div class="progress-fill" id="quiz-prog" style="width:0%"></div></div>
@@ -622,6 +813,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 
   <!-- RIGHT PANEL -->
   <div class="right-panel empty" id="right-panel">
+    <button class="panel-close-btn" onclick="clearDetailPanel()" aria-label="Close detail panel">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      Close
+    </button>
     <div class="right-panel-placeholder" id="rpp">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:.15;margin-bottom:12px"><use href="#ic-pathway"/></svg>
       <div class="rpp-text">Select a toxidrome or condition<br>to view body map, symptoms, and<br>full management guidelines here.</div>
@@ -669,7 +864,7 @@ function clearDetailPanel(){
   document.getElementById('detail-panel').innerHTML='';
   document.querySelectorAll('.tox-row,.env-row').forEach(r=>r.classList.remove('selected'));
 }
-function showDetailPanel(html){
+function showDetailPanel(html,toxName){
   const rp=document.getElementById('right-panel');
   rp.classList.remove('empty');
   document.getElementById('rpp').style.display='none';
@@ -677,6 +872,9 @@ function showDetailPanel(html){
   dp.style.display='block';
   dp.innerHTML=html;
   dp.scrollTop=0;
+  if(toxName){addToRecent(toxName);}
+  // render perf charts if visible
+  setTimeout(()=>{renderPerfChart('quiz-perf-canvas','quiz');renderPerfChart('sprint-perf-canvas','sprint');},100);
 }
 
 // ── BODY MAP SVG ──
@@ -727,8 +925,15 @@ function buildToxDetail(t){
   if(t.goldfrank)guidelineHtml+=`<div class="guideline-box" style="margin-top:6px;background:var(--teal-dim);border-color:var(--teal)"><div class="gl-lbl" style="color:var(--teal)">Goldfrank's Toxicologic Emergencies</div><div class="gl-text">${t.goldfrank}</div></div>`;
   return `<div class="detail-scroll">
   <div class="detail-banner">
-    <div class="detail-cat">${t.catLabel}</div>
-    <div class="detail-name">${t.name}</div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+      <div style="flex:1">
+        <div class="detail-cat">${t.catLabel}</div>
+        <div class="detail-name">${t.name}</div>
+      </div>
+      <button class="hbtn" onclick="printCard()" title="Print this card" aria-label="Print this toxidrome card" style="flex-shrink:0;margin-top:4px">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-print"/></svg>
+      </button>
+    </div>
     <div class="detail-vitals">
       ${['hr','bp','rr','temp'].map((k,i)=>{const v=t.vitals[k];const labels=['HR','BP','RR','Temp'];return`<div class="dvital ${vcD(v)}"><div class="dvital-val">${v}</div><div class="dvital-lbl">${labels[i]}</div></div>`;}).join('')}
     </div>
@@ -836,6 +1041,7 @@ const TOXIDROMES=[
   {name:"TCA Toxicity",category:"cardiac",catLabel:"Cardiac/TCA",agents:"Amitriptyline, nortriptyline, imipramine, doxepin, clomipramine",vitals:{hr:"↑",bp:"↓",rr:"↑",temp:"↑"},pupils:"Mydriasis",skin:"Dry, flushed (anticholinergic)",symptoms:"Anticholinergic features + QRS widening (>100ms), R-wave in aVR >3mm, ventricular dysrhythmias, seizures, hypotension.",consciousness:"Altered; seizures",antidote:"Sodium bicarbonate 1–2 mEq/kg IV bolus. Target pH 7.45–7.55. Lipid emulsion 20% for refractory arrest. NO physostigmine.",mohfw:"TCA OD Critical Management: NaHCO3 first-line for QRS >100ms. Do NOT use physostigmine. Intubation for airway protection. Avoid class IA/IC antiarrhythmics.",goldfrank:"Goldfrank's Ch. 73: Serum alkalinisation (pH 7.45–7.55) reverses Na-channel blockade — give as boluses, not infusion. QRS >100ms or R-aVR >3mm: treat immediately. Maintain until QRS narrows. Continuous ECG monitoring ≥6h.",mnemonics:"3 Cs: Cardiovascular (wide QRS) · Convulsions · Coma.\nECG: QRS >100ms = treat with NaHCO3.",symTags:["tachycardia","hypotension","mydriasis","dryskin","wideqrs","seizures","dysrhythmia"]},
   {name:"CCB / Beta Blocker OD",category:"cardiac",catLabel:"Cardiac",agents:"Verapamil, diltiazem, amlodipine (CCB); atenolol, metoprolol, propranolol (BB)",vitals:{hr:"↓↓",bp:"↓↓",rr:"nl",temp:"nl"},pupils:"Normal",skin:"Normal or cool",symptoms:"Bradycardia, hypotension, AV block. CCB: HYPERglycemia (blocks insulin). BB: HYPOglycemia, bronchospasm.",consciousness:"May be alert initially",antidote:"CaCl 1g IV / CaGluconate 3g IV. High-dose Insulin (HIE) 1u/kg bolus. Glucagon 3–10mg IV for BB. Lipid Emulsion 20% for lipophilic agents. ECMO if refractory.",mohfw:"Calcium Channel Blocker Poisoning (AIIMS): Calcium + HIE combination therapy. Start vasopressors early. ECMO considered at tertiary centres. Exclude digoxin co-ingestion.",goldfrank:"Goldfrank's Ch. 63: High-dose insulin (HIE) is evidence-based — improves myocardial inotropy via metabolic mechanism. Calcium first-line. Glucagon for BB only. Lipid emulsion as rescue for lipophilic agents.",mnemonics:"CCB: Calcium + Carbohydrates (High Insulin) + lipid emulsion.\nCCB = HYPERglycemia. BB = HYPOglycemia.",symTags:["bradycardia","hypotension","avblock","dysrhythmia"]},
   {name:"Digoxin Toxicity",category:"cardiac",catLabel:"Cardiac",agents:"Digoxin, digitalis, foxglove, oleander, lily of the valley, Chan Su",vitals:{hr:"↓",bp:"↓",rr:"nl",temp:"nl"},pupils:"Normal",skin:"Normal",symptoms:"Bradycardia, AV block, xanthopsia (yellow-green vision), N/V, hyperkalaemia. Virtually any dysrhythmia possible.",consciousness:"Nausea, confusion",antidote:"Digoxin Immune Fab (DigiFab): Vials = (serum level × wt kg) / 100. Empiric: 10 vials acute, 5 vials chronic. AVOID calcium.",mohfw:"Cardiac Glycoside Poisoning: DigiFab availability limited in India — consult AIIMS Poison Centre (011-26589391). Monitor K+. Transvenous pacing if unresponsive.",goldfrank:"Goldfrank's Ch. 65: Digoxin Fab fragments are definitive. AVOID calcium — calcium-mediated contracture ('stone heart') risk in digoxin toxicity. Post-Fab serum levels unreliable. Haemodialysis ineffective.",mnemonics:"Dig toxicity = Yellow vision + AV block + hyperkalaemia.\nAntidote: Fab fragments.",symTags:["bradycardia","hypotension","avblock","vomiting","dysrhythmia","xanthopsia"]},
+  {name:"Acetaminophen (APAP) OD",category:"cardiac",catLabel:"Metabolic",agents:"Paracetamol, Tylenol, Calpol, co-codamol, combination cold/flu remedies, intentional OD",vitals:{hr:"nl",bp:"nl",rr:"nl",temp:"nl"},pupils:"Normal",skin:"Normal (early)",symptoms:"Phase 1 (0–24h): N/V, malaise — may appear well. Phase 2 (24–72h): RUQ pain, LFT rise, oliguria. Phase 3 (72–96h): hepatic necrosis, coagulopathy, encephalopathy. Phase 4: recovery or fulminant failure.",consciousness:"Alert early; encephalopathy in late stage",antidote:"N-Acetylcysteine (NAC): 150mg/kg IV over 1h → 50mg/kg over 4h → 100mg/kg over 16h. Plot level on Rumack-Matthew nomogram at ≥4h post-ingestion.",mohfw:"APAP Poisoning (National Poison Centre): NAC is antidote — effective up to 24h. Activated charcoal within 2h if >150mg/kg ingested. LFTs, PT/INR, creatinine monitoring. Contact liver unit if INR >2, creatinine rising.",goldfrank:"Goldfrank's Ch. 32: Rumack-Matthew nomogram determines treatment threshold (150mcg/mL at 4h). Start NAC immediately if >8h post-ingestion without waiting for level. Extended-release formulations require level at 4h AND 8h. ALF → transplant evaluation.",mnemonics:"4 Phases: LOOKS WELL → RUQ pain → Liver failure → Recovery or death.\nNAC most effective if started within 8h.",symTags:["vomiting","aki","alteredconsciousness"],srsWeight:0},
   {name:"Salicylate Toxicity",category:"cardiac",catLabel:"Metabolic",agents:"Aspirin, bismuth subsalicylate, oil of wintergreen (methyl salicylate), topical BenGay",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"↑"},pupils:"Normal",skin:"Diaphoretic",symptoms:"Mixed resp alkalosis + metabolic acidosis (HAGMA), tinnitus, hyperthermia, AMS (late). N/V, dehydration.",consciousness:"AMS = severe toxicity",antidote:"Sodium bicarbonate infusion: target urine pH >7.5. Haemodialysis for severe toxicity (level >100mg/dL, AMS, renal failure).",mohfw:"Salicylate Poisoning (National Poison Centre): NaHCO3 infusion mainstay. Monitor glucose — hypoglycaemia common. NEVER intubate without extreme caution (lose resp alkalosis).",goldfrank:"Goldfrank's Ch. 39: Urinary alkalinisation (urine pH >7.5) traps ionised salicylate in urine — requires normal K+. Intubation hazardous (loss of respiratory compensation → rapid pH collapse). HD indications: AMS, renal failure, level >100mg/dL.",mnemonics:"Tinnitus + Hyperventilation + Acid-base chaos = Aspirin.",symTags:["tachycardia","hyperthermia","diaphoresis","tinnitus","hyperventilation","hagma"]},
   {name:"Toxic Alcohols",category:"sedative",catLabel:"Metabolic",agents:"Methanol (wood alcohol), Ethylene glycol (antifreeze), Isopropanol (rubbing alcohol)",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"nl"},pupils:"Varies",skin:"Normal",symptoms:"HAGMA + osmol gap elevation. MeOH: visual changes → blindness (formate toxicity). EG: calcium oxalate crystals, AKI. IsoPrOH: ketosis WITHOUT acidosis.",consciousness:"Intoxicated; AMS in severe",antidote:"Fomepizole (4-MP) 15mg/kg IV loading dose. Haemodialysis for severe MeOH/EG (metabolic acidosis, visual changes, AKI). Ethanol IV if fomepizole unavailable.",mohfw:"Toxic Alcohol Management: Fomepizole preferred; ethanol infusion if unavailable. Folate 50mg IV for methanol (facilitates formate elimination). Early nephrology consultation for EG.",goldfrank:"Goldfrank's Ch. 109–111: Fomepizole (4-MP) standard of care — blocks alcohol dehydrogenase. HD removes both parent alcohols and metabolites. MeOH: add folate to enhance formate elimination. EG: add pyridoxine and thiamine.",mnemonics:"MeOH = formate = Blindness.\nEG = oxalate = AKI.\nBoth: Fomepizole + HD. IsoPrOH = ketones only, NO acidosis.",symTags:["hagma","osmolgap","visualchanges","alteredconsciousness","aki"]}
 ];
@@ -873,7 +1079,7 @@ const ANTIDOTES=[
 
 const CALCULATORS=[
   {id:'naloxone',name:'Naloxone',ind:'Opioid reversal · Goldfrank\'s Ch. 38',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'rd',label:'Effective reversal dose (mg)',ph:'0.4',type:'number'}],calc(f){const wt=+f.wt||70,rd=+f.rd||0.4;return[{l:'Initial bolus',v:'0.4–2mg IV/IM/IN',n:'Start 0.4mg; titrate up to effect.'},{l:'Repeat interval',v:'Every 2–3 min'},{l:'Maintenance infusion',v:`${(rd*0.667).toFixed(2)}mg/hr`,n:`2/3 of effective reversal dose (${rd}mg)/hr.`},{l:'Duration of monitoring',v:'≥4–6h after last dose',n:'Longer for long-acting opioids (methadone).'}];},warn:'Naloxone half-life 30–90min < most opioids. Start infusion for long-acting agents.'},
-  {id:'nac',name:'NAC (Acetaminophen)',ind:'Acetaminophen OD · Goldfrank\'s Ch. 32',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'}],calc(f){const wt=+f.wt||70,d1=(150*wt),d2=(50*wt),d3=(100*wt);return[{l:'Bag 1 — Loading',v:`${d1}mg (150mg/kg)`,n:'In 200mL D5W over 1 hour.'},{l:'Bag 2',v:`${d2}mg (50mg/kg)`,n:'In 500mL D5W over 4 hours.'},{l:'Bag 3',v:`${d3}mg (100mg/kg)`,n:'In 1000mL D5W over 16 hours.'},{l:'Total NAC',v:`${(d1+d2+d3).toLocaleString()}mg`}];},warn:'Plot APAP level on Rumack-Matthew nomogram at ≥4h. Begin NAC immediately if >8h post-ingestion.'},
+  {id:'nac',name:'NAC (Acetaminophen)',ind:'Acetaminophen OD · Goldfrank\'s Ch. 32',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'apap',label:'APAP level (mcg/mL)',ph:'e.g. 180',type:'number'},{id:'hrs',label:'Hours post-ingestion',ph:'e.g. 6',type:'number'}],calc(f){const wt=+f.wt||70,d1=(150*wt),d2=(50*wt),d3=(100*wt);return[{l:'Bag 1 — Loading',v:`${d1}mg (150mg/kg)`,n:'In 200mL D5W over 1 hour.'},{l:'Bag 2',v:`${d2}mg (50mg/kg)`,n:'In 500mL D5W over 4 hours.'},{l:'Bag 3',v:`${d3}mg (100mg/kg)`,n:'In 1000mL D5W over 16 hours.'},{l:'Total NAC',v:`${(d1+d2+d3).toLocaleString()}mg`},{l:'Nomogram',v:'See Rumack-Matthew chart below',n:'Rendered after calculate.'}];},postRender:function(){renderNomogram();},warn:'Plot APAP level on Rumack-Matthew nomogram at ≥4h. Begin NAC immediately if >8h post-ingestion.'},
   {id:'digfab',name:'Digoxin Fab',ind:'Digoxin toxicity · Goldfrank\'s Ch. 65',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'lv',label:'Serum level (ng/mL)',ph:'4.2',type:'number'}],calc(f){const wt=+f.wt||70,lv=+f.lv||0,vm=lv?Math.ceil((lv*wt)/100):null;return[{l:'Formula-based vials',v:vm?`${vm} vials (${vm*40}mg)`:'Enter level above',n:'Each vial = 40mg DigiFab.'},{l:'Empiric — acute OD',v:'10–20 vials'},{l:'Empiric — chronic OD',v:'3–6 vials'},{l:'Administration',v:'IV over 30 min',n:'Effect in 20–60 min.'}];},warn:'AVOID calcium in digoxin toxicity. Post-Fab serum levels unreliable.'},
   {id:'atropine',name:'Atropine (OP)',ind:'Organophosphate poisoning · MoHFW / Goldfrank\'s Ch. 113',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'sev',label:'Severity',type:'select',opts:['Mild (DUMBELS only)','Moderate (bronchospasm)','Severe (bronchorrhoea + resp failure)']}],calc(f){const wt=+f.wt||70,sev=f.sev||'';const init=sev.includes('Mild')?'1–2':sev.includes('Severe')?'4–8':'2–4';return[{l:'Initial bolus',v:`${init}mg IV`,n:'Repeat every 5–10 min until secretions dry.'},{l:'Strategy',v:'Double dose q5min if no response'},{l:'Endpoint',v:'DRY secretions',n:'HR and pupils are NOT endpoints.'},{l:'Pralidoxime',v:`${(wt*0.02).toFixed(1)}g IV (20mg/kg)`,n:'Over 15–30 min. Within 24–36h.'}];},warn:'Atropine reverses MUSCARINIC only. Pralidoxime reverses NICOTINIC. Give BOTH.'},
   {id:'hie',name:'High-Dose Insulin',ind:'CCB/BB toxicity · Goldfrank\'s Ch. 63',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'glc',label:'Current glucose (mmol/L)',ph:'6.5',type:'number'}],calc(f){const wt=+f.wt||70,glc=+f.glc||6.5;return[{l:'Insulin bolus',v:`${wt} units (1u/kg)`,n:'Regular insulin IV push.'},{l:'Insulin infusion',v:`${Math.round(wt*0.5)}–${wt*2} units/hr`},{l:'Dextrose bolus',v:glc<6?'50mL D50W IV':'Not required now',n:'Target glucose 5.5–13.9 mmol/L.'},{l:'K+ target',v:'>3.5 mmol/L',n:'Monitor closely.'}];},warn:'Onset 15–45 min. Maintain glucose >100mg/dL throughout.'},
@@ -905,18 +1111,18 @@ const CASES=[
 ];
 
 const QUIZ_SOURCE=[
-  {q:"A 24-year-old from a rave — agitation, diaphoresis, HR 148, BP 180/100, dilated pupils, hyperthermia. Best initial treatment?",opts:["Haloperidol 5mg IM","Lorazepam 2mg IV","Metoprolol 5mg IV","Physostigmine 1mg IV"],ans:1,exp:"Sympathomimetic toxidrome. BZDs are first-line. Beta-blockers alone are contraindicated (unopposed α effect). Haloperidol lowers the seizure threshold. (Goldfrank's Ch. 75)"},
-  {q:"Hallmark difference between Serotonin Syndrome and NMS:",opts:["SS has higher temps","Clonus/hyperreflexia (SS) vs lead-pipe rigidity (NMS)","Diaphoresis is only in NMS","NMS has faster onset"],ans:1,exp:"SS: clonus, hyperreflexia, rapid onset (minutes–hours). NMS: lead-pipe rigidity, bradyreflexia, slow onset (days–weeks). High CK in NMS. (Goldfrank's Ch. 71)"},
-  {q:"Naloxone 0.4mg given → patient wakes, then re-sedated at 30 minutes. Best next step?",opts:["Another 0.4mg bolus only","Start naloxone infusion at 2/3 of reversal dose per hour","Intubate immediately","Give flumazenil 0.2mg IV"],ans:1,exp:"Naloxone half-life 30–90min < most opioids. Start infusion at 2/3 of effective reversal dose per hour. (Goldfrank's Ch. 38)"},
-  {q:"Bradycardia, hypotension, hyperglycaemia, 1st-degree AV block after ingestion. Most likely toxin?",opts:["Beta-blocker","Calcium channel blocker","Digoxin","Clonidine"],ans:1,exp:"Hyperglycaemia is the KEY differentiator: CCBs block pancreatic insulin release → hyperglycaemia. BBs cause HYPOglycaemia. (Goldfrank's Ch. 63)"},
-  {q:"SLUDGE / DUMBELS mnemonic describes which toxidrome?",opts:["Anticholinergic","Cholinergic (Organophosphate)","Sympathomimetic","Serotonin Syndrome"],ans:1,exp:"SLUDGE = Salivation, Lacrimation, Urination, Defecation, GI, Emesis. Cholinergic/organophosphate toxidrome. (Goldfrank's Ch. 113)"},
-  {q:"TCA OD with QRS >120ms. First-line treatment?",opts:["Lidocaine 1.5mg/kg IV","Sodium bicarbonate 1–2 mEq/kg IV","Magnesium sulphate 2g IV","Activated charcoal via NG"],ans:1,exp:"NaHCO3 alkalinises serum (increases TCA protein binding) and provides Na load — given as boluses. Physostigmine CONTRAINDICATED in TCA. (Goldfrank's Ch. 73)"},
-  {q:"Hiker collapses at high altitude — ataxia, confusion, severe headache. Most important intervention?",opts:["Acetazolamide 250mg PO","Dexamethasone 8mg IV","Descent to lower altitude","Supplemental O2 via nasal cannula"],ans:2,exp:"HACE — descent is ALWAYS definitive. O2 and dexamethasone are adjuncts only. Acetazolamide is for prophylaxis/mild AMS only. (Goldfrank's Ch. 45)"},
-  {q:"Multiple family members have headache, confusion, normal SpO2 after indoor generator use. First action?",opts:["Order ABG with pH only","100% O2 via NRB + order CO-oximetry","Discharge — O2 sat normal","Give hydroxocobalamin empirically"],ans:1,exp:"CO poisoning — pulse oximetry FALSELY NORMAL. Multiple victims + generator + enclosed space = CO. 100% O2 halves CO half-life. (Goldfrank's Ch. 125)"},
-  {q:"Which finding best differentiates ethylene glycol from methanol toxicity?",opts:["High anion gap metabolic acidosis","Calcium oxalate crystals / AKI (EG) vs visual loss (MeOH)","Osmol gap elevation","High serum osmolality"],ans:1,exp:"Both cause HAGMA + osmol gap. Methanol = retinal toxicity (formate) → blindness. Ethylene glycol = oxalate crystals → AKI. (Goldfrank's Ch. 109–111)"},
-  {q:"Atropine for organophosphate poisoning should be titrated until:",opts:["HR normalises to 60–100","Pupils are dilated","Bronchial secretions are dry","RBC cholinesterase normalises"],ans:2,exp:"Titrate atropine to DRYING OF SECRETIONS, not HR or pupils. Some patients need hundreds of milligrams. (MoHFW 2019; Goldfrank's Ch. 113)"},
-  {q:"Snakebite with positive 20WST (blood not clotting). India — first-line management:",opts:["Observation only","Polyvalent Snake Antivenom 10 vials IV","Fresh frozen plasma + platelets","Tranexamic acid"],ans:1,exp:"MoHFW 2016 protocol: PSAV 10 vials IV over 1h. Premedicate with epinephrine 0.25mg SC. Repeat if 20WST still positive at 6h. (Bharat Serums/SIIPL PSAV covers Big Four)"},
-  {q:"Smoke inhalation victim — lactate 12 mmol/L, not improving on high-flow O2:",opts:["CO poisoning alone — increase FiO2","Suspect cyanide co-poisoning — give hydroxocobalamin","Sepsis — start antibiotics","ARDS — intubate"],ans:1,exp:"High lactate (>10) + smoke inhalation = CN co-poisoning. CO alone does not cause severe lactic acidosis. Hydroxocobalamin 5g IV safe with CO. (Goldfrank's Ch. 126)"}
+  {q:"A 24-year-old from a rave — agitation, diaphoresis, HR 148, BP 180/100, dilated pupils, hyperthermia. Best initial treatment?",opts:["Haloperidol 5mg IM","Lorazepam 2mg IV","Metoprolol 5mg IV","Physostigmine 1mg IV"],ans:1,exp:"Sympathomimetic toxidrome. BZDs are first-line. Beta-blockers alone are contraindicated (unopposed α effect). Haloperidol lowers the seizure threshold. (Goldfrank's Ch. 75)",topic:"Sympathomimetic"},
+  {q:"Hallmark difference between Serotonin Syndrome and NMS:",opts:["SS has higher temps","Clonus/hyperreflexia (SS) vs lead-pipe rigidity (NMS)","Diaphoresis is only in NMS","NMS has faster onset"],ans:1,exp:"SS: clonus, hyperreflexia, rapid onset (minutes–hours). NMS: lead-pipe rigidity, bradyreflexia, slow onset (days–weeks). High CK in NMS. (Goldfrank's Ch. 71)",topic:"Serotonin/NMS"},
+  {q:"Naloxone 0.4mg given → patient wakes, then re-sedated at 30 minutes. Best next step?",opts:["Another 0.4mg bolus only","Start naloxone infusion at 2/3 of reversal dose per hour","Intubate immediately","Give flumazenil 0.2mg IV"],ans:1,exp:"Naloxone half-life 30–90min < most opioids. Start infusion at 2/3 of effective reversal dose per hour. (Goldfrank's Ch. 38)",topic:"Opioid"},
+  {q:"Bradycardia, hypotension, hyperglycaemia, 1st-degree AV block after ingestion. Most likely toxin?",opts:["Beta-blocker","Calcium channel blocker","Digoxin","Clonidine"],ans:1,exp:"Hyperglycaemia is the KEY differentiator: CCBs block pancreatic insulin release → hyperglycaemia. BBs cause HYPOglycaemia. (Goldfrank's Ch. 63)",topic:"CCB/BB OD"},
+  {q:"SLUDGE / DUMBELS mnemonic describes which toxidrome?",opts:["Anticholinergic","Cholinergic (Organophosphate)","Sympathomimetic","Serotonin Syndrome"],ans:1,exp:"SLUDGE = Salivation, Lacrimation, Urination, Defecation, GI, Emesis. Cholinergic/organophosphate toxidrome. (Goldfrank's Ch. 113)",topic:"Cholinergic"},
+  {q:"TCA OD with QRS >120ms. First-line treatment?",opts:["Lidocaine 1.5mg/kg IV","Sodium bicarbonate 1–2 mEq/kg IV","Magnesium sulphate 2g IV","Activated charcoal via NG"],ans:1,exp:"NaHCO3 alkalinises serum (increases TCA protein binding) and provides Na load — given as boluses. Physostigmine CONTRAINDICATED in TCA. (Goldfrank's Ch. 73)",topic:"TCA Toxicity"},
+  {q:"Hiker collapses at high altitude — ataxia, confusion, severe headache. Most important intervention?",opts:["Acetazolamide 250mg PO","Dexamethasone 8mg IV","Descent to lower altitude","Supplemental O2 via nasal cannula"],ans:2,exp:"HACE — descent is ALWAYS definitive. O2 and dexamethasone are adjuncts only. Acetazolamide is for prophylaxis/mild AMS only. (Goldfrank's Ch. 45)",topic:"High-Altitude Illness"},
+  {q:"Multiple family members have headache, confusion, normal SpO2 after indoor generator use. First action?",opts:["Order ABG with pH only","100% O2 via NRB + order CO-oximetry","Discharge — O2 sat normal","Give hydroxocobalamin empirically"],ans:1,exp:"CO poisoning — pulse oximetry FALSELY NORMAL. Multiple victims + generator + enclosed space = CO. 100% O2 halves CO half-life. (Goldfrank's Ch. 125)",topic:"Carbon Monoxide"},
+  {q:"Which finding best differentiates ethylene glycol from methanol toxicity?",opts:["High anion gap metabolic acidosis","Calcium oxalate crystals / AKI (EG) vs visual loss (MeOH)","Osmol gap elevation","High serum osmolality"],ans:1,exp:"Both cause HAGMA + osmol gap. Methanol = retinal toxicity (formate) → blindness. Ethylene glycol = oxalate crystals → AKI. (Goldfrank's Ch. 109–111)",topic:"Toxic Alcohols"},
+  {q:"Atropine for organophosphate poisoning should be titrated until:",opts:["HR normalises to 60–100","Pupils are dilated","Bronchial secretions are dry","RBC cholinesterase normalises"],ans:2,exp:"Titrate atropine to DRYING OF SECRETIONS, not HR or pupils. Some patients need hundreds of milligrams. (MoHFW 2019; Goldfrank's Ch. 113)",topic:"Cholinergic"},
+  {q:"Snakebite with positive 20WST (blood not clotting). India — first-line management:",opts:["Observation only","Polyvalent Snake Antivenom 10 vials IV","Fresh frozen plasma + platelets","Tranexamic acid"],ans:1,exp:"MoHFW 2016 protocol: PSAV 10 vials IV over 1h. Premedicate with epinephrine 0.25mg SC. Repeat if 20WST still positive at 6h. (Bharat Serums/SIIPL PSAV covers Big Four)",topic:"Snakebite"},
+  {q:"Smoke inhalation victim — lactate 12 mmol/L, not improving on high-flow O2:",opts:["CO poisoning alone — increase FiO2","Suspect cyanide co-poisoning — give hydroxocobalamin","Sepsis — start antibiotics","ARDS — intubate"],ans:1,exp:"High lactate (>10) + smoke inhalation = CN co-poisoning. CO alone does not cause severe lactic acidosis. Hydroxocobalamin 5g IV safe with CO. (Goldfrank's Ch. 126)",topic:"Cyanide Poisoning"}
 ];
 
 // ── PATHWAY DATA ──
@@ -1002,6 +1208,7 @@ function renderToxList(){
   f.forEach(t=>{
     const col=CAT_COLORS[t.category]||'#C0392B';
     const row=document.createElement('div');row.className='tox-row';
+    const isFav=favorites.has(t.name);
     row.innerHTML=`<div class="tox-row-main">
       <div class="tox-row-stripe" style="background:${col}"></div>
       <div class="tox-row-info">
@@ -1014,8 +1221,9 @@ function renderToxList(){
         <span class="vbadge ${vc(t.vitals.temp)}">T&deg;${t.vitals.temp}</span>
       </div>
       <span class="tox-cat-tag" style="color:${col};border-color:${col}30;background:${col}10">${t.catLabel}</span>
+      <button class="fav-btn${isFav?' active':''}" onclick="event.stopPropagation();toggleFav('${t.name}')" title="${isFav?'Remove from favorites':'Add to favorites'}"><svg viewBox="0 0 24 24" ${isFav?'fill="currentColor"':'fill="none"'}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
     </div>`;
-    row.onclick=()=>{document.querySelectorAll('.tox-row').forEach(r=>r.classList.remove('selected'));row.classList.add('selected');showDetailPanel(buildToxDetail(t));};
+    row.onclick=()=>{document.querySelectorAll('.tox-row').forEach(r=>r.classList.remove('selected'));row.classList.add('selected');showDetailPanel(buildToxDetail(t),t.name);};
     list.appendChild(row);
   });
 }
@@ -1077,6 +1285,7 @@ function runCalc(){
   const results=calc.calc(fields);
   const box=document.getElementById('calc-results');box.className='calc-results show';
   box.innerHTML=`<div class="cres-head">Calculated doses — verify with institutional protocol</div>`+results.map(r=>`<div class="cres-row"><div class="cres-lbl">${r.l}</div><div class="cres-val">${r.v}</div>${r.n?`<div class="cres-note">${r.n}</div>`:''}</div>`).join('');
+  if(calc.postRender)setTimeout(()=>calc.postRender(),50);
 }
 
 // ── COMPARE ──
@@ -1133,7 +1342,7 @@ function checkAnswer(chosen,cd,btn){
   clearInterval(timerInterval);document.querySelectorAll('.choice-btn').forEach(b=>b.disabled=true);
   mTotal++;const ok=chosen===cd.answer;
   if(ok){btn.classList.add('correct');mCorrect++;mScore+=10;}
-  else{btn.classList.add('wrong');document.querySelectorAll('.choice-btn').forEach(b=>{if(b.textContent===cd.answer)b.classList.add('correct');});}
+  else{btn.classList.add('wrong');document.querySelectorAll('.choice-btn').forEach(b=>{if(b.textContent===cd.answer)b.classList.add('correct');});recordSRSMiss(cd.answer);}
   document.getElementById('m-score').textContent=mScore;document.getElementById('m-correct').textContent=mCorrect;document.getElementById('m-total').textContent=mTotal;document.getElementById('timer-disp').classList.remove('warn');
   const fb=document.getElementById('m-feedback');fb.className='fb-box show '+(ok?'fb-ok':'fb-bad');
   fb.innerHTML=`<strong style="color:${ok?'var(--teal)':'var(--red)'}">${ok?'Correct':'Incorrect'}</strong> &mdash; ${cd.explanation}`;
@@ -1157,7 +1366,7 @@ function renderSprintCase(){
 }
 function sprintAnswer(chosen,answer){if(sprintAnswered)return;sprintAnswered=true;clearInterval(sprintInterval);const ok=chosen===answer;if(ok)sprintScore++;document.querySelectorAll('.sprint-choice').forEach(b=>{b.disabled=true;if(b.textContent===answer)b.classList.add('correct');else if(b.textContent===chosen&&!ok)b.classList.add('wrong');});const c=CASES[sprintCases[sprintIdx]];const fb=document.getElementById('sp-fb');if(fb){fb.style.color=ok?'var(--teal)':'var(--red)';fb.innerHTML=`<strong>${ok?'Correct':'Incorrect'}</strong> &mdash; ${c.explanation}`;}setTimeout(()=>{sprintIdx++;renderSprintCase();},ok?1100:1900);}
 function sprintTimeout(){if(sprintAnswered)return;sprintAnswered=true;const c=CASES[sprintCases[sprintIdx]];document.querySelectorAll('.sprint-choice').forEach(b=>{b.disabled=true;if(b.textContent===c.answer)b.classList.add('correct');});const fb=document.getElementById('sp-fb');if(fb){fb.style.color='var(--red)';fb.innerHTML=`<strong>Time's up!</strong> &mdash; Answer: <strong>${c.answer}</strong>`;}setTimeout(()=>{sprintIdx++;renderSprintCase();},1800);}
-function endSprint(){const pct=Math.round((sprintScore/sprintMode)*100);const grade=pct>=90?'A':pct>=80?'B':pct>=70?'C':pct>=60?'D':'F';const msg=pct>=80?'Excellent — board ready!':pct>=60?'Good — review missed topics.':'More practice needed.';document.getElementById('sprint-content').innerHTML=`<div class="sprint-result"><div class="sprint-score-big">${sprintScore}/${sprintMode}</div><div style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-top:5px">Grade ${grade} &middot; ${pct}%</div><div style="font-size:14px;color:var(--text2);margin-top:12px">${msg}</div><div style="display:flex;gap:8px;justify-content:center;margin-top:22px;flex-wrap:wrap"><button class="btn btn-primary" onclick="startSprint()">&#8635; Sprint Again</button><button class="btn btn-ghost" onclick="initSprint()">Change Mode</button></div></div>`;}
+function endSprint(){const pct=Math.round((sprintScore/sprintMode)*100);savePerformance('sprint',pct);const grade=pct>=90?'A':pct>=80?'B':pct>=70?'C':pct>=60?'D':'F';const msg=pct>=80?'Excellent — board ready!':pct>=60?'Good — review missed topics.':'More practice needed.';document.getElementById('sprint-content').innerHTML=`<div class="sprint-result"><div class="sprint-score-big">${sprintScore}/${sprintMode}</div><div style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-top:5px">Grade ${grade} &middot; ${pct}%</div><div style="font-size:14px;color:var(--text2);margin-top:12px">${msg}</div><div style="display:flex;gap:8px;justify-content:center;margin-top:22px;flex-wrap:wrap"><button class="btn btn-primary" onclick="startSprint()">&#8635; Sprint Again</button><button class="btn btn-ghost" onclick="initSprint()">Change Mode</button></div></div>`;}
 
 // ── QUIZ ──
 let quizOrder=[],quizIdx=0,quizScore=0,quizAnswered=false;
@@ -1177,18 +1386,290 @@ function renderQuiz(){
   const q=QUIZ_SOURCE[quizOrder[quizIdx]];quizAnswered=false;
   card.innerHTML=`<div class="quiz-q">${q.q}</div><div class="quiz-opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQuiz(${i})"><span class="opt-key">${String.fromCharCode(65+i)}</span>${o}</button>`).join('')}</div><div class="quiz-exp" id="quiz-exp"><strong>Explanation:</strong> ${q.exp}</div><div class="quiz-nav"><button class="btn btn-primary" id="quiz-next" onclick="nextQuestion()" style="display:none">Next &rarr;</button></div>`;
 }
-function answerQuiz(chosen){if(quizAnswered)return;quizAnswered=true;const q=QUIZ_SOURCE[quizOrder[quizIdx]];document.querySelectorAll('.quiz-opt').forEach(o=>o.disabled=true);document.querySelectorAll('.quiz-opt')[chosen].classList.add(chosen===q.ans?'correct':'wrong');if(chosen!==q.ans)document.querySelectorAll('.quiz-opt')[q.ans].classList.add('correct');if(chosen===q.ans)quizScore++;document.getElementById('quiz-exp').classList.add('show');const nb=document.getElementById('quiz-next');if(nb)nb.style.display='inline-block';const live=document.getElementById('quiz-score-live');if(live)live.textContent=`Score: ${quizScore}`;}
+let quizMissed=[];
+function answerQuiz(chosen){if(quizAnswered)return;quizAnswered=true;const q=QUIZ_SOURCE[quizOrder[quizIdx]];document.querySelectorAll('.quiz-opt').forEach(o=>o.disabled=true);document.querySelectorAll('.quiz-opt')[chosen].classList.add(chosen===q.ans?'correct':'wrong');if(chosen!==q.ans){document.querySelectorAll('.quiz-opt')[q.ans].classList.add('correct');if(q.topic)quizMissed.push(q.topic);}if(chosen===q.ans)quizScore++;document.getElementById('quiz-exp').classList.add('show');const nb=document.getElementById('quiz-next');if(nb)nb.style.display='inline-block';const live=document.getElementById('quiz-score-live');if(live)live.textContent=`Score: ${quizScore}`;}
 function nextQuestion(){quizIdx++;renderQuiz();}
-function restartQuiz(){quizIdx=0;quizScore=0;quizAnswered=false;shuffleQuiz();renderQuiz();}
+function restartQuiz(){quizIdx=0;quizScore=0;quizAnswered=false;quizMissed=[];shuffleQuiz();renderQuiz();}
 document.addEventListener('keydown',e=>{if(!document.getElementById('panel-quiz').classList.contains('active'))return;if(quizIdx>=QUIZ_SOURCE.length)return;if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement?.tagName))return;const k=e.key.toUpperCase();if(!quizAnswered&&['A','B','C','D'].includes(k)){const i=k.charCodeAt(0)-65;const opts=document.querySelectorAll('.quiz-opt');if(opts[i])setTimeout(()=>answerQuiz(i),60);}if(quizAnswered&&(e.key==='Enter'||e.key===' ')){e.preventDefault();nextQuestion();}});
+
+// ── FAVORITES ──
+let favorites=new Set(JSON.parse(localStorage.getItem('tp-favs')||'[]'));
+function toggleFav(name){
+  if(favorites.has(name)){favorites.delete(name);showToast('Removed from favorites');}
+  else{favorites.add(name);showToast('Added to favorites ★');}
+  localStorage.setItem('tp-favs',JSON.stringify([...favorites]));
+  renderToxList();
+}
+function renderFavoritesSection(){
+  const existing=document.getElementById('fav-section');if(existing)existing.remove();
+  if(!favorites.size)return;
+  const sec=document.createElement('div');sec.id='fav-section';sec.className='fav-section';
+  sec.innerHTML=`<div class="fav-section-title">★ Quick Access</div><div class="tox-list" id="fav-list"></div>`;
+  document.getElementById('tox-list').parentNode.insertBefore(sec,document.getElementById('tox-list'));
+  const fl=document.getElementById('fav-list');
+  [...favorites].forEach(name=>{
+    const t=TOXIDROMES.find(x=>x.name===name);if(!t)return;
+    const col=CAT_COLORS[t.category]||'#C0392B';
+    const row=document.createElement('div');row.className='tox-row';
+    row.innerHTML=`<div class="tox-row-main"><div class="tox-row-stripe" style="background:${col}"></div><div class="tox-row-info"><div class="tox-row-name">${t.name}</div></div><span class="vbadge vbadge-up" style="font-size:10px">★</span></div>`;
+    row.onclick=()=>{document.querySelectorAll('.tox-row').forEach(r=>r.classList.remove('selected'));row.classList.add('selected');showDetailPanel(buildToxDetail(t),t.name);};
+    fl.appendChild(row);
+  });
+}
+
+// ── TOAST ──
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+
+// ── GLOBAL SEARCH ──
+function globalSearch(q){
+  const dd=document.getElementById('gsearch-dd');
+  if(!q.trim()){dd.classList.remove('open');return;}
+  const s=q.toLowerCase();
+  const toxHits=TOXIDROMES.filter(t=>[t.name,t.agents,t.symptoms,t.catLabel].some(x=>x.toLowerCase().includes(s))).slice(0,5);
+  const antHits=ANTIDOTES.filter(a=>[a.drug,a.indication].some(x=>x.toLowerCase().includes(s))).slice(0,4);
+  let html='';
+  if(toxHits.length){
+    html+=`<div class="gsearch-section"><span class="gsearch-section-label">Toxidromes</span>`;
+    toxHits.forEach(t=>{const col=CAT_COLORS[t.category]||'#C0392B';html+=`<div class="gsearch-item" onclick="gsearchGo('tox','${t.name.replace(/'/g,"\\'")}')"><div class="gsearch-item-dot" style="background:${col}"></div><div><div class="gsearch-item-name">${t.name}</div><div class="gsearch-item-sub">${t.catLabel}</div></div></div>`;});
+    html+='</div>';
+  }
+  if(antHits.length){
+    html+=`<div class="gsearch-section"><span class="gsearch-section-label">Antidotes</span>`;
+    antHits.forEach(a=>{html+=`<div class="gsearch-item" onclick="gsearchGo('ant','${a.drug.replace(/'/g,"\\'")}')"><div class="gsearch-item-dot" style="background:var(--teal)"></div><div><div class="gsearch-item-name">${a.drug}</div><div class="gsearch-item-sub">${a.indication.substring(0,40)}</div></div></div>`;});
+    html+='</div>';
+  }
+  if(!html)html='<div class="gsearch-empty">No matches found</div>';
+  dd.innerHTML=html;dd.classList.add('open');
+}
+function openGsearch(){const v=document.getElementById('gsearch').value;if(v.trim())document.getElementById('gsearch-dd').classList.add('open');}
+function closeGsearch(){document.getElementById('gsearch-dd').classList.remove('open');}
+function gsearchGo(type,name){
+  document.getElementById('gsearch').value='';closeGsearch();
+  if(type==='tox'){showTab('toxidromes');setTimeout(()=>{const t=TOXIDROMES.find(x=>x.name===name);if(t){const rows=document.querySelectorAll('.tox-row');rows.forEach(r=>r.classList.remove('selected'));showDetailPanel(buildToxDetail(t));}},80);}
+  else if(type==='ant'){showTab('antidotes');setTimeout(()=>{const inp=document.getElementById('ant-search');if(inp){inp.value=name;filterAntidotes();}},80);}
+}
+
+// ── PWA / SERVICE WORKER ──
+let deferredPwa=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPwa=e;setTimeout(()=>{if(!localStorage.getItem('tp-pwa-dismissed'))document.getElementById('pwa-prompt').classList.add('show');},3000);});
+document.addEventListener('DOMContentLoaded',()=>{
+  const btn=document.getElementById('pwa-install');
+  if(btn)btn.onclick=async()=>{if(deferredPwa){deferredPwa.prompt();const{outcome}=await deferredPwa.userChoice;if(outcome==='accepted')document.getElementById('pwa-prompt').classList.remove('show');deferredPwa=null;}};
+  document.getElementById('pwa-prompt')?.querySelector('.btn-ghost')?.addEventListener('click',()=>{localStorage.setItem('tp-pwa-dismissed','1');});
+});
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('/sw.js').catch(()=>{});
+  });
+}
+window.addEventListener('online',()=>document.getElementById('offline-banner').classList.remove('show'));
+window.addEventListener('offline',()=>document.getElementById('offline-banner').classList.add('show'));
+if(!navigator.onLine)document.getElementById('offline-banner').classList.add('show');
+
+
+// ── RECENT HISTORY ──
+let recentViewed=JSON.parse(localStorage.getItem('tp-recent')||'[]');
+function addToRecent(name){
+  recentViewed=recentViewed.filter(n=>n!==name);
+  recentViewed.unshift(name);
+  recentViewed=recentViewed.slice(0,6);
+  localStorage.setItem('tp-recent',JSON.stringify(recentViewed));
+  renderRecentSection();
+}
+function renderRecentSection(){
+  const existing=document.getElementById('recent-section');if(existing)existing.remove();
+  if(!recentViewed.length)return;
+  const panel=document.getElementById('panel-toxidromes');
+  const toxList=document.getElementById('tox-list');
+  const sec=document.createElement('div');sec.id='recent-section';sec.className='recent-section';
+  sec.innerHTML=`<div class="recent-label">Recently Viewed</div><div class="recent-pills">${recentViewed.map(n=>`<button class="recent-pill" onclick="openToxByName('${n.replace(/'/g,"\\'")}')">${n}</button>`).join('')}</div>`;
+  toxList.parentNode.insertBefore(sec, toxList);
+}
+
+// ── PERFORMANCE TRACKING ──
+function savePerformance(type,pct){
+  const key='tp-perf-'+type;
+  const arr=JSON.parse(localStorage.getItem(key)||'[]');
+  arr.push({pct,ts:Date.now()});
+  if(arr.length>20)arr.shift();
+  localStorage.setItem(key,JSON.stringify(arr));
+}
+function renderPerfChart(canvasId,type){
+  const canvas=document.getElementById(canvasId);if(!canvas)return;
+  const arr=JSON.parse(localStorage.getItem('tp-perf-'+type)||'[]');
+  const ctx=canvas.getContext('2d');
+  const W=canvas.offsetWidth||320;const H=80;
+  canvas.width=W;canvas.height=H;
+  if(!arr.length){ctx.fillStyle='var(--text3)';ctx.font='12px DM Sans,sans-serif';ctx.textAlign='center';ctx.fillText('No data yet — complete a quiz or sprint',W/2,H/2);return;}
+  const pad=12;const iw=W-pad*2;const ih=H-pad*2;
+  ctx.clearRect(0,0,W,H);
+  // grid line at 80%
+  ctx.strokeStyle='rgba(128,128,128,0.15)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+  const y80=pad+ih*(1-0.8);
+  ctx.beginPath();ctx.moveTo(pad,y80);ctx.lineTo(W-pad,y80);ctx.stroke();
+  ctx.setLineDash([]);
+  // line
+  const xs=arr.map((_,i)=>pad+i*(iw/Math.max(arr.length-1,1)));
+  const ys=arr.map(p=>pad+ih*(1-p.pct/100));
+  ctx.strokeStyle='#C0392B';ctx.lineWidth=2;ctx.beginPath();
+  xs.forEach((x,i)=>{if(i===0)ctx.moveTo(x,ys[i]);else ctx.lineTo(x,ys[i]);});
+  ctx.stroke();
+  // dots
+  xs.forEach((x,i)=>{ctx.fillStyle='#C0392B';ctx.beginPath();ctx.arc(x,ys[i],3,0,Math.PI*2);ctx.fill();});
+}
+
+// ── SPACED REPETITION FLAGS ──
+function getSRSWeight(name){
+  const missed=JSON.parse(localStorage.getItem('tp-srs')||'{}');
+  return missed[name]||0;
+}
+function recordSRSMiss(name){
+  const missed=JSON.parse(localStorage.getItem('tp-srs')||'{}');
+  missed[name]=(missed[name]||0)+1;
+  localStorage.setItem('tp-srs',JSON.stringify(missed));
+}
+function getSRSFlag(name){
+  const w=getSRSWeight(name);
+  if(w>=3)return`<span class="srs-flag" title="Missed ${w} times — review this one">⚑ Review</span>`;
+  if(w>=1)return`<span class="srs-flag" title="Missed ${w} time(s)">↻</span>`;
+  return'';
+}
+
+// ── POISON CONTROL ──
+function callPoison(){
+  if(confirm('Call AIIMS Poison Control Centre?\n\n011-26589391\n\nThis will open your phone dialler.'))
+    window.location.href='tel:01126589391';
+}
+
+// ── PRINT CARD ──
+function printCard(){
+  document.body.classList.add('print-card-only');
+  window.print();
+  document.body.classList.remove('print-card-only');
+}
+
+// ── KEYBOARD SHORTCUTS ──
+const KB_MAP={t:'toxidromes',a:'antidotes',c:'calculator',x:'compare',e:'environmental',b:'builder',m:'matcher',s:'sprint',p:'pathway',q:'quiz'};
+document.addEventListener('keydown',e=>{
+  if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement?.tagName))return;
+  if(e.metaKey||e.ctrlKey||e.altKey)return;
+  const k=e.key.toLowerCase();
+  if(k==='escape'){clearDetailPanel();return;}
+  if(k==='/'){e.preventDefault();document.getElementById('gsearch')?.focus();return;}
+  if(KB_MAP[k]){e.preventDefault();showTab(KB_MAP[k]);return;}
+  if(k==='?'){toggleKbHint();return;}
+  // quiz shortcuts already handled by existing code
+});
+let kbHintVisible=false;
+function toggleKbHint(){
+  kbHintVisible=!kbHintVisible;
+  const el=document.getElementById('kb-hint');
+  if(el)el.classList.toggle('show',kbHintVisible);
+}
+
+// ── RUMACK-MATTHEW NOMOGRAM ──
+function renderNomogram(){
+  const apapVal=+document.getElementById('cf-apap')?.value||0;
+  const hrsVal=+document.getElementById('cf-hrs')?.value||0;
+  const wrap=document.getElementById('calc-results');
+  if(!wrap)return;
+  let nomoEl=document.getElementById('nomo-canvas-container');
+  if(nomoEl)nomoEl.remove();
+  const cont=document.createElement('div');cont.id='nomo-canvas-container';cont.className='nomo-wrap';
+  cont.innerHTML=`<div class="nomo-title">Rumack-Matthew Nomogram</div><div class="nomo-canvas-wrap"><canvas id="nomo-cvs" class="nomo-canvas" height="220"></canvas></div><div id="nomo-result" class="nomo-result nomo-grey">Enter APAP level and hours post-ingestion above, then click Calculate</div>`;
+  wrap.appendChild(cont);
+  const canvas=document.getElementById('nomo-cvs');
+  if(!canvas)return;
+  const W=canvas.offsetWidth||380;canvas.width=W;canvas.height=220;
+  const ctx=canvas.getContext('2d');
+  const pl=48,pr=16,pt=16,pb=32;
+  const iw=W-pl-pr;const ih=220-pt-pb;
+  const minH=0,maxH=24,minL=0,maxL=350;
+  function tx(h){return pl+((h-minH)/(maxH-minH))*iw;}
+  function ty(l){return pt+((maxL-l)/(maxL-minL))*ih;}
+  // treatment line (Rumack-Matthew): at t hours, threshold = 150 * (0.5)^((t-4)/4) for t≥4
+  // Simplified line points: (4h,150), (8h,75), (12h,37.5), (16h,18.75) — halving every 4h
+  const treatLine=[];for(let t=4;t<=24;t+=0.5){const lvl=150*Math.pow(0.5,(t-4)/4);treatLine.push({t,lvl});}
+  // Background zones
+  ctx.fillStyle='rgba(192,57,43,0.07)';ctx.beginPath();
+  ctx.moveTo(tx(4),ty(150));
+  treatLine.forEach(p=>ctx.lineTo(tx(p.t),ty(p.lvl)));
+  ctx.lineTo(tx(24),ty(0));ctx.lineTo(tx(4),ty(0));ctx.closePath();ctx.fill();
+  ctx.fillStyle='rgba(15,110,86,0.07)';ctx.beginPath();
+  ctx.moveTo(tx(4),ty(150));
+  treatLine.forEach(p=>ctx.lineTo(tx(p.t),ty(p.lvl)));
+  ctx.lineTo(tx(24),ty(350));ctx.lineTo(tx(4),ty(350));ctx.closePath();ctx.fill();
+  // Grid
+  ctx.strokeStyle='rgba(128,128,128,0.12)';ctx.lineWidth=1;
+  [50,100,150,200,250,300].forEach(l=>{ctx.beginPath();ctx.moveTo(pl,ty(l));ctx.lineTo(W-pr,ty(l));ctx.stroke();});
+  [4,8,12,16,20,24].forEach(t=>{ctx.beginPath();ctx.moveTo(tx(t),pt);ctx.lineTo(tx(t),pt+ih);ctx.stroke();});
+  // Axes
+  ctx.strokeStyle='rgba(128,128,128,0.4)';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(pl,pt);ctx.lineTo(pl,pt+ih);ctx.lineTo(pl+iw,pt+ih);ctx.stroke();
+  // Axis labels
+  ctx.fillStyle='rgba(128,128,128,0.8)';ctx.font='9px DM Mono,monospace';ctx.textAlign='center';
+  [0,4,8,12,16,20,24].forEach(t=>{ctx.fillText(t,tx(t),pt+ih+12);});
+  ctx.textAlign='right';
+  [50,100,150,200,250,300].forEach(l=>{ctx.fillText(l,pl-4,ty(l)+3);});
+  ctx.save();ctx.translate(12,pt+ih/2);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillText('APAP mcg/mL',0,0);ctx.restore();
+  ctx.textAlign='center';ctx.fillText('Hours post-ingestion',pl+iw/2,220-2);
+  // Treatment line
+  ctx.strokeStyle='#C0392B';ctx.lineWidth=2;ctx.setLineDash([5,3]);ctx.beginPath();
+  treatLine.forEach((p,i)=>{if(i===0)ctx.moveTo(tx(p.t),ty(p.lvl));else ctx.lineTo(tx(p.t),ty(p.lvl));});
+  ctx.stroke();ctx.setLineDash([]);
+  // Labels
+  ctx.font='bold 9px DM Mono,monospace';ctx.fillStyle='#C0392B';ctx.textAlign='left';
+  ctx.fillText('TREAT ABOVE LINE',tx(4.2),ty(160));
+  ctx.fillStyle='#0F6E56';ctx.fillText('SAFE BELOW LINE',tx(4.2),ty(70));
+  // Plot patient point
+  if(apapVal>0&&hrsVal>=4&&hrsVal<=24){
+    const px=tx(hrsVal);const py=ty(apapVal);
+    ctx.fillStyle='#1A1A1A';ctx.beginPath();ctx.arc(px,py,5,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(px,py,2.5,0,Math.PI*2);ctx.fill();
+    const threshold=150*Math.pow(0.5,(hrsVal-4)/4);
+    const res=document.getElementById('nomo-result');
+    if(apapVal>threshold){res.className='nomo-result nomo-treat';res.textContent=`TREAT — Level ${apapVal} mcg/mL at ${hrsVal}h is ABOVE treatment threshold (${threshold.toFixed(0)} mcg/mL). Start NAC.`;}
+    else{res.className='nomo-result nomo-safe';res.textContent=`SAFE — Level ${apapVal} mcg/mL at ${hrsVal}h is below treatment threshold (${threshold.toFixed(0)} mcg/mL). Continue monitoring.`;}
+  } else if(apapVal>0||hrsVal>0){
+    const res=document.getElementById('nomo-result');res.className='nomo-result nomo-grey';
+    if(hrsVal<4)res.textContent='Nomogram valid only at ≥4h post-ingestion. Plot anyway for orientation.';
+    else res.textContent='Enter both APAP level and hours post-ingestion to plot your patient.';
+  }
+}
+
+// ── PATCH runCalc to call postRender ──
+const _origRunCalc=typeof runCalc==='function'?runCalc:null;
+// We'll re-define runCalc below to support postRender hooks
+
+function clearPerf(type){localStorage.removeItem('tp-perf-'+type);renderPerfChart(type+'-perf-canvas',type);showToast('History cleared');}
 
 // ── INIT ──
 window.addEventListener('DOMContentLoaded',()=>{
-  renderToxList();renderEnvList();renderAntidotes();renderCalcList();populateCmpSelects();renderBuilderChips();renderMatcher();shuffleQuiz();renderQuiz();pwReset();
+  renderToxList();renderFavoritesSection();renderEnvList();renderAntidotes();renderCalcList();populateCmpSelects();renderBuilderChips();renderMatcher();shuffleQuiz();renderQuiz();pwReset();
+  renderRecentSection();
+  renderPerfChart('quiz-perf-canvas','quiz');
+  renderPerfChart('sprint-perf-canvas','sprint');
   const h=location.hash.slice(1);const panels=['toxidromes','antidotes','calculator','compare','environmental','builder','matcher','sprint','pathway','quiz'];
   if(panels.includes(h))showTab(h);
+  // pause animations when tab hidden
+  document.addEventListener('visibilitychange',()=>{
+    document.querySelectorAll('animate').forEach(a=>{
+      if(document.hidden)a.setAttribute('repeatCount','0');
+      else a.setAttribute('repeatCount','indefinite');
+    });
+  });
 });
 window.addEventListener('scroll',()=>{document.getElementById('back-top').classList.toggle('show',window.scrollY>300);},{passive:true});
 </script>
+<div class="kb-hint" id="kb-hint" role="tooltip" aria-label="Keyboard shortcuts">
+  <span><kbd>T</kbd> Toxidromes</span>
+  <span><kbd>A</kbd> Antidotes</span>
+  <span><kbd>C</kbd> Calculator</span>
+  <span><kbd>P</kbd> Pathway</span>
+  <span><kbd>Q</kbd> Quiz</span>
+  <span><kbd>/</kbd> Search</span>
+  <span><kbd>Esc</kbd> Close panel</span>
+  <span><kbd>?</kbd> Toggle hints</span>
+</div>
 </body>
 </html>
