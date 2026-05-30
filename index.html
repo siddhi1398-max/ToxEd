@@ -35,13 +35,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:
 /* HEADER */
 header{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;background:var(--surface);border-bottom:1px solid var(--border2);position:sticky;top:0;z-index:300}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-cross{color:var(--red);font-size:22px;line-height:1}
+.logo-cross{color:var(--red);font-size:22px;line-height:1;font-weight:700}
 .logo-name{font-size:17px;font-weight:600;letter-spacing:-.02em;color:var(--text)}
 .logo-sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
 .header-right{display:flex;align-items:center;gap:8px}
 .hbtn{background:none;border:1px solid var(--border2);border-radius:var(--r-sm);color:var(--text3);cursor:pointer;padding:5px 10px;font-size:13px;font-family:var(--sans);transition:all var(--t)}
 .hbtn:hover{color:var(--text);border-color:var(--border3)}
-.source-badge{font-family:var(--mono);font-size:10px;background:var(--teal-dim);color:var(--teal);border:1px solid var(--teal-mid);padding:3px 8px;border-radius:20px}
+.source-badge{font-family:var(--mono);font-size:10px;background:var(--surface2);color:var(--text3);border:1px solid var(--border2);padding:3px 8px;border-radius:20px}
 
 /* TAB NAV */
 .nav{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:54px;z-index:200;overflow-x:auto;scrollbar-width:none}
@@ -50,7 +50,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 .ntab{display:flex;align-items:center;gap:6px;padding:0 14px;height:44px;font-size:13px;font-weight:500;color:var(--text3);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:all var(--t);white-space:nowrap;font-family:var(--sans)}
 .ntab:hover{color:var(--text2)}
 .ntab.active{color:var(--red);border-bottom-color:var(--red)}
-.ntab-icon{font-size:14px}
+.ntab-icon{font-size:13px;opacity:.7;display:inline-flex;align-items:center}
+.ntab-icon svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* MAIN LAYOUT */
 .app-layout{display:flex;height:calc(100vh - 98px);overflow:hidden}
@@ -73,7 +74,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 
 /* SEARCH */
 .search-wrap{position:relative;margin-bottom:16px}
-.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:14px;pointer-events:none}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:14px;pointer-events:none;display:flex;align-items:center}
+.search-icon svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .search-box{width:100%;padding:9px 36px 9px 34px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);font-family:var(--sans);font-size:14px;color:var(--text);outline:none;transition:border-color var(--t)}
 .search-box:focus{border-color:var(--red)}
 .search-box::placeholder{color:var(--text3)}
@@ -84,7 +86,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 .fchip:hover{color:var(--text2)}
 .fchip.active{background:var(--red);color:#fff;border-color:var(--red)}
 
-/* TOX LIST — compact rows */
+/* TOX LIST */
 .tox-list{display:flex;flex-direction:column;gap:4px}
 .tox-row{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all var(--t);overflow:hidden}
 .tox-row:hover{border-color:var(--border2);box-shadow:0 2px 8px rgba(0,0,0,.06)}
@@ -163,6 +165,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 .adose{font-size:12px;color:var(--text2)}
 .asource{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:20px;border:1px solid;margin-top:4px;display:inline-block}
 .src-mohfw{color:var(--amber);border-color:var(--amber-mid);background:var(--amber-dim)}
+.src-goldfrank{color:var(--teal);border-color:var(--teal-mid);background:var(--teal-dim)}
 .src-cdc{color:var(--teal);border-color:var(--teal-mid);background:var(--teal-dim)}
 .src-who{color:var(--red);border-color:var(--red-mid);background:var(--red-dim)}
 
@@ -210,7 +213,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 .pw-opts{display:flex;gap:6px;flex-wrap:wrap}
 .pw-opt{display:flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--border2);background:var(--surface2);border-radius:var(--r);cursor:pointer;font-family:var(--sans);font-size:13px;color:var(--text);flex:1;min-width:100px;transition:all var(--t)}
 .pw-opt:hover{border-color:var(--red-mid);color:var(--red);background:var(--red-dim)}
-.pw-opt-em{font-size:15px;flex-shrink:0}
+.pw-opt-em{font-size:13px;flex-shrink:0;display:flex;align-items:center}
+.pw-opt-em svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .pw-opt-lbl{font-weight:600;font-size:13px}
 .pw-opt-sub{font-size:10px;color:var(--text3);font-family:var(--mono)}
 .pw-answered{background:var(--teal-dim);border:1px solid var(--teal-mid);border-radius:var(--r);padding:9px 14px;max-width:460px;margin:0 auto;display:flex;align-items:center;gap:9px;font-size:12px;color:var(--text2)}
@@ -281,32 +285,13 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 .sprint-result{text-align:center;padding:40px 24px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-lg)}
 .sprint-score-big{font-size:56px;font-weight:700;color:var(--red);letter-spacing:-.04em;line-height:1}
 
-/* OVERVIEW */
-.ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:11px;margin-bottom:28px}
-.ov-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px;cursor:pointer;transition:all var(--t);position:relative;overflow:hidden}
-.ov-card:hover{transform:translateY(-2px);border-color:var(--border2);box-shadow:0 6px 20px rgba(0,0,0,.08)}
-.ov-stripe{position:absolute;top:0;left:0;right:0;height:3px}
-.ov-num{font-size:42px;font-weight:700;letter-spacing:-.04em;line-height:1;margin-bottom:2px}
-.ov-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
-.ov-desc{font-size:12px;color:var(--text2);line-height:1.55}
-.features-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--text3);margin-bottom:13px;display:flex;align-items:center;gap:11px}
-.features-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:9px}
-.feat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:13px 15px;display:flex;gap:11px}
-.feat-icon{font-size:16px;flex-shrink:0;margin-top:1px}
-.feat-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
-.feat-desc{font-size:12px;color:var(--text2);line-height:1.55}
-
-/* BACK TO TOP */
-#back-top{position:fixed;bottom:24px;right:24px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border2);color:var(--text3);border-radius:50%;font-size:14px;cursor:pointer;z-index:500;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-#back-top.show{opacity:1;pointer-events:all}
-
 /* SYMPTOM BUILDER */
 .sb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:6px;margin-bottom:18px}
 .sb-chip{display:flex;align-items:center;gap:7px;padding:8px 12px;border:1px solid var(--border2);background:var(--surface);border-radius:var(--r);cursor:pointer;transition:all var(--t);font-size:12px;color:var(--text2)}
 .sb-chip:hover{border-color:var(--red-mid)}
 .sb-chip.sel{border-color:var(--red);background:var(--red-dim);color:var(--red)}
-.sb-icon{font-size:14px;flex-shrink:0}
+.sb-icon{font-size:12px;flex-shrink:0;display:flex;align-items:center;color:var(--text3)}
+.sb-icon svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .sb-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
 .sb-result{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-lg);overflow:hidden;transition:all var(--t)}
 .sb-result-bar{height:3px}
@@ -376,100 +361,89 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 /* ENVIRONMENTAL */
 .env-list{display:flex;flex-direction:column;gap:4px}
 
+/* BACK TO TOP */
+#back-top{position:fixed;bottom:24px;right:24px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border2);color:var(--text3);border-radius:50%;font-size:14px;cursor:pointer;z-index:500;opacity:0;pointer-events:none;transition:opacity .25s;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+#back-top.show{opacity:1;pointer-events:all}
+#back-top svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
 /* PRINT */
 @media print{header,.nav,#back-top{display:none!important}body{background:#fff!important}.app-layout{display:block;height:auto;overflow:visible}.right-panel{width:100%;border:none}.left-pane{overflow:visible}}
-
 </style>
 </head>
 <body>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- SVG ICON DEFS -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="ic-flask" viewBox="0 0 24 24"><path d="M9 3h6m-3 0v6l3 3M9 3v6L6 12l-2 7a1 1 0 001 1h14a1 1 0 001-1l-2-7-3-3"/></symbol>
+    <symbol id="ic-pill" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="4" rx="2" transform="rotate(-45 12 12)"/><line x1="8.5" y1="15.5" x2="15.5" y2="8.5"/></symbol>
+    <symbol id="ic-calc" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></symbol>
+    <symbol id="ic-compare" viewBox="0 0 24 24"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></symbol>
+    <symbol id="ic-leaf" viewBox="0 0 24 24"><path d="M21 3C21 3 12 3 7 8c-3 3-4 7-3 10l10-10M3 21c2-2 4-4 5-7"/></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></symbol>
+    <symbol id="ic-microscope" viewBox="0 0 24 24"><path d="M6 21h12M9 21V13M9 13a4 4 0 004-4V3M13 3h3M13 9h3"/><path d="M5 8l3 3"/></symbol>
+    <symbol id="ic-bolt" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="ic-pathway" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></symbol>
+    <symbol id="ic-quiz" viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="ic-up" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
+    <symbol id="ic-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></symbol>
+    <symbol id="ic-droplet" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></symbol>
+    <symbol id="ic-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="ic-wind" viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1013 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></symbol>
+    <symbol id="ic-thermo" viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></symbol>
+    <symbol id="ic-brain" viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 007 4.5v.5H5a2 2 0 00-2 2v1a2 2 0 002 2h.5v.5A2.5 2.5 0 008 13v5a2 2 0 002 2h4a2 2 0 002-2v-5a2.5 2.5 0 002.5-2.5V10H19a2 2 0 002-2V7a2 2 0 00-2-2h-2v-.5A2.5 2.5 0 0014.5 2z"/></symbol>
+    <symbol id="ic-warning" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="ic-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+    <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></symbol>
+    <symbol id="ic-print" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+    <symbol id="ic-chevup" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
+  </defs>
+</svg>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg><use href="#ic-chevup"/></svg></button>
 
 <header>
   <div class="logo">
-    <div class="logo-cross">✚</div>
+    <div class="logo-cross">+</div>
     <div>
       <div class="logo-name">ToxPathway</div>
       <div class="logo-sub">Emergency Toxicology Reference</div>
     </div>
   </div>
   <div class="header-right">
-    <span class="source-badge">MoHFW · CDC · WHO</span>
-    <button class="hbtn" id="dark-toggle" onclick="toggleDark()">🌙</button>
-    <button class="hbtn" onclick="window.print()">⎙ Print</button>
+    <span class="source-badge">MoHFW · Goldfrank's</span>
+    <button class="hbtn" id="dark-toggle" onclick="toggleDark()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-moon"/></svg></button>
+    <button class="hbtn" onclick="window.print()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-print"/></svg> Print</button>
   </div>
 </header>
 
 <div class="nav">
   <div class="nav-inner">
-    <button class="ntab active" onclick="showTab('overview',this)"><span class="ntab-icon">⌂</span>Overview</button>
-    <button class="ntab" onclick="showTab('toxidromes',this)"><span class="ntab-icon">⚗</span>Toxidromes</button>
-    <button class="ntab" onclick="showTab('antidotes',this)"><span class="ntab-icon">💊</span>Antidotes</button>
-    <button class="ntab" onclick="showTab('calculator',this)"><span class="ntab-icon">🧮</span>Calculator</button>
-    <button class="ntab" onclick="showTab('compare',this)"><span class="ntab-icon">⇌</span>Compare</button>
-    <button class="ntab" onclick="showTab('environmental',this)"><span class="ntab-icon">🌿</span>Environmental</button>
-    <button class="ntab" onclick="showTab('builder',this)"><span class="ntab-icon">🔍</span>Symptom Builder</button>
-    <button class="ntab" onclick="showTab('matcher',this)"><span class="ntab-icon">🔬</span>Cases</button>
-    <button class="ntab" onclick="showTab('sprint',this)"><span class="ntab-icon">⚡</span>Sprint</button>
-    <button class="ntab" onclick="showTab('pathway',this)"><span class="ntab-icon">↳</span>Pathway</button>
-    <button class="ntab" onclick="showTab('quiz',this)"><span class="ntab-icon">✦</span>Quiz</button>
+    <button class="ntab active" onclick="showTab('toxidromes',this)"><span class="ntab-icon"><svg><use href="#ic-flask"/></svg></span>Toxidromes</button>
+    <button class="ntab" onclick="showTab('antidotes',this)"><span class="ntab-icon"><svg><use href="#ic-pill"/></svg></span>Antidotes</button>
+    <button class="ntab" onclick="showTab('calculator',this)"><span class="ntab-icon"><svg><use href="#ic-calc"/></svg></span>Calculator</button>
+    <button class="ntab" onclick="showTab('compare',this)"><span class="ntab-icon"><svg><use href="#ic-compare"/></svg></span>Compare</button>
+    <button class="ntab" onclick="showTab('environmental',this)"><span class="ntab-icon"><svg><use href="#ic-leaf"/></svg></span>Environmental</button>
+    <button class="ntab" onclick="showTab('builder',this)"><span class="ntab-icon"><svg><use href="#ic-search"/></svg></span>Symptom Builder</button>
+    <button class="ntab" onclick="showTab('matcher',this)"><span class="ntab-icon"><svg><use href="#ic-microscope"/></svg></span>Cases</button>
+    <button class="ntab" onclick="showTab('sprint',this)"><span class="ntab-icon"><svg><use href="#ic-bolt"/></svg></span>Sprint</button>
+    <button class="ntab" onclick="showTab('pathway',this)"><span class="ntab-icon"><svg><use href="#ic-pathway"/></svg></span>Pathway</button>
+    <button class="ntab" onclick="showTab('quiz',this)"><span class="ntab-icon"><svg><use href="#ic-quiz"/></svg></span>Quiz</button>
   </div>
 </div>
 
 <div class="app-layout">
   <div class="left-pane" id="left-pane">
 
-    <!-- OVERVIEW -->
-    <div id="panel-overview" class="panel active">
-      <div class="section-head">
-        <div class="section-title">ToxPathway</div>
-        <div class="section-sub">High-yield emergency toxicology — integrated MoHFW · CDC · WHO guidelines</div>
-      </div>
-      <div class="ov-grid">
-        <div class="ov-card" onclick="showTab('toxidromes')">
-          <div class="ov-stripe" style="background:var(--red)"></div>
-          <div class="ov-num" style="color:var(--red)">12</div>
-          <div class="ov-lbl">Toxidromes</div>
-          <div class="ov-desc">Body-map based symptom panels with management</div>
-        </div>
-        <div class="ov-card" onclick="showTab('antidotes')">
-          <div class="ov-stripe" style="background:var(--teal)"></div>
-          <div class="ov-num" style="color:var(--teal)">18</div>
-          <div class="ov-lbl">Antidotes</div>
-          <div class="ov-desc">Doses with MoHFW & CDC sourcing</div>
-        </div>
-        <div class="ov-card" onclick="showTab('calculator')">
-          <div class="ov-stripe" style="background:var(--amber)"></div>
-          <div class="ov-num" style="color:var(--amber)">8</div>
-          <div class="ov-lbl">Calculators</div>
-          <div class="ov-desc">Weight-based antidote dosing</div>
-        </div>
-        <div class="ov-card" onclick="showTab('matcher')">
-          <div class="ov-stripe" style="background:var(--red)"></div>
-          <div class="ov-num" style="color:var(--red)">20</div>
-          <div class="ov-lbl">Cases</div>
-          <div class="ov-desc">Easy → Hard clinical scenarios</div>
-        </div>
-      </div>
-      <div class="features-lbl">Features</div>
-      <div class="feat-grid">
-        <div class="feat-card"><div class="feat-icon">🫀</div><div><div class="feat-title">Body Map Panel</div><div class="feat-desc">Select a toxidrome — see an annotated body map with symptom locations on the right panel.</div></div></div>
-        <div class="feat-card"><div class="feat-icon">📋</div><div><div class="feat-title">MoHFW Guidelines</div><div class="feat-desc">Management protocols sourced from Ministry of Health & Family Welfare, India.</div></div></div>
-        <div class="feat-card"><div class="feat-icon">🌐</div><div><div class="feat-title">CDC / WHO Dosing</div><div class="feat-desc">Antidote doses cross-referenced with CDC emergency response & WHO essential medicines.</div></div></div>
-        <div class="feat-card"><div class="feat-icon">⇌</div><div><div class="feat-title">Side-by-Side Compare</div><div class="feat-desc">Compare any two toxidromes with highlighted differences.</div></div></div>
-        <div class="feat-card"><div class="feat-icon">⚡</div><div><div class="feat-title">Sprint Mode</div><div class="feat-desc">30s rapid-fire board simulation with instant feedback.</div></div></div>
-        <div class="feat-card"><div class="feat-icon">🔍</div><div><div class="feat-title">Symptom Builder</div><div class="feat-desc">Select observed symptoms → ranked toxidrome matches with confidence scores.</div></div></div>
-      </div>
-    </div>
-
     <!-- TOXIDROMES -->
-    <div id="panel-toxidromes" class="panel">
+    <div id="panel-toxidromes" class="panel active">
       <div class="section-head">
         <div class="section-title">Toxidromes</div>
-        <div class="section-sub">Select a toxidrome to view body map and detailed management panel →</div>
+        <div class="section-sub">Select a toxidrome to view body map and detailed management panel &rarr;</div>
       </div>
       <div class="search-wrap">
-        <span class="search-icon">⌕</span>
-        <input class="search-box" id="tox-search" placeholder="Search toxidromes, agents, symptoms…" oninput="filterTox()">
+        <span class="search-icon"><svg><use href="#ic-search"/></svg></span>
+        <input class="search-box" id="tox-search" placeholder="Search toxidromes, agents, symptoms&hellip;" oninput="filterTox()">
       </div>
       <div class="filter-row">
         <button class="fchip active" onclick="setToxFilter('all',this)">All</button>
@@ -488,11 +462,11 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
     <div id="panel-antidotes" class="panel">
       <div class="section-head">
         <div class="section-title">Antidotes</div>
-        <div class="section-sub">MoHFW · CDC · WHO referenced dosing. Click a row to see full details →</div>
+        <div class="section-sub">Dosing per MoHFW protocol and Goldfrank&rsquo;s Toxicologic Emergencies (12th ed). Click a row for full details &rarr;</div>
       </div>
       <div class="search-wrap">
-        <span class="search-icon">⌕</span>
-        <input class="search-box" id="ant-search" placeholder="Search antidote or indication…" oninput="filterAntidotes()">
+        <span class="search-icon"><svg><use href="#ic-search"/></svg></span>
+        <input class="search-box" id="ant-search" placeholder="Search antidote or indication&hellip;" oninput="filterAntidotes()">
       </div>
       <div class="atable-wrap">
         <table class="atable">
@@ -506,7 +480,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
     <div id="panel-calculator" class="panel">
       <div class="section-head">
         <div class="section-title">Antidote Calculator</div>
-        <div class="section-sub">Weight-based dosing. Always verify with institutional protocols.</div>
+        <div class="section-sub">Weight-based dosing per Goldfrank&rsquo;s Toxicologic Emergencies. Always verify with institutional protocols.</div>
       </div>
       <div class="calc-layout">
         <div class="calc-sidebar">
@@ -515,7 +489,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
         </div>
         <div id="calc-main" class="calc-main">
           <div style="text-align:center;padding:40px 18px;color:var(--text3)">
-            <div style="font-size:2rem;opacity:.1;margin-bottom:11px">🧮</div>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:.12;margin-bottom:11px"><use href="#ic-calc"/></svg>
             <div style="font-size:13px">Select an antidote from the list to calculate doses.</div>
           </div>
         </div>
@@ -539,7 +513,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
     <div id="panel-environmental" class="panel">
       <div class="section-head">
         <div class="section-title">Environmental Emergencies</div>
-        <div class="section-sub">Select a condition to view body map and management on the right →</div>
+        <div class="section-sub">Select a condition to view body map and management &rarr;</div>
       </div>
       <div class="env-list" id="env-list"></div>
     </div>
@@ -548,7 +522,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
     <div id="panel-builder" class="panel">
       <div class="section-head">
         <div class="section-title">Symptom Builder</div>
-        <div class="section-sub">Select observed symptoms → ranked toxidrome matches</div>
+        <div class="section-sub">Select observed symptoms &rarr; ranked toxidrome matches</div>
       </div>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px">
         <span style="font-family:var(--mono);font-size:11px;color:var(--text3)">Select symptoms:</span>
@@ -570,7 +544,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
         <div class="mscore-item"><div class="mscore-val" id="m-score">0</div><div class="mscore-lbl">Score</div></div>
         <div class="mscore-item"><div class="mscore-val" id="m-correct">0</div><div class="mscore-lbl">Correct</div></div>
         <div class="mscore-item"><div class="mscore-val" id="m-total">0</div><div class="mscore-lbl">Attempted</div></div>
-        <div class="mscore-item"><div class="mscore-val" id="m-case" style="font-size:16px;font-family:var(--sans)">—</div><div class="mscore-lbl">Case</div></div>
+        <div class="mscore-item"><div class="mscore-val" id="m-case" style="font-size:16px;font-family:var(--sans)">&mdash;</div><div class="mscore-lbl">Case</div></div>
       </div>
       <div class="timer-row">
         <div><div style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)">Timer</div><div class="timer-display" id="timer-disp">30s</div></div>
@@ -590,8 +564,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
             <div class="fb-box" id="m-feedback"></div>
           </div>
           <div class="matcher-actions" style="margin-top:8px">
-            <button class="btn btn-primary" onclick="nextCase()">Next Case →</button>
-            <button class="btn btn-ghost" onclick="shuffleCases()">↺ Shuffle</button>
+            <button class="btn btn-primary" onclick="nextCase()">Next Case &rarr;</button>
+            <button class="btn btn-ghost" onclick="shuffleCases()">&#8635; Shuffle</button>
           </div>
         </div>
       </div>
@@ -610,19 +584,19 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
     <div id="panel-pathway" class="panel">
       <div class="section-head">
         <div class="section-title">Clinical Pathway</div>
-        <div class="section-sub">5-question decision tree → identifies toxidrome with management on right →</div>
+        <div class="section-sub">5-question decision tree &rarr; identifies toxidrome with management on right &rarr;</div>
       </div>
       <div class="pw-wrap">
         <div class="pw-left">
           <div class="pw-lhead">Follow the pathway</div>
           <div id="pw-tree"></div>
-          <div style="margin-top:18px"><button class="btn btn-ghost" onclick="pwReset()">↺ Start Over</button></div>
+          <div style="margin-top:18px"><button class="btn btn-ghost" onclick="pwReset()">&#8635; Start Over</button></div>
         </div>
         <div class="pw-sidebar">
           <div class="pw-sb-head"><div class="pw-sb-sub">Identified Toxidrome</div><div class="pw-sb-title" id="pw-sb-title">Make a selection</div></div>
           <div class="pw-sb-body" id="pw-sb-body">
             <div id="pw-placeholder" style="padding:24px 18px;text-align:center;color:var(--text3)">
-              <div style="font-size:1.8rem;opacity:.1;margin-bottom:10px">🔍</div>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:.12;margin-bottom:10px"><use href="#ic-search"/></svg>
               <div style="font-size:12px;line-height:1.7">Answer the pathway questions to identify the toxidrome and see management.</div>
             </div>
             <div class="pw-result-body" id="pw-result" style="display:none"></div>
@@ -649,7 +623,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
   <!-- RIGHT PANEL -->
   <div class="right-panel empty" id="right-panel">
     <div class="right-panel-placeholder" id="rpp">
-      <div class="rpp-icon">→</div>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:.15;margin-bottom:12px"><use href="#ic-pathway"/></svg>
       <div class="rpp-text">Select a toxidrome or condition<br>to view body map, symptoms, and<br>full management guidelines here.</div>
     </div>
     <div class="detail-panel" id="detail-panel" style="display:none"></div>
@@ -658,8 +632,17 @@ header{display:flex;align-items:center;justify-content:space-between;padding:0 2
 
 <script>
 // ── DARK MODE ──
-function toggleDark(){document.body.classList.toggle('dark');const d=document.body.classList.contains('dark');localStorage.setItem('tp-dark',d?'1':'');document.getElementById('dark-toggle').textContent=d?'☀️':'🌙';}
-if(localStorage.getItem('tp-dark')==='1'){document.body.classList.add('dark');document.getElementById('dark-toggle').textContent='☀️';}
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  const d=document.body.classList.contains('dark');
+  localStorage.setItem('tp-dark',d?'1':'');
+  const btn=document.getElementById('dark-toggle');
+  btn.innerHTML=d?`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-sun"/></svg>`:`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-moon"/></svg>`;
+}
+if(localStorage.getItem('tp-dark')==='1'){
+  document.body.classList.add('dark');
+  document.getElementById('dark-toggle').innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-sun"/></svg>`;
+}
 
 // ── TABS ──
 function showTab(id,tab){
@@ -676,7 +659,6 @@ function showTab(id,tab){
 // ── HELPERS ──
 function vc(v){return v&&v.includes('↑')?'vbadge-up':v&&v.includes('↓')?'vbadge-down':'vbadge-nl'}
 function vcD(v){return v&&v.includes('↑')?'dvital-up':v&&v.includes('↓')?'dvital-down':'dvital-nl'}
-function vcV(v){return v&&v.includes('↑')?'high':v&&v.includes('↓')?'low':'normal'}
 const CAT_COLORS={sympatho:'#C0392B',choline:'#0F6E56',anticholine:'#854F0B',opioid:'#6b5c2a',sedative:'#5c6b8a',serotonin:'#5c2a6b',cardiac:'#C0392B',env:'#0F6E56'};
 
 // ── DETAIL PANEL ──
@@ -699,9 +681,7 @@ function showDetailPanel(html){
 
 // ── BODY MAP SVG ──
 function buildBodyMap(tox){
-  // Regions to highlight per toxidrome category
   const regions=getBodyRegions(tox);
-  const col=CAT_COLORS[tox.category||'env']||'#C0392B';
   let dots='';
   regions.forEach(r=>{
     const color=r.type==='red'?'var(--red)':r.type==='teal'?'var(--teal)':'var(--amber)';
@@ -710,22 +690,13 @@ function buildBodyMap(tox){
     if(r.label)dots+=`<text x="${r.x+14}" y="${r.y+4}" font-size="9" fill="${color}" font-family="DM Mono,monospace">${r.label}</text>`;
   });
   return `<svg width="90" height="200" viewBox="0 0 90 200" xmlns="http://www.w3.org/2000/svg">
-  <style>text{font-family:'DM Sans',sans-serif}</style>
-  <!-- Head -->
   <ellipse cx="45" cy="22" rx="16" ry="18" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.5"/>
-  <!-- Neck -->
   <rect x="40" y="38" width="10" height="10" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.5"/>
-  <!-- Torso -->
   <rect x="25" y="47" width="40" height="60" rx="4" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.5"/>
-  <!-- Left arm -->
   <rect x="10" y="50" width="13" height="45" rx="6" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.5"/>
-  <!-- Right arm -->
   <rect x="67" y="50" width="13" height="45" rx="6" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.5"/>
-  <!-- Left leg -->
   <rect x="28" y="108" width="14" height="55" rx="6" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.5"/>
-  <!-- Right leg -->
   <rect x="48" y="108" width="14" height="55" rx="6" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.5"/>
-  <!-- Pupils marker -->
   <circle cx="40" cy="20" r="2.5" fill="var(--border3)" opacity="0.6"/>
   <circle cx="50" cy="20" r="2.5" fill="var(--border3)" opacity="0.6"/>
   ${dots}
@@ -740,7 +711,7 @@ function getBodyRegions(tox){
     opioid:[{x:45,y:20,type:'teal',label:'Miosis'},{x:45,y:55,type:'teal',label:'↓Resp'},{x:45,y:60,type:'teal',label:'↓HR'},{x:45,y:130,type:'teal',label:'Hypothermia'}],
     sedative:[{x:45,y:20,type:'teal',label:'Normal pupils'},{x:45,y:55,type:'teal',label:'↓Resp'},{x:45,y:60,type:'teal',label:'↓HR'},{x:18,y:75,type:'amber',label:'Ataxia'}],
     serotonin:[{x:45,y:20,type:'amber',label:'Mydriasis'},{x:45,y:35,type:'red',label:'Hyperthermia'},{x:45,y:60,type:'red',label:'Tachycardia'},{x:18,y:65,type:'amber',label:'Diaphoresis'},{x:45,y:130,type:'red',label:'Clonus'}],
-    cardiac:[{x:45,y:60,type:'red',label:'Wide QRS'},{x:45,y:60,type:'red'},{x:45,y:35,type:'amber',label:'HTN/Hypo'},{x:45,y:20,type:'amber',label:'Mydriasis'}],
+    cardiac:[{x:45,y:60,type:'red',label:'Wide QRS'},{x:45,y:35,type:'amber',label:'HTN/Hypo'},{x:45,y:20,type:'amber',label:'Mydriasis'}],
     env:[{x:45,y:35,type:'red',label:'Thermal'},{x:45,y:60,type:'amber',label:'Cardiac'},{x:45,y:20,type:'amber',label:'CNS'}]
   };
   return m[tox.category||'env']||m.env;
@@ -748,13 +719,12 @@ function getBodyRegions(tox){
 
 // ── FULL DETAIL VIEW ──
 function buildToxDetail(t){
-  const col=CAT_COLORS[t.category]||'#C0392B';
   const bm=buildBodyMap(t);
   const regions=getBodyRegions(t);
   const dots=regions.map(r=>`<div class="bm-legend-item"><div class="bm-dot bm-dot-${r.type}"></div>${r.label||''}</div>`).filter((_,i)=>regions[i].label).join('');
   let guidelineHtml='';
-  if(t.mohfw)guidelineHtml+=`<div class="guideline-box"><div class="gl-lbl">MoHFW Guidelines</div><div class="gl-text">${t.mohfw}</div></div>`;
-  if(t.cdc)guidelineHtml+=`<div class="guideline-box" style="margin-top:6px;background:var(--teal-dim);border-color:var(--teal)"><div class="gl-lbl" style="color:var(--teal)">CDC / WHO</div><div class="gl-text">${t.cdc}</div></div>`;
+  if(t.mohfw)guidelineHtml+=`<div class="guideline-box"><div class="gl-lbl">MoHFW Guideline</div><div class="gl-text">${t.mohfw}</div></div>`;
+  if(t.goldfrank)guidelineHtml+=`<div class="guideline-box" style="margin-top:6px;background:var(--teal-dim);border-color:var(--teal)"><div class="gl-lbl" style="color:var(--teal)">Goldfrank's Toxicologic Emergencies</div><div class="gl-text">${t.goldfrank}</div></div>`;
   return `<div class="detail-scroll">
   <div class="detail-banner">
     <div class="detail-cat">${t.catLabel}</div>
@@ -770,15 +740,15 @@ function buildToxDetail(t){
       <div class="bm-legend-title">Affected Systems</div>
       ${dots}
       <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-        <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3)"><div class="bm-dot bm-dot-red" style="width:6px;height:6px;border-radius:50%;background:var(--red)"></div>Elevated/Toxic</div>
+        <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3)"><div class="bm-dot bm-dot-red"></div>Elevated/Toxic</div>
         <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3)"><div style="width:6px;height:6px;border-radius:50%;background:var(--teal)"></div>Depressed</div>
         <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3)"><div style="width:6px;height:6px;border-radius:50%;background:var(--amber)"></div>Variable</div>
       </div>
     </div>
   </div>
   <div class="detail-sec">
-    <div class="detail-sec-lbl">Pupils & Skin</div>
-    <div class="detail-text">${t.pupils} · ${t.skin}</div>
+    <div class="detail-sec-lbl">Pupils &amp; Skin</div>
+    <div class="detail-text">${t.pupils} &middot; ${t.skin}</div>
   </div>
   <div class="detail-sec">
     <div class="detail-sec-lbl">Key Symptoms</div>
@@ -817,8 +787,8 @@ function buildEnvDetail(e){
   <circle cx="45" cy="120" r="5" fill="var(--teal)" opacity="0.6"/>
   </svg>`;
   let guidelineHtml='';
-  if(e.mohfw)guidelineHtml+=`<div class="guideline-box"><div class="gl-lbl">MoHFW Guidelines</div><div class="gl-text">${e.mohfw}</div></div>`;
-  if(e.cdc)guidelineHtml+=`<div class="guideline-box" style="margin-top:6px;background:var(--teal-dim);border-color:var(--teal)"><div class="gl-lbl" style="color:var(--teal)">CDC / WHO</div><div class="gl-text">${e.cdc}</div></div>`;
+  if(e.mohfw)guidelineHtml+=`<div class="guideline-box"><div class="gl-lbl">MoHFW Guideline</div><div class="gl-text">${e.mohfw}</div></div>`;
+  if(e.goldfrank)guidelineHtml+=`<div class="guideline-box" style="margin-top:6px;background:var(--teal-dim);border-color:var(--teal)"><div class="gl-lbl" style="color:var(--teal)">Goldfrank's Toxicologic Emergencies</div><div class="gl-text">${e.goldfrank}</div></div>`;
   return `<div class="detail-scroll">
   <div class="detail-banner">
     <div class="detail-cat">${e.catLabel}</div>
@@ -831,7 +801,7 @@ function buildEnvDetail(e){
       <div class="bm-legend-title">Primary Impact</div>
       <div class="bm-legend-item"><div class="bm-dot bm-dot-red"></div>Head / Thermoregulation</div>
       <div class="bm-legend-item"><div class="bm-dot bm-dot-amber"></div>Cardiovascular</div>
-      <div class="bm-legend-item"><div class="bm-dot" style="background:var(--teal)"></div>Extremities / Systemic</div>
+      <div class="bm-legend-item"><div style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:4px"></div>Extremities / Systemic</div>
     </div>
   </div>
   <div class="detail-sec">
@@ -856,120 +826,122 @@ function buildEnvDetail(e){
 
 // ── DATA ──
 const TOXIDROMES=[
-  {name:"Sympathomimetic",category:"sympatho",catLabel:"Sympathomimetic",agents:"Cocaine, amphetamines, methamphetamine, MDMA, PCP, caffeine OD, bath salts (cathinones)",vitals:{hr:"↑",bp:"↑",rr:"↑",temp:"↑"},pupils:"Mydriasis (dilated)",skin:"Diaphoretic, flushed",symptoms:"Agitation, tremor, diaphoresis, hypertension, tachycardia, hyperthermia, seizures",consciousness:"Agitated / alert",antidote:"Benzodiazepines (first-line): lorazepam 2–4mg IV or diazepam 5–10mg IV. Phentolamine 2.5–5mg IV for refractory HTN. Avoid β-blockers alone (unopposed α effect).",mohfw:"Acute Management: Stabilise ABC. BZD titration per AIIMS protocol. Active cooling if temp >39°C. Continuous cardiac monitoring. Admit to HDU. Avoid antipsychotics (lower seizure threshold).",cdc:"CDC CHEMPACK/CBRN: For sympathomimetic OD, BZDs are first-line. Sodium bicarbonate NOT indicated. Consider cyproheptadine if SS features emerge.",mnemonics:"Hot, hypertensive, hyperactive — everything UP.\nKEY: DIAPHORETIC (wet) unlike anticholinergic (dry).",symTags:["tachycardia","hypertension","hyperthermia","mydriasis","diaphoresis","agitation","seizures"]},
-  {name:"Cholinergic (Muscarinic)",category:"choline",catLabel:"Cholinergic",agents:"Organophosphates, carbamates, nerve agents (VX, sarin), pilocarpine, muscarine mushrooms",vitals:{hr:"↓",bp:"↓",rr:"↑",temp:"nl"},pupils:"Miosis (pinpoint)",skin:"Diaphoretic, excessive secretions",symptoms:"DUMBELS: Defecation, Urination, Miosis, Bradycardia, Emesis, Lacrimation, Salivation. Bronchorrhoea, bronchospasm, seizures.",consciousness:"Confusion, seizures, coma",antidote:"Atropine 2–4mg IV q5–10min (titrate to DRY secretions, not HR/pupils). Pralidoxime 1–2g IV within 24–36h for organophosphates. BZDs for seizures.",mohfw:"POISONING MANAGEMENT PROTOCOL (MoHFW 2019): Atropinisation until secretions dry. Do NOT stop atropine early. Pralidoxime within golden window. ICU monitoring for respiratory failure.",cdc:"CDC Emergency Response: Atropine is antidote; dose to effect (secretion drying). Pralidoxime most effective within 4h of exposure. Decontamination critical for safety of staff.",mnemonics:"SLUDGE: Salivation, Lacrimation, Urination, Defecation, GI distress, Emesis.\nDUMBELS: Defecation, Urination, Miosis, Bradycardia, Emesis, Lacrimation, Salivation.",symTags:["bradycardia","miosis","diaphoresis","bronchospasm","vomiting","salivation","lacrimation","seizures","hypotension"]},
-  {name:"Anticholinergic",category:"anticholine",catLabel:"Anticholinergic",agents:"Antihistamines (diphenhydramine), TCAs, atropine, scopolamine, jimsonweed, antipsychotics",vitals:{hr:"↑",bp:"↑",rr:"nl",temp:"↑"},pupils:"Mydriasis (dilated)",skin:"DRY, flushed, hot",symptoms:"Hallucinations, delirium, urinary retention, ileus, dry mucous membranes, hyperthermia",consciousness:"Delirium, agitation",antidote:"Physostigmine 1–2mg IV over 5min (PURE anticholinergic ONLY — NEVER in TCA OD). BZDs for agitation. Aggressive cooling. Urinary catheter.",mohfw:"National Poison Management Guideline: Supportive care first. Physostigmine only if QRS normal and TCA excluded. Cooling blankets. Foley catheter. Avoid flumazenil.",cdc:"CDC: DRY as a bone mnemonics guide treatment. Physostigmine for refractory pure anticholinergic. Contraindicated: asthma, cardiac conduction abnormalities.",mnemonics:"Mad as a hatter · Blind as a bat · Hot as a hare · DRY as a bone · Red as a beet",symTags:["tachycardia","hyperthermia","mydriasis","dryskin","urinaryretention","delirium","flushed"]},
-  {name:"Opioid",category:"opioid",catLabel:"Opioid",agents:"Heroin, morphine, oxycodone, fentanyl, methadone, tramadol, loperamide",vitals:{hr:"↓",bp:"↓",rr:"↓↓",temp:"↓"},pupils:"Miosis (pinpoint)",skin:"Cool, pale, clammy",symptoms:"Classic triad: coma, miosis, respiratory depression. Constipation, hyporeflexia. Pulmonary oedema in heroin OD.",consciousness:"Sedated → coma",antidote:"Naloxone 0.4–2mg IV/IM/IN; repeat q2–3min. Start infusion at 2/3 reversal dose/hr for long-acting opioids. Duration of naloxone (30–90min) < most opioids.",mohfw:"National Drug Dependence Treatment (NDDTC): Naloxone first-line. Titrate to adequate respiration (not full arousal). Observe ≥4h post-last dose. NPEP + harm reduction referral.",cdc:"CDC Overdose Response: Naloxone available OTC. Intranasal route acceptable. Community naloxone distribution endorsed. Post-reversal discharge protocol per state guidelines.",mnemonics:"3 Ms: Miosis · Moribund (CNS depression) · Minimal respirations.",symTags:["bradycardia","miosis","respiratorydepression","hypotension","hypothermia","coma"]},
-  {name:"Sedative-Hypnotic",category:"sedative",catLabel:"Sedative",agents:"Benzodiazepines, barbiturates, GHB, ethanol, carisoprodol, zolpidem",vitals:{hr:"↓",bp:"↓",rr:"↓",temp:"↓"},pupils:"Normal (midsize)",skin:"Normal",symptoms:"CNS depression, slurred speech, ataxia, amnesia. NORMAL pupils — key differentiator from opioids.",consciousness:"Sedated, slurred, ataxic",antidote:"Supportive care. Flumazenil 0.2mg IV q1min for BZDs (CAUTION: seizures in chronic users, TCA co-ingestion). Intubation if apnoea.",mohfw:"Supportive care is cornerstone. Flumazenil use restricted — CI in polypharmacy OD. Monitor for aspiration pneumonia. GHB withdrawal is life-threatening.",cdc:"CDC: No routine flumazenil recommendation. Supportive ventilation if needed. Screen for co-ingestants. Alcohol: thiamine 100mg IV before glucose.",mnemonics:"Like opioid but NORMAL pupils.\nAtaxia + slurred speech distinguish from opioid.",symTags:["bradycardia","respiratorydepression","hypotension","hypothermia","ataxia"]},
-  {name:"Serotonin Syndrome",category:"serotonin",catLabel:"Serotonin",agents:"SSRIs, SNRIs, MAOIs, linezolid, fentanyl, tramadol, ondansetron, tryptans",vitals:{hr:"↑",bp:"↑",rr:"↑",temp:"↑↑"},pupils:"Mydriasis",skin:"Diaphoretic, flushed",symptoms:"Clonus (spontaneous, inducible, ocular), hyperreflexia, agitation, diaphoresis. RAPID onset (minutes–hours). Hunter Criteria: clonus + serotonergic drug.",consciousness:"Agitated, tremulous",antidote:"Cyproheptadine 12mg PO/NG then 2mg q2h (max 32mg/d). BZDs. Cooling. Severe cases: intubation + non-depolarising NMB.",mohfw:"Serotonin toxicity management: Discontinue offending agents. Cyproheptadine preferred over methysergide. ICU for temp >41°C. Avoid physostigmine.",cdc:"CDC/WHO: Hunter Serotonin Toxicity Criteria diagnostic. Cyproheptadine is antidote. Dantrolene NOT recommended (different mechanism from NMS).",mnemonics:"Serotonin = hyperREFLEXIA + CLONUS + rapid onset.\nContrast NMS = rigidity + slow onset.",symTags:["tachycardia","hypertension","hyperthermia","mydriasis","diaphoresis","clonus","hyperreflexia","agitation"]},
-  {name:"Neuroleptic Malignant Syndrome",category:"serotonin",catLabel:"NMS",agents:"Haloperidol, antipsychotics (chlorpromazine, olanzapine), dopaminergic drug withdrawal",vitals:{hr:"↑",bp:"↑↑",rr:"↑",temp:"↑↑↑"},pupils:"Normal",skin:"Diaphoretic",symptoms:"FEVER + LEAD-PIPE RIGIDITY + altered mental status + autonomic instability. SLOW onset (days–weeks). Markedly elevated CK (>1000 U/L).",consciousness:"Altered, may be stuporous",antidote:"Bromocriptine 2.5–10mg TID PO + Dantrolene 2.5mg/kg IV q5min (max 10mg/kg/day). Aggressive cooling. Discontinue offending antipsychotic. ICU.",mohfw:"NMS Management (AIIMS Protocol): Discontinue antipsychotic. Bromocriptine dopaminergic agonist. CK monitoring daily. Exclude infectious meningitis.",cdc:"NMS vs SS differentiation critical. NMS: slow onset, rigidity, bradyreflexia, high CK. Dantrolene + bromocriptine. Cooling and ICU level care.",mnemonics:"NMS = RIGIDITY (lead-pipe) + SLOW onset.\nHigh CK. Bradyreflexia unlike SS.",symTags:["tachycardia","hypertension","hyperthermia","diaphoresis","rigidity","alteredconsciousness"]},
-  {name:"TCA Toxicity",category:"cardiac",catLabel:"Cardiac/TCA",agents:"Amitriptyline, nortriptyline, imipramine, doxepin, clomipramine",vitals:{hr:"↑",bp:"↓",rr:"↑",temp:"↑"},pupils:"Mydriasis",skin:"Dry, flushed (anticholinergic)",symptoms:"Anticholinergic features + QRS widening (>100ms), R-wave in aVR >3mm, ventricular dysrhythmias, seizures, hypotension.",consciousness:"Altered; seizures",antidote:"Sodium bicarbonate 1–2 mEq/kg IV bolus. Target pH 7.45–7.55. Lipid emulsion 20% for refractory arrest. NO physostigmine.",mohfw:"TCA OD Critical Management: NaHCO3 first-line for QRS >100ms. Do NOT use physostigmine. Intubation for airway protection. Avoid class IA/IC antiarrhythmics.",cdc:"CDC/ACMT: Serum alkalinisation (pH 7.45–7.55) reverses Na-channel blockade. Maintain until QRS narrows. Continuous ECG monitoring ≥6h.",mnemonics:"3 Cs: Cardiovascular (wide QRS) · Convulsions · Coma.\nECG: QRS >100ms = treat with NaHCO3.",symTags:["tachycardia","hypotension","mydriasis","dryskin","wideqrs","seizures","dysrhythmia"]},
-  {name:"CCB / Beta Blocker OD",category:"cardiac",catLabel:"Cardiac",agents:"Verapamil, diltiazem, amlodipine (CCB); atenolol, metoprolol, propranolol (BB)",vitals:{hr:"↓↓",bp:"↓↓",rr:"nl",temp:"nl"},pupils:"Normal",skin:"Normal or cool",symptoms:"Bradycardia, hypotension, AV block. CCB: HYPERglycemia (blocks insulin). BB: HYPOglycemia, bronchospasm.",consciousness:"May be alert initially",antidote:"CaCl 1g IV / CaGluconate 3g IV. High-dose Insulin (HIE) 1u/kg bolus. Glucagon 3–10mg IV for BB. Lipid Emulsion 20% for lipophilic agents. ECMO if refractory.",mohfw:"Calcium Channel Blocker Poisoning (AIIMS): Calcium + HIE combination therapy. Start vasopressors early. ECMO considered at tertiary centres. Exclude digoxin co-ingestion.",cdc:"CDC CHEMM: High-dose insulin therapy evidence-based for CCB. Calcium is first-line. Glucagon for BB only. Lipid emulsion rescue therapy — call 1-800-222-1222.",mnemonics:"CCB: Calcium + Carbohydrates (High Insulin) + lipid emulsion.\nCCB = HYPERglycemia. BB = HYPOglycemia.",symTags:["bradycardia","hypotension","avblock","dysrhythmia"]},
-  {name:"Digoxin Toxicity",category:"cardiac",catLabel:"Cardiac",agents:"Digoxin, digitalis, foxglove, oleander, lily of the valley, Chan Su",vitals:{hr:"↓",bp:"↓",rr:"nl",temp:"nl"},pupils:"Normal",skin:"Normal",symptoms:"Bradycardia, AV block, xanthopsia (yellow-green vision), N/V, hyperkalaemia. Virtually any dysrhythmia possible.",consciousness:"Nausea, confusion",antidote:"Digoxin Immune Fab (DigiFab): Vials = (serum level × wt kg) / 100. Empiric: 10 vials acute, 5 vials chronic. AVOID calcium.",mohfw:"Cardiac Glycoside Poisoning: DigiFab availability limited in India — consult AIIMS Poison Centre (011-26589391). Monitor K+. Transvenous pacing if unresponsive.",cdc:"CDC/ACC: Digoxin Fab fragments definitive. AVOID calcium — 'stone heart' syndrome risk. Post-Fab serum levels unreliable. Haemodialysis ineffective for digoxin.",mnemonics:"Dig toxicity = Yellow vision + AV block + hyperkalaemia.\nAntidote: Fab fragments.",symTags:["bradycardia","hypotension","avblock","vomiting","dysrhythmia","xanthopsia"]},
-  {name:"Salicylate Toxicity",category:"cardiac",catLabel:"Metabolic",agents:"Aspirin, bismuth subsalicylate, oil of wintergreen (methyl salicylate), topical BenGay",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"↑"},pupils:"Normal",skin:"Diaphoretic",symptoms:"Mixed resp alkalosis + metabolic acidosis (HAGMA), tinnitus, hyperthermia, AMS (late). N/V, dehydration.",consciousness:"AMS = severe toxicity",antidote:"Sodium bicarbonate infusion: target urine pH >7.5. Haemodialysis for severe toxicity (level >100mg/dL, AMS, renal failure).",mohfw:"Salicylate Poisoning (National Poison Centre): NaHCO3 infusion mainstay. Monitor glucose — hypoglycaemia common. NEVER intubate without extreme caution (lose resp alkalosis).",cdc:"CDC: Tinnitus + hyperventilation = aspirin until proven otherwise. Serial levels q2h. Haemodialysis indications: AMS, renal failure, level >100mg/dL, haemodynamic instability.",mnemonics:"Tinnitus + Hyperventilation + Acid-base chaos = Aspirin.",symTags:["tachycardia","hyperthermia","diaphoresis","tinnitus","hyperventilation","hagma"]},
-  {name:"Toxic Alcohols",category:"sedative",catLabel:"Metabolic",agents:"Methanol (wood alcohol), Ethylene glycol (antifreeze), Isopropanol (rubbing alcohol)",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"nl"},pupils:"Varies",skin:"Normal",symptoms:"HAGMA + osmol gap elevation. MeOH: visual changes → blindness (formate toxicity). EG: calcium oxalate crystals, AKI. IsoPrOH: ketosis WITHOUT acidosis.",consciousness:"Intoxicated; AMS in severe",antidote:"Fomepizole (4-MP) 15mg/kg IV loading dose. Haemodialysis for severe MeOH/EG (metabolic acidosis, visual changes, AKI). Ethanol IV if fomepizole unavailable.",mohfw:"Toxic Alcohol Management: Fomepizole preferred; ethanol infusion if unavailable. Folate 50mg IV for methanol (facilitates formate elimination). Early nephrology consultation for EG.",cdc:"CDC Methanol/EG Emergency: Fomepizole standard of care. Haemodialysis indications: pH <7.25, AKI, visual symptoms (methanol), refractory acidosis. Contact Poison Centre.",mnemonics:"MeOH = formate = Blindness.\nEG = oxalate = AKI.\nBoth: Fomepizole + HD. IsoPrOH = ketones only, NO acidosis.",symTags:["hagma","osmolgap","visualchanges","alteredconsciousness","aki"]}
+  {name:"Sympathomimetic",category:"sympatho",catLabel:"Sympathomimetic",agents:"Cocaine, amphetamines, methamphetamine, MDMA, PCP, caffeine OD, bath salts (cathinones)",vitals:{hr:"↑",bp:"↑",rr:"↑",temp:"↑"},pupils:"Mydriasis (dilated)",skin:"Diaphoretic, flushed",symptoms:"Agitation, tremor, diaphoresis, hypertension, tachycardia, hyperthermia, seizures",consciousness:"Agitated / alert",antidote:"Benzodiazepines (first-line): lorazepam 2–4mg IV or diazepam 5–10mg IV. Phentolamine 2.5–5mg IV for refractory HTN. Avoid β-blockers alone (unopposed α effect).",mohfw:"Stabilise ABC. BZD titration per AIIMS protocol. Active cooling if temp >39°C. Continuous cardiac monitoring. Admit to HDU. Avoid antipsychotics (lower seizure threshold).",goldfrank:"Goldfrank's Ch. 75: BZDs are first-line for agitation and seizures. Phentolamine for pure α-adrenergic hypertension. Sodium bicarbonate NOT indicated. KEY: diaphoresis (wet) distinguishes from anticholinergic (dry).",mnemonics:"Hot, hypertensive, hyperactive — everything UP.\nKEY: DIAPHORETIC (wet) unlike anticholinergic (dry).",symTags:["tachycardia","hypertension","hyperthermia","mydriasis","diaphoresis","agitation","seizures"]},
+  {name:"Cholinergic (Muscarinic)",category:"choline",catLabel:"Cholinergic",agents:"Organophosphates, carbamates, nerve agents (VX, sarin), pilocarpine, muscarine mushrooms",vitals:{hr:"↓",bp:"↓",rr:"↑",temp:"nl"},pupils:"Miosis (pinpoint)",skin:"Diaphoretic, excessive secretions",symptoms:"DUMBELS: Defecation, Urination, Miosis, Bradycardia, Emesis, Lacrimation, Salivation. Bronchorrhoea, bronchospasm, seizures.",consciousness:"Confusion, seizures, coma",antidote:"Atropine 2–4mg IV q5–10min (titrate to DRY secretions, not HR/pupils). Pralidoxime 1–2g IV within 24–36h for organophosphates. BZDs for seizures.",mohfw:"POISONING MANAGEMENT PROTOCOL (MoHFW 2019): Atropinisation until secretions dry. Do NOT stop atropine early. Pralidoxime within golden window. ICU monitoring for respiratory failure.",goldfrank:"Goldfrank's Ch. 113: Atropine reverses muscarinic effects only; give massive doses until secretions dry. Pralidoxime most effective within 4h (prevents ageing). Both antidotes required for organophosphate.",mnemonics:"SLUDGE: Salivation, Lacrimation, Urination, Defecation, GI distress, Emesis.\nDUMBELS: Defecation, Urination, Miosis, Bradycardia, Emesis, Lacrimation, Salivation.",symTags:["bradycardia","miosis","diaphoresis","bronchospasm","vomiting","salivation","lacrimation","seizures","hypotension"]},
+  {name:"Anticholinergic",category:"anticholine",catLabel:"Anticholinergic",agents:"Antihistamines (diphenhydramine), TCAs, atropine, scopolamine, jimsonweed, antipsychotics",vitals:{hr:"↑",bp:"↑",rr:"nl",temp:"↑"},pupils:"Mydriasis (dilated)",skin:"DRY, flushed, hot",symptoms:"Hallucinations, delirium, urinary retention, ileus, dry mucous membranes, hyperthermia",consciousness:"Delirium, agitation",antidote:"Physostigmine 1–2mg IV over 5min (PURE anticholinergic ONLY — NEVER in TCA OD). BZDs for agitation. Aggressive cooling. Urinary catheter.",mohfw:"National Poison Management Guideline: Supportive care first. Physostigmine only if QRS normal and TCA excluded. Cooling blankets. Foley catheter. Avoid flumazenil.",goldfrank:"Goldfrank's Ch. 48: Physostigmine is diagnostic and therapeutic in pure anticholinergic toxicity. Contraindicated: asthma, cardiac conduction abnormalities, TCA co-ingestion. Mnemonics are diagnostic aids, not criteria.",mnemonics:"Mad as a hatter · Blind as a bat · Hot as a hare · DRY as a bone · Red as a beet",symTags:["tachycardia","hyperthermia","mydriasis","dryskin","urinaryretention","delirium","flushed"]},
+  {name:"Opioid",category:"opioid",catLabel:"Opioid",agents:"Heroin, morphine, oxycodone, fentanyl, methadone, tramadol, loperamide",vitals:{hr:"↓",bp:"↓",rr:"↓↓",temp:"↓"},pupils:"Miosis (pinpoint)",skin:"Cool, pale, clammy",symptoms:"Classic triad: coma, miosis, respiratory depression. Constipation, hyporeflexia. Pulmonary oedema in heroin OD.",consciousness:"Sedated → coma",antidote:"Naloxone 0.4–2mg IV/IM/IN; repeat q2–3min. Start infusion at 2/3 reversal dose/hr for long-acting opioids. Duration of naloxone (30–90min) < most opioids.",mohfw:"National Drug Dependence Treatment (NDDTC): Naloxone first-line. Titrate to adequate respiration (not full arousal). Observe ≥4h post-last dose. NPEP + harm reduction referral.",goldfrank:"Goldfrank's Ch. 38: Naloxone titrated to respiratory adequacy — not to wakefulness (prevents withdrawal). Infusion required for long-acting agents (methadone, extended-release oxycodone). Fentanyl analogues may need higher doses.",mnemonics:"3 Ms: Miosis · Moribund (CNS depression) · Minimal respirations.",symTags:["bradycardia","miosis","respiratorydepression","hypotension","hypothermia","coma"]},
+  {name:"Sedative-Hypnotic",category:"sedative",catLabel:"Sedative",agents:"Benzodiazepines, barbiturates, GHB, ethanol, carisoprodol, zolpidem",vitals:{hr:"↓",bp:"↓",rr:"↓",temp:"↓"},pupils:"Normal (midsize)",skin:"Normal",symptoms:"CNS depression, slurred speech, ataxia, amnesia. NORMAL pupils — key differentiator from opioids.",consciousness:"Sedated, slurred, ataxic",antidote:"Supportive care. Flumazenil 0.2mg IV q1min for BZDs (CAUTION: seizures in chronic users, TCA co-ingestion). Intubation if apnoea.",mohfw:"Supportive care is cornerstone. Flumazenil use restricted — CI in polypharmacy OD. Monitor for aspiration pneumonia. GHB withdrawal is life-threatening.",goldfrank:"Goldfrank's Ch. 80: No routine flumazenil recommendation given seizure risk. Supportive ventilation if needed. Ethanol co-ingestion common — thiamine 100mg IV before glucose. Screen for co-ingestants.",mnemonics:"Like opioid but NORMAL pupils.\nAtaxia + slurred speech distinguish from opioid.",symTags:["bradycardia","respiratorydepression","hypotension","hypothermia","ataxia"]},
+  {name:"Serotonin Syndrome",category:"serotonin",catLabel:"Serotonin",agents:"SSRIs, SNRIs, MAOIs, linezolid, fentanyl, tramadol, ondansetron, tryptans",vitals:{hr:"↑",bp:"↑",rr:"↑",temp:"↑↑"},pupils:"Mydriasis",skin:"Diaphoretic, flushed",symptoms:"Clonus (spontaneous, inducible, ocular), hyperreflexia, agitation, diaphoresis. RAPID onset (minutes–hours). Hunter Criteria: clonus + serotonergic drug.",consciousness:"Agitated, tremulous",antidote:"Cyproheptadine 12mg PO/NG then 2mg q2h (max 32mg/d). BZDs. Cooling. Severe cases: intubation + non-depolarising NMB.",mohfw:"Serotonin toxicity management: Discontinue offending agents. Cyproheptadine preferred over methysergide. ICU for temp >41°C. Avoid physostigmine.",goldfrank:"Goldfrank's Ch. 71: Hunter Serotonin Toxicity Criteria — clonus is pathognomonic. Dantrolene NOT recommended (no evidence). Differentiate from NMS by onset speed and presence of clonus vs rigidity.",mnemonics:"Serotonin = hyperREFLEXIA + CLONUS + rapid onset.\nContrast NMS = rigidity + slow onset.",symTags:["tachycardia","hypertension","hyperthermia","mydriasis","diaphoresis","clonus","hyperreflexia","agitation"]},
+  {name:"Neuroleptic Malignant Syndrome",category:"serotonin",catLabel:"NMS",agents:"Haloperidol, antipsychotics (chlorpromazine, olanzapine), dopaminergic drug withdrawal",vitals:{hr:"↑",bp:"↑↑",rr:"↑",temp:"↑↑↑"},pupils:"Normal",skin:"Diaphoretic",symptoms:"FEVER + LEAD-PIPE RIGIDITY + altered mental status + autonomic instability. SLOW onset (days–weeks). Markedly elevated CK (>1000 U/L).",consciousness:"Altered, may be stuporous",antidote:"Bromocriptine 2.5–10mg TID PO + Dantrolene 2.5mg/kg IV q5min (max 10mg/kg/day). Aggressive cooling. Discontinue offending antipsychotic. ICU.",mohfw:"NMS Management (AIIMS Protocol): Discontinue antipsychotic. Bromocriptine dopaminergic agonist. CK monitoring daily. Exclude infectious meningitis.",goldfrank:"Goldfrank's Ch. 71: NMS vs SS differentiation critical — NMS: slow onset, lead-pipe rigidity, bradyreflexia, markedly elevated CK. Bromocriptine restores dopaminergic tone; dantrolene reduces muscle rigidity directly.",mnemonics:"NMS = RIGIDITY (lead-pipe) + SLOW onset.\nHigh CK. Bradyreflexia unlike SS.",symTags:["tachycardia","hypertension","hyperthermia","diaphoresis","rigidity","alteredconsciousness"]},
+  {name:"TCA Toxicity",category:"cardiac",catLabel:"Cardiac/TCA",agents:"Amitriptyline, nortriptyline, imipramine, doxepin, clomipramine",vitals:{hr:"↑",bp:"↓",rr:"↑",temp:"↑"},pupils:"Mydriasis",skin:"Dry, flushed (anticholinergic)",symptoms:"Anticholinergic features + QRS widening (>100ms), R-wave in aVR >3mm, ventricular dysrhythmias, seizures, hypotension.",consciousness:"Altered; seizures",antidote:"Sodium bicarbonate 1–2 mEq/kg IV bolus. Target pH 7.45–7.55. Lipid emulsion 20% for refractory arrest. NO physostigmine.",mohfw:"TCA OD Critical Management: NaHCO3 first-line for QRS >100ms. Do NOT use physostigmine. Intubation for airway protection. Avoid class IA/IC antiarrhythmics.",goldfrank:"Goldfrank's Ch. 73: Serum alkalinisation (pH 7.45–7.55) reverses Na-channel blockade — give as boluses, not infusion. QRS >100ms or R-aVR >3mm: treat immediately. Maintain until QRS narrows. Continuous ECG monitoring ≥6h.",mnemonics:"3 Cs: Cardiovascular (wide QRS) · Convulsions · Coma.\nECG: QRS >100ms = treat with NaHCO3.",symTags:["tachycardia","hypotension","mydriasis","dryskin","wideqrs","seizures","dysrhythmia"]},
+  {name:"CCB / Beta Blocker OD",category:"cardiac",catLabel:"Cardiac",agents:"Verapamil, diltiazem, amlodipine (CCB); atenolol, metoprolol, propranolol (BB)",vitals:{hr:"↓↓",bp:"↓↓",rr:"nl",temp:"nl"},pupils:"Normal",skin:"Normal or cool",symptoms:"Bradycardia, hypotension, AV block. CCB: HYPERglycemia (blocks insulin). BB: HYPOglycemia, bronchospasm.",consciousness:"May be alert initially",antidote:"CaCl 1g IV / CaGluconate 3g IV. High-dose Insulin (HIE) 1u/kg bolus. Glucagon 3–10mg IV for BB. Lipid Emulsion 20% for lipophilic agents. ECMO if refractory.",mohfw:"Calcium Channel Blocker Poisoning (AIIMS): Calcium + HIE combination therapy. Start vasopressors early. ECMO considered at tertiary centres. Exclude digoxin co-ingestion.",goldfrank:"Goldfrank's Ch. 63: High-dose insulin (HIE) is evidence-based — improves myocardial inotropy via metabolic mechanism. Calcium first-line. Glucagon for BB only. Lipid emulsion as rescue for lipophilic agents.",mnemonics:"CCB: Calcium + Carbohydrates (High Insulin) + lipid emulsion.\nCCB = HYPERglycemia. BB = HYPOglycemia.",symTags:["bradycardia","hypotension","avblock","dysrhythmia"]},
+  {name:"Digoxin Toxicity",category:"cardiac",catLabel:"Cardiac",agents:"Digoxin, digitalis, foxglove, oleander, lily of the valley, Chan Su",vitals:{hr:"↓",bp:"↓",rr:"nl",temp:"nl"},pupils:"Normal",skin:"Normal",symptoms:"Bradycardia, AV block, xanthopsia (yellow-green vision), N/V, hyperkalaemia. Virtually any dysrhythmia possible.",consciousness:"Nausea, confusion",antidote:"Digoxin Immune Fab (DigiFab): Vials = (serum level × wt kg) / 100. Empiric: 10 vials acute, 5 vials chronic. AVOID calcium.",mohfw:"Cardiac Glycoside Poisoning: DigiFab availability limited in India — consult AIIMS Poison Centre (011-26589391). Monitor K+. Transvenous pacing if unresponsive.",goldfrank:"Goldfrank's Ch. 65: Digoxin Fab fragments are definitive. AVOID calcium — calcium-mediated contracture ('stone heart') risk in digoxin toxicity. Post-Fab serum levels unreliable. Haemodialysis ineffective.",mnemonics:"Dig toxicity = Yellow vision + AV block + hyperkalaemia.\nAntidote: Fab fragments.",symTags:["bradycardia","hypotension","avblock","vomiting","dysrhythmia","xanthopsia"]},
+  {name:"Salicylate Toxicity",category:"cardiac",catLabel:"Metabolic",agents:"Aspirin, bismuth subsalicylate, oil of wintergreen (methyl salicylate), topical BenGay",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"↑"},pupils:"Normal",skin:"Diaphoretic",symptoms:"Mixed resp alkalosis + metabolic acidosis (HAGMA), tinnitus, hyperthermia, AMS (late). N/V, dehydration.",consciousness:"AMS = severe toxicity",antidote:"Sodium bicarbonate infusion: target urine pH >7.5. Haemodialysis for severe toxicity (level >100mg/dL, AMS, renal failure).",mohfw:"Salicylate Poisoning (National Poison Centre): NaHCO3 infusion mainstay. Monitor glucose — hypoglycaemia common. NEVER intubate without extreme caution (lose resp alkalosis).",goldfrank:"Goldfrank's Ch. 39: Urinary alkalinisation (urine pH >7.5) traps ionised salicylate in urine — requires normal K+. Intubation hazardous (loss of respiratory compensation → rapid pH collapse). HD indications: AMS, renal failure, level >100mg/dL.",mnemonics:"Tinnitus + Hyperventilation + Acid-base chaos = Aspirin.",symTags:["tachycardia","hyperthermia","diaphoresis","tinnitus","hyperventilation","hagma"]},
+  {name:"Toxic Alcohols",category:"sedative",catLabel:"Metabolic",agents:"Methanol (wood alcohol), Ethylene glycol (antifreeze), Isopropanol (rubbing alcohol)",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"nl"},pupils:"Varies",skin:"Normal",symptoms:"HAGMA + osmol gap elevation. MeOH: visual changes → blindness (formate toxicity). EG: calcium oxalate crystals, AKI. IsoPrOH: ketosis WITHOUT acidosis.",consciousness:"Intoxicated; AMS in severe",antidote:"Fomepizole (4-MP) 15mg/kg IV loading dose. Haemodialysis for severe MeOH/EG (metabolic acidosis, visual changes, AKI). Ethanol IV if fomepizole unavailable.",mohfw:"Toxic Alcohol Management: Fomepizole preferred; ethanol infusion if unavailable. Folate 50mg IV for methanol (facilitates formate elimination). Early nephrology consultation for EG.",goldfrank:"Goldfrank's Ch. 109–111: Fomepizole (4-MP) standard of care — blocks alcohol dehydrogenase. HD removes both parent alcohols and metabolites. MeOH: add folate to enhance formate elimination. EG: add pyridoxine and thiamine.",mnemonics:"MeOH = formate = Blindness.\nEG = oxalate = AKI.\nBoth: Fomepizole + HD. IsoPrOH = ketones only, NO acidosis.",symTags:["hagma","osmolgap","visualchanges","alteredconsciousness","aki"]}
 ];
 
 const ENV=[
-  {name:"Heat Stroke",catLabel:"Thermal",description:"Core temp >40°C + CNS dysfunction. Classic (elderly, anhidrotic) vs Exertional (athletes, diaphoretic).",symptoms:"Hot dry skin (classic), diaphoresis (exertional), AMS, seizures, multi-organ failure.",management:"RAPID COOLING — target <39°C within 30min. Evaporative cooling (fan + mist) or cold water immersion for exertional. Ice packs to neck/groin.",keypoint:"Cooling speed determines mortality. Every minute counts.",antidote:"Cooling; BZDs for shivering/seizures; NO antipyretics (futile).",mohfw:"National Heat Action Plan (MoHFW): Identify and cool immediately. Oral ORS if conscious. IV fluids if hypotensive. Transfer to AC facility. Temperature monitoring q15min.",cdc:"CDC Heat Emergency: Core temp >104°F (40°C) + CNS dysfunction = heat stroke. Immerse in cold water (exertional). Evaporative cooling (classic). Target ≤39°C within 30min."},
-  {name:"Heat Exhaustion",catLabel:"Thermal",description:"Volume depletion + electrolyte loss. Core temp usually <40°C. Precursor to heat stroke.",symptoms:"Weakness, dizziness, headache, N/V, cool/pale/moist skin, mild AMS.",management:"Remove from heat. Cool environment. Oral hydration (ORS) or IV NS 500mL bolus. Rest.",keypoint:"Distinguish from heat stroke by CNS status and temperature.",antidote:"Supportive hydration. ORS 200mL q15min if conscious.",mohfw:"MoHFW Heat Action Plan: Oral rehydration first-line. IV if unable to tolerate oral. Monitor progression to heat stroke. Cool environment. Avoid alcohol and caffeine."},
-  {name:"Hypothermia",catLabel:"Thermal",description:"Core temp <35°C. Mild 32–35°C, Moderate 28–32°C, Severe <28°C. J (Osborn) waves on ECG.",symptoms:"Shivering lost <32°C, confusion → coma, bradycardia, AF, ventricular fibrillation, asystole.",management:"Passive rewarming (mild), active external (moderate), active internal + ECMO for severe/arrest. Warm humidified O2, warm IV fluids.",keypoint:"'Not dead until warm and dead' — withhold death pronouncement until rewarmed.",antidote:"Rewarming. ECMO. Warm IV fluids (40°C). Warm humidified O2.",cdc:"CDC: For severe hypothermia with cardiac arrest — continue CPR, warm IV fluids, thoracic lavage if accessible. ECMO is definitive for refractory cases. Target 37°C before declaring death."},
-  {name:"Carbon Monoxide Poisoning",catLabel:"Inhalation",description:"CO binds Hb 250× > O2. Normal pulse oximetry — occult poisoning. Multiple simultaneous victims classic.",symptoms:"Headache, N/V, dizziness, confusion, cherry-red skin (late). Cardiac ischaemia, neuro sequelae.",management:"100% O2 via NRB. HBO for: LOC, COHb >25% (>15% pregnant), cardiac/neuro symptoms. Remove from source.",keypoint:"Pulse ox FALSELY NORMAL. Must use CO-oximetry. Delayed neuro syndrome 15–30%.",antidote:"100% O2 NRB. HBO for severe cases.",mohfw:"CO Poisoning (National Poison Centre): 100% O2 standard. HBO at designated centres (PGIMER, AIIMS). Pregnancy: lower threshold for HBO. Cardiac monitoring.",cdc:"CDC CO poisoning: Pulse oximetry unreliable. COHb >25%: HBO. COHb >15% in pregnancy: HBO. COHb 15–25% + symptoms: consider HBO. 100% O2 halves CO half-life to ~60min."},
-  {name:"Cyanide Poisoning",catLabel:"Inhalation",description:"Inhibits cytochrome oxidase → cellular hypoxia. Smoke inhalation, industrial, nitroprusside.",symptoms:"Severe lactic acidosis, CV collapse, altered consciousness. Smoke inhalation + lactate >8 = assume CN.",management:"Hydroxocobalamin (Cyanokit) 5g IV over 15min. Sodium thiosulfate 12.5g IV. Safe with CO co-exposure.",keypoint:"High lactate + smoke inhalation = CN co-poisoning. CO alone does not cause lactate >10.",antidote:"Hydroxocobalamin 5g IV. Sodium thiosulfate 12.5g IV.",mohfw:"Cyanide Poisoning Management: Hydroxocobalamin preferred (safe with CO). Turns urine red-brown — warn staff. Sodium thiosulfate adjunct. Industrial exposure: decontaminate first.",cdc:"CDC CHEMM Cyanide: Hydroxocobalamin 5g IV first-line. Alternative: sodium nitrite 10mL of 3% IV + thiosulfate. G6PD normal required for nitrite. Co-oximetry for COHb."},
-  {name:"Snakebite (Crotalid/Viper)",catLabel:"Envenomation",description:"Haemotoxic + cytotoxic venom. In India: Russell's viper, Saw-scaled viper most common.",symptoms:"Local pain/swelling/ecchymosis, coagulopathy (prolonged PT/APTT), systemic symptoms, ptosis (krait).",management:"Immobilise, remove jewellery, NSAIDs avoided. Polyvalent antivenom first-line. Monitor coags q6h.",keypoint:"20WST (20-minute whole blood clotting test) to detect coagulopathy. Repeat q6h.",antidote:"Polyvalent Snake Antivenom (PSAV): 10 vials IV, repeat 10 vials if no response at 6h.",mohfw:"MoHFW Snakebite Management Protocol 2016: PSAV Indian polyvalent (Bharat Serums). 20WST diagnostic. Neostigmine + atropine for neurotoxic envenomation. DO NOT: tourniquet, cut, suck."},
-  {name:"High-Altitude Illness",catLabel:"Altitude",description:"AMS → HACE → HAPE. Hypobaric hypoxia above ~2500m (8,000ft).",symptoms:"AMS: headache + 1 other. HACE: ataxia/AMS/confusion. HAPE: dyspnoea at rest, cough, crackles.",management:"DESCEND. Oxygen. Acetazolamide for mild AMS. Dexamethasone for HACE. Nifedipine for HAPE.",keypoint:"HAPE is the most deadly altitude illness. DESCEND is always definitive.",antidote:"Acetazolamide 125–250mg BID; Dex 8mg then 4mg q6h; Nifedipine 30mg ER."}
+  {name:"Heat Stroke",catLabel:"Thermal",description:"Core temp >40°C + CNS dysfunction. Classic (elderly, anhidrotic) vs Exertional (athletes, diaphoretic).",symptoms:"Hot dry skin (classic), diaphoresis (exertional), AMS, seizures, multi-organ failure.",management:"RAPID COOLING — target <39°C within 30min. Evaporative cooling (fan + mist) or cold water immersion for exertional. Ice packs to neck/groin.",keypoint:"Cooling speed determines mortality. Every minute counts.",antidote:"Cooling; BZDs for shivering/seizures; antipyretics are futile.",mohfw:"National Heat Action Plan (MoHFW): Identify and cool immediately. Oral ORS if conscious. IV fluids if hypotensive. Transfer to AC facility. Temperature monitoring q15min.",goldfrank:"Goldfrank's Ch. 29: Core temperature target ≤39°C within 30 min. Cold-water immersion most effective for exertional heat stroke. Dantrolene not indicated. Avoid antipyretics."},
+  {name:"Heat Exhaustion",catLabel:"Thermal",description:"Volume depletion + electrolyte loss. Core temp usually <40°C. Precursor to heat stroke.",symptoms:"Weakness, dizziness, headache, N/V, cool/pale/moist skin, mild AMS.",management:"Remove from heat. Cool environment. Oral hydration (ORS) or IV NS 500mL bolus. Rest.",keypoint:"Distinguish from heat stroke by CNS status and temperature.",antidote:"Supportive hydration. ORS 200mL q15min if conscious.",mohfw:"MoHFW Heat Action Plan: Oral rehydration first-line. IV if unable to tolerate oral. Monitor progression to heat stroke."},
+  {name:"Hypothermia",catLabel:"Thermal",description:"Core temp <35°C. Mild 32–35°C, Moderate 28–32°C, Severe <28°C. J (Osborn) waves on ECG.",symptoms:"Shivering lost <32°C, confusion → coma, bradycardia, AF, ventricular fibrillation, asystole.",management:"Passive rewarming (mild), active external (moderate), active internal + ECMO for severe/arrest. Warm humidified O2, warm IV fluids.",keypoint:"'Not dead until warm and dead' — withhold death pronouncement until rewarmed.",antidote:"Rewarming. ECMO. Warm IV fluids (40°C). Warm humidified O2.",goldfrank:"Goldfrank's Ch. 15: For cardiac arrest from hypothermia — continue CPR, warm IV fluids, thoracic lavage if accessible. ECMO is definitive for refractory cases. Target 37°C before declaring death."},
+  {name:"Carbon Monoxide Poisoning",catLabel:"Inhalation",description:"CO binds Hb 250× > O2. Normal pulse oximetry — occult poisoning. Multiple simultaneous victims classic.",symptoms:"Headache, N/V, dizziness, confusion, cherry-red skin (late). Cardiac ischaemia, neuro sequelae.",management:"100% O2 via NRB. HBO for: LOC, COHb >25% (>15% pregnant), cardiac/neuro symptoms. Remove from source.",keypoint:"Pulse ox FALSELY NORMAL. Must use CO-oximetry. Delayed neuro syndrome 15–30%.",antidote:"100% O2 NRB. HBO for severe cases.",mohfw:"CO Poisoning (National Poison Centre): 100% O2 standard. HBO at designated centres (PGIMER, AIIMS). Pregnancy: lower threshold for HBO.",goldfrank:"Goldfrank's Ch. 125: Pulse oximetry unreliable — must use CO-oximetry. 100% O2 halves CO half-life to ~60 min. HBO indications: COHb >25%, LOC, cardiac symptoms, pregnancy >15% COHb."},
+  {name:"Cyanide Poisoning",catLabel:"Inhalation",description:"Inhibits cytochrome oxidase → cellular hypoxia. Smoke inhalation, industrial, nitroprusside.",symptoms:"Severe lactic acidosis, CV collapse, altered consciousness. Smoke inhalation + lactate >8 = assume CN.",management:"Hydroxocobalamin (Cyanokit) 5g IV over 15min. Sodium thiosulfate 12.5g IV. Safe with CO co-exposure.",keypoint:"High lactate + smoke inhalation = CN co-poisoning. CO alone does not cause lactate >10.",antidote:"Hydroxocobalamin 5g IV. Sodium thiosulfate 12.5g IV.",mohfw:"Cyanide Poisoning Management: Hydroxocobalamin preferred (safe with CO). Turns urine red-brown — warn staff. Sodium thiosulfate adjunct. Industrial exposure: decontaminate first.",goldfrank:"Goldfrank's Ch. 126: Hydroxocobalamin preferred over dicobalt edetate due to safety profile. Alternative: sodium nitrite 10mL of 3% IV + thiosulfate (G6PD normal required). Lactate >10 with smoke inhalation is presumptive CN."},
+  {name:"Snakebite (Crotalid/Viper)",catLabel:"Envenomation",description:"Haemotoxic + cytotoxic venom. In India: Russell's viper, Saw-scaled viper most common.",symptoms:"Local pain/swelling/ecchymosis, coagulopathy (prolonged PT/APTT), systemic symptoms, ptosis (krait).",management:"Immobilise, remove jewellery, NSAIDs avoided. Polyvalent antivenom first-line. Monitor coags q6h.",keypoint:"20WST (20-minute whole blood clotting test) to detect coagulopathy. Repeat q6h.",antidote:"Polyvalent Snake Antivenom (PSAV): 10 vials IV, repeat 10 vials if no response at 6h.",mohfw:"MoHFW Snakebite Management Protocol 2016: PSAV Indian polyvalent (Bharat Serums). 20WST diagnostic. Neostigmine + atropine for neurotoxic envenomation. DO NOT: tourniquet, cut, suck.",goldfrank:"Goldfrank's Ch. 122: First-dose antivenom controls venom spread; repeat dosing guided by clinical coagulopathy. Neostigmine challenge appropriate for neurotoxic envenomation where antivenom unavailable."},
+  {name:"High-Altitude Illness",catLabel:"Altitude",description:"AMS → HACE → HAPE. Hypobaric hypoxia above ~2500m (8,000ft).",symptoms:"AMS: headache + 1 other. HACE: ataxia/AMS/confusion. HAPE: dyspnoea at rest, cough, crackles.",management:"DESCEND. Oxygen. Acetazolamide for mild AMS. Dexamethasone for HACE. Nifedipine for HAPE.",keypoint:"HAPE is the most deadly altitude illness. DESCEND is always definitive.",antidote:"Acetazolamide 125–250mg BID; Dex 8mg then 4mg q6h; Nifedipine 30mg ER.",goldfrank:"Goldfrank's Ch. 45: Descent is always definitive. Acetazolamide acts as carbonic anhydrase inhibitor — accelerates acclimatisation. Dexamethasone reduces HACE oedema. Nifedipine reduces pulmonary artery pressure in HAPE."}
 ];
 
 const ANTIDOTES=[
-  {drug:"Naloxone (Narcan)",indication:"Opioid toxicity — respiratory depression",dose:"0.4–2mg IV/IM/IN; repeat q2-3min; infusion at 2/3 reversal dose/hr for long-acting opioids",source:"cdc",sourceLabel:"CDC · WHO",extra:"Monitor ≥4–6h. Naloxone half-life 30–90min < most opioids."},
-  {drug:"Flumazenil",indication:"Benzodiazepine OD (use cautiously)",dose:"0.2mg IV q1min; max 1mg. AVOID in chronic BZD use, TCAs, seizure history",source:"cdc",sourceLabel:"CDC",extra:"Risk of refractory seizures in dependent patients."},
-  {drug:"Atropine",indication:"Organophosphate / cholinergic toxicity",dose:"2–4mg IV q5-10min until secretions dry; may require massive doses (100s mg)",source:"mohfw",sourceLabel:"MoHFW · WHO",extra:"Titrate to DRY secretions — NOT heart rate or pupils."},
+  {drug:"Naloxone (Narcan)",indication:"Opioid toxicity — respiratory depression",dose:"0.4–2mg IV/IM/IN; repeat q2-3min; infusion at 2/3 reversal dose/hr for long-acting opioids",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 38",extra:"Monitor ≥4–6h. Naloxone half-life 30–90min < most opioids."},
+  {drug:"Flumazenil",indication:"Benzodiazepine OD (use cautiously)",dose:"0.2mg IV q1min; max 1mg. AVOID in chronic BZD use, TCAs, seizure history",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 80",extra:"Risk of refractory seizures in dependent patients."},
+  {drug:"Atropine",indication:"Organophosphate / cholinergic toxicity",dose:"2–4mg IV q5-10min until secretions dry; may require massive doses (100s mg)",source:"mohfw",sourceLabel:"MoHFW · Goldfrank's Ch. 113",extra:"Titrate to DRY secretions — NOT heart rate or pupils."},
   {drug:"Pralidoxime (2-PAM)",indication:"Organophosphate (oxime reactivation)",dose:"1–2g IV over 15–30min; within 24–36h window",source:"mohfw",sourceLabel:"MoHFW",extra:"Most effective within 4h. Ineffective after ageing."},
-  {drug:"N-Acetylcysteine (NAC)",indication:"Acetaminophen OD — hepatotoxicity prevention",dose:"150mg/kg IV over 1h → 50mg/kg over 4h → 100mg/kg over 16h (Prescott)",source:"who",sourceLabel:"WHO · CDC",extra:"Use Rumack-Matthew nomogram at ≥4h post-ingestion."},
-  {drug:"Sodium Bicarbonate",indication:"TCA toxicity (QRS widening), salicylate, Na-channel blockade",dose:"1–2 mEq/kg IV bolus; target pH 7.45–7.55 for TCA; target urine pH >7.5 for salicylate",source:"cdc",sourceLabel:"CDC · ACMT",extra:"BOLUSES for TCA. INFUSION for salicylate."},
-  {drug:"Physostigmine",indication:"Pure anticholinergic toxicity (NOT TCAs)",dose:"1–2mg IV over 5min; CI: TCA co-ingestion, asthma, cardiac conduction disease",source:"cdc",sourceLabel:"CDC"},
-  {drug:"Fomepizole (4-MP)",indication:"Methanol / Ethylene glycol poisoning",dose:"15mg/kg IV loading, 10mg/kg q12h ×4 doses, then 15mg/kg q12h",source:"who",sourceLabel:"WHO · CDC",extra:"Ethanol IV (10% in D5W) if fomepizole unavailable."},
-  {drug:"Calcium Chloride / Gluconate",indication:"CCB OD, hyperkalemia, HF toxicity",dose:"CaCl 1g IV (10mL of 10%); CaGluconate 3g IV; repeat q10-20min",source:"cdc",sourceLabel:"CDC"},
-  {drug:"High-dose Insulin (HIE)",indication:"CCB / BB OD with haemodynamic instability",dose:"1 unit/kg IV bolus, then 0.5–2 units/kg/hr + dextrose (glucose 100–250)",source:"cdc",sourceLabel:"CDC · ACMT",extra:"Monitor glucose and K+."},
-  {drug:"Glucagon",indication:"Beta-blocker OD",dose:"3–10mg IV bolus (causes vomiting — have suction ready), then 3–5mg/hr infusion",source:"cdc",sourceLabel:"CDC"},
-  {drug:"Lipid Emulsion (ILE)",indication:"Lipophilic drug toxicity (LA, CCB, BBs, TCAs)",dose:"1.5mL/kg 20% intralipid IV over 1min; repeat ×2 if no response; max 3 doses",source:"cdc",sourceLabel:"CDC · ACMT"},
-  {drug:"Cyproheptadine",indication:"Serotonin syndrome",dose:"12mg PO/NG initially, then 2mg q2h prn; max 32mg/day",source:"who",sourceLabel:"WHO"},
-  {drug:"Dantrolene",indication:"NMS, malignant hyperthermia",dose:"2.5mg/kg IV q5min; max 10mg/kg. Reconstitute with sterile water.",source:"cdc",sourceLabel:"CDC"},
-  {drug:"Digoxin Immune Fab",indication:"Digoxin/cardiac glycoside toxicity",dose:"Vials = (level × wt kg)/100; empiric 10 vials acute, 5 vials chronic; AVOID Ca",source:"cdc",sourceLabel:"CDC · ACC",extra:"AIIMS Poison Centre: 011-26589391"},
-  {drug:"Methylene Blue",indication:"Methemoglobinaemia",dose:"1–2mg/kg IV over 5min; repeat once if needed; CI: G6PD deficiency",source:"who",sourceLabel:"WHO"},
-  {drug:"Hydroxocobalamin",indication:"Cyanide poisoning",dose:"5g IV over 15min; repeat ×3 if needed; SAFE with CO co-exposure",source:"cdc",sourceLabel:"CDC"},
+  {drug:"N-Acetylcysteine (NAC)",indication:"Acetaminophen OD — hepatotoxicity prevention",dose:"150mg/kg IV over 1h → 50mg/kg over 4h → 100mg/kg over 16h (Prescott)",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 32",extra:"Use Rumack-Matthew nomogram at ≥4h post-ingestion."},
+  {drug:"Sodium Bicarbonate",indication:"TCA toxicity (QRS widening), salicylate, Na-channel blockade",dose:"1–2 mEq/kg IV bolus; target pH 7.45–7.55 for TCA; target urine pH >7.5 for salicylate",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 73",extra:"BOLUSES for TCA. INFUSION for salicylate."},
+  {drug:"Physostigmine",indication:"Pure anticholinergic toxicity (NOT TCAs)",dose:"1–2mg IV over 5min; CI: TCA co-ingestion, asthma, cardiac conduction disease",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 48"},
+  {drug:"Fomepizole (4-MP)",indication:"Methanol / Ethylene glycol poisoning",dose:"15mg/kg IV loading, 10mg/kg q12h ×4 doses, then 15mg/kg q12h",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 109",extra:"Ethanol IV (10% in D5W) if fomepizole unavailable."},
+  {drug:"Calcium Chloride / Gluconate",indication:"CCB OD, hyperkalemia, HF toxicity",dose:"CaCl 1g IV (10mL of 10%); CaGluconate 3g IV; repeat q10-20min",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 63"},
+  {drug:"High-dose Insulin (HIE)",indication:"CCB / BB OD with haemodynamic instability",dose:"1 unit/kg IV bolus, then 0.5–2 units/kg/hr + dextrose (glucose 100–250)",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 63",extra:"Monitor glucose and K+."},
+  {drug:"Glucagon",indication:"Beta-blocker OD",dose:"3–10mg IV bolus (causes vomiting — have suction ready), then 3–5mg/hr infusion",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 63"},
+  {drug:"Lipid Emulsion (ILE)",indication:"Lipophilic drug toxicity (LA, CCB, BBs, TCAs)",dose:"1.5mL/kg 20% intralipid IV over 1min; repeat ×2 if no response; max 3 doses",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 66"},
+  {drug:"Cyproheptadine",indication:"Serotonin syndrome",dose:"12mg PO/NG initially, then 2mg q2h prn; max 32mg/day",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 71"},
+  {drug:"Dantrolene",indication:"NMS, malignant hyperthermia",dose:"2.5mg/kg IV q5min; max 10mg/kg. Reconstitute with sterile water.",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 71"},
+  {drug:"Digoxin Immune Fab",indication:"Digoxin/cardiac glycoside toxicity",dose:"Vials = (level × wt kg)/100; empiric 10 vials acute, 5 vials chronic; AVOID Ca",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 65",extra:"AIIMS Poison Centre: 011-26589391"},
+  {drug:"Methylene Blue",indication:"Methemoglobinaemia",dose:"1–2mg/kg IV over 5min; repeat once if needed; CI: G6PD deficiency",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 127"},
+  {drug:"Hydroxocobalamin",indication:"Cyanide poisoning",dose:"5g IV over 15min; repeat ×3 if needed; SAFE with CO co-exposure",source:"goldfrank",sourceLabel:"Goldfrank's Ch. 126"},
   {drug:"Polyvalent Snake Antivenom",indication:"Viper / cobra envenomation (India)",dose:"10 vials IV in NS over 1h; repeat if 20WST positive at 6h; DILUTE appropriately",source:"mohfw",sourceLabel:"MoHFW 2016",extra:"Indian PSAV: Bharat Serums / Serum Institute. Monitor for anaphylaxis."}
 ];
 
 const CALCULATORS=[
-  {id:'naloxone',name:'Naloxone',ind:'Opioid reversal',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'rd',label:'Effective reversal dose (mg)',ph:'0.4',type:'number'}],calc(f){const wt=+f.wt||70,rd=+f.rd||0.4;return[{l:'Initial bolus',v:'0.4–2mg IV/IM/IN',n:'Start 0.4mg; titrate up to effect.'},{l:'Repeat interval',v:'Every 2–3 min'},{l:'Maintenance infusion',v:`${(rd*0.667).toFixed(2)}mg/hr`,n:`2/3 of effective reversal dose (${rd}mg)/hr.`},{l:'Duration of monitoring',v:'≥4–6h after last dose',n:'Longer for long-acting opioids (methadone).'}];},warn:'Naloxone half-life 30–90min < most opioids. Start infusion for long-acting agents.'},
-  {id:'nac',name:'NAC (Acetaminophen)',ind:'Acetaminophen OD',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'}],calc(f){const wt=+f.wt||70,d1=(150*wt),d2=(50*wt),d3=(100*wt);return[{l:'Bag 1 — Loading',v:`${d1}mg (150mg/kg)`,n:'In 200mL D5W over 1 hour.'},{l:'Bag 2',v:`${d2}mg (50mg/kg)`,n:'In 500mL D5W over 4 hours.'},{l:'Bag 3',v:`${d3}mg (100mg/kg)`,n:'In 1000mL D5W over 16 hours.'},{l:'Total NAC',v:`${(d1+d2+d3).toLocaleString()}mg`}];},warn:'Plot APAP level on Rumack-Matthew nomogram at ≥4h. Begin NAC immediately if >8h post-ingestion.'},
-  {id:'digfab',name:'Digoxin Fab',ind:'Digoxin toxicity',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'lv',label:'Serum level (ng/mL)',ph:'4.2',type:'number'}],calc(f){const wt=+f.wt||70,lv=+f.lv||0,vm=lv?Math.ceil((lv*wt)/100):null;return[{l:'Formula-based vials',v:vm?`${vm} vials (${vm*40}mg)`:'Enter level above',n:'Each vial = 40mg DigiFab.'},{l:'Empiric — acute OD',v:'10–20 vials'},{l:'Empiric — chronic OD',v:'3–6 vials'},{l:'Administration',v:'IV over 30 min',n:'Effect in 20–60 min.'}];},warn:'AVOID calcium in digoxin toxicity. Post-Fab serum levels unreliable.'},
-  {id:'atropine',name:'Atropine (OP)',ind:'Organophosphate poisoning',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'sev',label:'Severity',type:'select',opts:['Mild (DUMBELS only)','Moderate (bronchospasm)','Severe (bronchorrhoea + resp failure)']}],calc(f){const wt=+f.wt||70,sev=f.sev||'';const init=sev.includes('Mild')?'1–2':sev.includes('Severe')?'4–8':'2–4';return[{l:'Initial bolus',v:`${init}mg IV`,n:'Repeat every 5–10 min until secretions dry.'},{l:'Strategy',v:'Double dose q5min if no response'},{l:'Endpoint',v:'DRY secretions',n:'HR and pupils are NOT endpoints.'},{l:'Pralidoxime',v:`${(wt*0.02).toFixed(1)}g IV (20mg/kg)`,n:'Over 15–30 min. Within 24–36h.'}];},warn:'Atropine reverses MUSCARINIC only. Pralidoxime reverses NICOTINIC. Give BOTH.'},
-  {id:'hie',name:'High-Dose Insulin',ind:'CCB/BB toxicity',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'glc',label:'Current glucose (mmol/L)',ph:'6.5',type:'number'}],calc(f){const wt=+f.wt||70,glc=+f.glc||6.5;return[{l:'Insulin bolus',v:`${wt} units (1u/kg)`,n:'Regular insulin IV push.'},{l:'Insulin infusion',v:`${Math.round(wt*0.5)}–${wt*2} units/hr`},{l:'Dextrose bolus',v:glc<6?'50mL D50W IV':'Not required now',n:'Target glucose 5.5–13.9 mmol/L.'},{l:'K+ target',v:'>3.5 mmol/L',n:'Monitor closely.'}];},warn:'Onset 15–45 min. Maintain glucose >100mg/dL throughout.'},
-  {id:'bicarb',name:'Sodium Bicarbonate',ind:'TCA / Salicylate',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'ind',label:'Indication',type:'select',opts:['TCA (QRS widening)','Salicylate (urinary alkalinisation)','Both']}],calc(f){const wt=+f.wt||70,meq=Math.round(wt*1.5);return[{l:'Bolus dose',v:`${meq} mEq IV`,n:`${meq}mL 8.4% NaHCO3.`},{l:'TCA target',v:'Serum pH 7.45–7.55'},{l:'Salicylate target',v:'Urine pH >7.5',n:'Add 3 amps to 1L D5W at 1.5–2× maintenance.'},{l:'K+ target',v:'≥4.0 mmol/L',n:'Hypokalaemia prevents urinary alkalinisation.'}];},warn:'BOLUSES for TCA. INFUSION for salicylate. NEVER intubate salicylate without extreme caution.'},
-  {id:'methb',name:'Methylene Blue',ind:'Methemoglobinaemia',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'}],calc(f){const wt=+f.wt||70,mg=wt*2,ml=(mg/10).toFixed(1);return[{l:'Dose',v:`${mg}mg (2mg/kg)`,n:`${ml}mL of 10mg/mL over 5 min.`},{l:'Repeat',v:'Same dose after 30–60 min if needed'},{l:'Maximum',v:'7mg/kg total'}];},warn:'CONTRAINDICATED in G6PD deficiency — use ascorbic acid 1–2g IV instead.'},
-  {id:'snakebite',name:'Snake Antivenom',ind:'Snakebite (India)',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'sev',label:'Severity',type:'select',opts:['20WST positive (coagulopathy)','Neurotoxic (ptosis/ophthalmoplegia)','Haemotoxic (local necrosis)','Systemic (haemodynamic)']}],calc(f){const sev=f.sev||'';return[{l:'Initial antivenom',v:'10 vials PSAV IV in 100mL NS',n:'Over 1 hour. Premedicate: epinephrine 0.25mg SC.'},{l:'Repeat dosing',v:'10 vials if 20WST still positive at 6h'},{l:'Neurotoxic adjunct',v:'Neostigmine 0.01mg/kg IV + atropine 0.6mg IV',n:'For cobra/krait envenomation.'},{l:'Monitor for',v:'Anaphylaxis — have epinephrine drawn up'}];},warn:"MoHFW 2016 protocol. Polyvalent (Bharat Serums/SIIPL) covers Big Four: Russell's viper, Saw-scaled viper, Common krait, Indian cobra."}
+  {id:'naloxone',name:'Naloxone',ind:'Opioid reversal · Goldfrank\'s Ch. 38',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'rd',label:'Effective reversal dose (mg)',ph:'0.4',type:'number'}],calc(f){const wt=+f.wt||70,rd=+f.rd||0.4;return[{l:'Initial bolus',v:'0.4–2mg IV/IM/IN',n:'Start 0.4mg; titrate up to effect.'},{l:'Repeat interval',v:'Every 2–3 min'},{l:'Maintenance infusion',v:`${(rd*0.667).toFixed(2)}mg/hr`,n:`2/3 of effective reversal dose (${rd}mg)/hr.`},{l:'Duration of monitoring',v:'≥4–6h after last dose',n:'Longer for long-acting opioids (methadone).'}];},warn:'Naloxone half-life 30–90min < most opioids. Start infusion for long-acting agents.'},
+  {id:'nac',name:'NAC (Acetaminophen)',ind:'Acetaminophen OD · Goldfrank\'s Ch. 32',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'}],calc(f){const wt=+f.wt||70,d1=(150*wt),d2=(50*wt),d3=(100*wt);return[{l:'Bag 1 — Loading',v:`${d1}mg (150mg/kg)`,n:'In 200mL D5W over 1 hour.'},{l:'Bag 2',v:`${d2}mg (50mg/kg)`,n:'In 500mL D5W over 4 hours.'},{l:'Bag 3',v:`${d3}mg (100mg/kg)`,n:'In 1000mL D5W over 16 hours.'},{l:'Total NAC',v:`${(d1+d2+d3).toLocaleString()}mg`}];},warn:'Plot APAP level on Rumack-Matthew nomogram at ≥4h. Begin NAC immediately if >8h post-ingestion.'},
+  {id:'digfab',name:'Digoxin Fab',ind:'Digoxin toxicity · Goldfrank\'s Ch. 65',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'lv',label:'Serum level (ng/mL)',ph:'4.2',type:'number'}],calc(f){const wt=+f.wt||70,lv=+f.lv||0,vm=lv?Math.ceil((lv*wt)/100):null;return[{l:'Formula-based vials',v:vm?`${vm} vials (${vm*40}mg)`:'Enter level above',n:'Each vial = 40mg DigiFab.'},{l:'Empiric — acute OD',v:'10–20 vials'},{l:'Empiric — chronic OD',v:'3–6 vials'},{l:'Administration',v:'IV over 30 min',n:'Effect in 20–60 min.'}];},warn:'AVOID calcium in digoxin toxicity. Post-Fab serum levels unreliable.'},
+  {id:'atropine',name:'Atropine (OP)',ind:'Organophosphate poisoning · MoHFW / Goldfrank\'s Ch. 113',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'sev',label:'Severity',type:'select',opts:['Mild (DUMBELS only)','Moderate (bronchospasm)','Severe (bronchorrhoea + resp failure)']}],calc(f){const wt=+f.wt||70,sev=f.sev||'';const init=sev.includes('Mild')?'1–2':sev.includes('Severe')?'4–8':'2–4';return[{l:'Initial bolus',v:`${init}mg IV`,n:'Repeat every 5–10 min until secretions dry.'},{l:'Strategy',v:'Double dose q5min if no response'},{l:'Endpoint',v:'DRY secretions',n:'HR and pupils are NOT endpoints.'},{l:'Pralidoxime',v:`${(wt*0.02).toFixed(1)}g IV (20mg/kg)`,n:'Over 15–30 min. Within 24–36h.'}];},warn:'Atropine reverses MUSCARINIC only. Pralidoxime reverses NICOTINIC. Give BOTH.'},
+  {id:'hie',name:'High-Dose Insulin',ind:'CCB/BB toxicity · Goldfrank\'s Ch. 63',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'glc',label:'Current glucose (mmol/L)',ph:'6.5',type:'number'}],calc(f){const wt=+f.wt||70,glc=+f.glc||6.5;return[{l:'Insulin bolus',v:`${wt} units (1u/kg)`,n:'Regular insulin IV push.'},{l:'Insulin infusion',v:`${Math.round(wt*0.5)}–${wt*2} units/hr`},{l:'Dextrose bolus',v:glc<6?'50mL D50W IV':'Not required now',n:'Target glucose 5.5–13.9 mmol/L.'},{l:'K+ target',v:'>3.5 mmol/L',n:'Monitor closely.'}];},warn:'Onset 15–45 min. Maintain glucose >100mg/dL throughout.'},
+  {id:'bicarb',name:'Sodium Bicarbonate',ind:'TCA / Salicylate · Goldfrank\'s Ch. 73',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'ind',label:'Indication',type:'select',opts:['TCA (QRS widening)','Salicylate (urinary alkalinisation)','Both']}],calc(f){const wt=+f.wt||70,meq=Math.round(wt*1.5);return[{l:'Bolus dose',v:`${meq} mEq IV`,n:`${meq}mL 8.4% NaHCO3.`},{l:'TCA target',v:'Serum pH 7.45–7.55'},{l:'Salicylate target',v:'Urine pH >7.5',n:'Add 3 amps to 1L D5W at 1.5–2× maintenance.'},{l:'K+ target',v:'≥4.0 mmol/L',n:'Hypokalaemia prevents urinary alkalinisation.'}];},warn:'BOLUSES for TCA. INFUSION for salicylate. NEVER intubate salicylate without extreme caution.'},
+  {id:'methb',name:'Methylene Blue',ind:'Methemoglobinaemia · Goldfrank\'s Ch. 127',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'}],calc(f){const wt=+f.wt||70,mg=wt*2,ml=(mg/10).toFixed(1);return[{l:'Dose',v:`${mg}mg (2mg/kg)`,n:`${ml}mL of 10mg/mL over 5 min.`},{l:'Repeat',v:'Same dose after 30–60 min if needed'},{l:'Maximum',v:'7mg/kg total'}];},warn:'CONTRAINDICATED in G6PD deficiency — use ascorbic acid 1–2g IV instead.'},
+  {id:'snakebite',name:'Snake Antivenom',ind:'Snakebite (India) · MoHFW 2016',fields:[{id:'wt',label:'Weight (kg)',ph:'70',type:'number'},{id:'sev',label:'Severity',type:'select',opts:['20WST positive (coagulopathy)','Neurotoxic (ptosis/ophthalmoplegia)','Haemotoxic (local necrosis)','Systemic (haemodynamic)']}],calc(f){return[{l:'Initial antivenom',v:'10 vials PSAV IV in 100mL NS',n:'Over 1 hour. Premedicate: epinephrine 0.25mg SC.'},{l:'Repeat dosing',v:'10 vials if 20WST still positive at 6h'},{l:'Neurotoxic adjunct',v:'Neostigmine 0.01mg/kg IV + atropine 0.6mg IV',n:'For cobra/krait envenomation.'},{l:'Monitor for',v:'Anaphylaxis — have epinephrine drawn up'}];},warn:"MoHFW 2016 protocol. Polyvalent (Bharat Serums/SIIPL) covers Big Four: Russell's viper, Saw-scaled viper, Common krait, Indian cobra."}
 ];
 
 const SYM_OPTIONS=[
-  {id:"tachycardia",label:"Tachycardia",icon:"💗"},{id:"bradycardia",label:"Bradycardia",icon:"💔"},{id:"hypertension",label:"Hypertension",icon:"⬆️"},{id:"hypotension",label:"Hypotension",icon:"⬇️"},{id:"hyperthermia",label:"Hyperthermia",icon:"🌡️"},{id:"hypothermia",label:"Hypothermia",icon:"🧊"},{id:"mydriasis",label:"Mydriasis (dilated)",icon:"👀"},{id:"miosis",label:"Miosis (pinpoint)",icon:"👁️"},{id:"diaphoresis",label:"Diaphoresis",icon:"💧"},{id:"dryskin",label:"Dry Skin",icon:"🌵"},{id:"flushed",label:"Flushed",icon:"🔴"},{id:"agitation",label:"Agitation",icon:"⚡"},{id:"coma",label:"Coma / Sedation",icon:"😴"},{id:"delirium",label:"Delirium",icon:"😵"},{id:"alteredconsciousness",label:"Altered Consciousness",icon:"🧠"},{id:"seizures",label:"Seizures",icon:"⚡"},{id:"clonus",label:"Clonus",icon:"🔄"},{id:"hyperreflexia",label:"Hyperreflexia",icon:"🦵"},{id:"rigidity",label:"Rigidity",icon:"💪"},{id:"ataxia",label:"Ataxia",icon:"🪃"},{id:"bronchospasm",label:"Bronchospasm",icon:"🫁"},{id:"respiratorydepression",label:"Resp. Depression",icon:"😮‍💨"},{id:"hyperventilation",label:"Hyperventilation",icon:"💨"},{id:"vomiting",label:"Vomiting / N/V",icon:"🤢"},{id:"salivation",label:"Salivation / Secretions",icon:"💦"},{id:"lacrimation",label:"Lacrimation",icon:"😢"},{id:"urinaryretention",label:"Urinary Retention",icon:"🚫"},{id:"tinnitus",label:"Tinnitus",icon:"🔊"},{id:"visualchanges",label:"Visual Changes",icon:"👁️‍🗨️"},{id:"xanthopsia",label:"Yellow Vision",icon:"🟡"},{id:"wideqrs",label:"Wide QRS",icon:"📈"},{id:"avblock",label:"AV Block",icon:"🫀"},{id:"dysrhythmia",label:"Dysrhythmia",icon:"📊"},{id:"hagma",label:"HAGMA",icon:"🧪"},{id:"osmolgap",label:"Osmol Gap",icon:"🔬"},{id:"aki",label:"AKI",icon:"🫘"}
+  {id:"tachycardia",label:"Tachycardia",icon:"heart"},{id:"bradycardia",label:"Bradycardia",icon:"heart"},{id:"hypertension",label:"Hypertension",icon:"up"},{id:"hypotension",label:"Hypotension",icon:"up"},{id:"hyperthermia",label:"Hyperthermia",icon:"thermo"},{id:"hypothermia",label:"Hypothermia",icon:"thermo"},{id:"mydriasis",label:"Mydriasis (dilated)",icon:"eye"},{id:"miosis",label:"Miosis (pinpoint)",icon:"eye"},{id:"diaphoresis",label:"Diaphoresis",icon:"droplet"},{id:"dryskin",label:"Dry Skin",icon:"wind"},{id:"flushed",label:"Flushed",icon:"thermo"},{id:"agitation",label:"Agitation",icon:"bolt"},{id:"coma",label:"Coma / Sedation",icon:"brain"},{id:"delirium",label:"Delirium",icon:"brain"},{id:"alteredconsciousness",label:"Altered Consciousness",icon:"brain"},{id:"seizures",label:"Seizures",icon:"bolt"},{id:"clonus",label:"Clonus",icon:"pathway"},{id:"hyperreflexia",label:"Hyperreflexia",icon:"bolt"},{id:"rigidity",label:"Rigidity",icon:"bolt"},{id:"ataxia",label:"Ataxia",icon:"pathway"},{id:"bronchospasm",label:"Bronchospasm",icon:"wind"},{id:"respiratorydepression",label:"Resp. Depression",icon:"wind"},{id:"hyperventilation",label:"Hyperventilation",icon:"wind"},{id:"vomiting",label:"Vomiting / N/V",icon:"warning"},{id:"salivation",label:"Salivation / Secretions",icon:"droplet"},{id:"lacrimation",label:"Lacrimation",icon:"droplet"},{id:"urinaryretention",label:"Urinary Retention",icon:"warning"},{id:"tinnitus",label:"Tinnitus",icon:"warning"},{id:"visualchanges",label:"Visual Changes",icon:"eye"},{id:"xanthopsia",label:"Yellow Vision",icon:"eye"},{id:"wideqrs",label:"Wide QRS",icon:"heart"},{id:"avblock",label:"AV Block",icon:"heart"},{id:"dysrhythmia",label:"Dysrhythmia",icon:"heart"},{id:"hagma",label:"HAGMA",icon:"flask"},{id:"osmolgap",label:"Osmol Gap",icon:"flask"},{id:"aki",label:"AKI",icon:"flask"}
 ];
 
+function symIcon(id){return`<svg><use href="#ic-${id}"/></svg>`;}
+
 const CASES=[
-  {difficulty:'easy',vitals:[{val:"148",label:"HR",cls:"sv-high"},{val:"185/110",label:"BP",cls:"sv-high"},{val:"22",label:"RR",cls:"sv-normal"},{val:"38.8°",label:"Temp",cls:"sv-high"}],symptoms:"Patient agitated, diaphoretic, grinding teeth. Dilated pupils. Found at music festival.",answer:"Sympathomimetic",options:["Sympathomimetic","Anticholinergic","Serotonin Syndrome","Cholinergic"],explanation:"Sympathomimetic: agitation + DIAPHORESIS + mydriasis + tachycardia + HTN. Key diff from anticholinergic: DIAPHORESIS (sympatho = wet; anticholinergic = dry)."},
-  {difficulty:'easy',vitals:[{val:"52",label:"HR",cls:"sv-low"},{val:"88/60",label:"BP",cls:"sv-low"},{val:"10",label:"RR",cls:"sv-low"},{val:"36.1°",label:"Temp",cls:"sv-low"}],symptoms:"Found unconscious in alley. Pinpoint pupils. Slow, shallow breathing.",answer:"Opioid Toxidrome",options:["Opioid Toxidrome","Sedative-Hypnotic","Cholinergic","TCA Toxicity"],explanation:"Classic opioid triad: COMA + MIOSIS + RESPIRATORY DEPRESSION. Sedatives don't cause miosis."},
-  {difficulty:'easy',vitals:[{val:"110",label:"HR",cls:"sv-high"},{val:"140/90",label:"BP",cls:"sv-high"},{val:"20",label:"RR",cls:"sv-normal"},{val:"39.2°",label:"Temp",cls:"sv-high"}],symptoms:"Confused elderly woman. Hot, DRY, flushed skin. Dilated pupils. Unable to urinate. Took multiple diphenhydramine.",answer:"Anticholinergic",options:["Anticholinergic","Sympathomimetic","Serotonin Syndrome","NMS"],explanation:"Anticholinergic: HOT + DRY + FLUSHED + mydriasis + urinary retention. KEY diff from sympathomimetic: DRY skin."},
-  {difficulty:'easy',vitals:[{val:"50",label:"HR",cls:"sv-low"},{val:"82/55",label:"BP",cls:"sv-low"},{val:"16",label:"RR",cls:"sv-normal"},{val:"36.8°",label:"Temp",cls:"sv-normal"}],symptoms:"Empty Calan SR (verapamil) bottle. Blood glucose 14.5 mmol/L. First-degree AV block on ECG.",answer:"CCB Overdose",options:["CCB Overdose","Beta Blocker OD","Digoxin Toxicity","Clonidine OD"],explanation:"CCB: bradycardia + hypotension + HYPERGLYCEMIA + AV block. BBs cause HYPOglycemia. Treat: CaCl, high-dose insulin, lipid emulsion."},
-  {difficulty:'easy',vitals:[{val:"38",label:"HR",cls:"sv-low"},{val:"78/50",label:"BP",cls:"sv-low"},{val:"14",label:"RR",cls:"sv-normal"},{val:"37.0°",label:"Temp",cls:"sv-normal"}],symptoms:"On digoxin for AF. N/V for 2 days. Seeing yellow-green halos. K+ 6.1 mmol/L.",answer:"Digoxin Toxicity",options:["Digoxin Toxicity","CCB Overdose","Beta Blocker OD","Hyperkalaemia"],explanation:"Digoxin toxicity: xanthopsia + bradycardia/AV block + hyperkalaemia. Treat with DigiFab. AVOID calcium."},
-  {difficulty:'medium',vitals:[{val:"130",label:"HR",cls:"sv-high"},{val:"155/95",label:"BP",cls:"sv-high"},{val:"20",label:"RR",cls:"sv-normal"},{val:"40.1°",label:"Temp",cls:"sv-high"}],symptoms:"Fluoxetine + tramadol started yesterday. Tremor, ankle clonus, hyperreflexia, very anxious.",answer:"Serotonin Syndrome",options:["Serotonin Syndrome","NMS","Sympathomimetic","Anticholinergic"],explanation:"SSRI + tramadol → CLONUS + HYPERREFLEXIA + hyperthermia. Rapid onset. Key diff from NMS: clonus + hyperreflexia vs lead-pipe rigidity."},
-  {difficulty:'medium',vitals:[{val:"26",label:"HR",cls:"sv-low"},{val:"68/45",label:"BP",cls:"sv-low"},{val:"12",label:"RR",cls:"sv-normal"},{val:"36.5°",label:"Temp",cls:"sv-normal"}],symptoms:"Empty atenolol bottles. Blood glucose 2.4 mmol/L. Bradycardia unresponsive to atropine.",answer:"Beta Blocker OD",options:["Beta Blocker OD","CCB Overdose","Digoxin Toxicity","Vagal excess"],explanation:"BB: bradycardia + hypotension + HYPOGLYCEMIA + bronchospasm. Unlike CCB (hyperglycaemia). Treat: glucagon, high-dose insulin."},
-  {difficulty:'medium',vitals:[{val:"118",label:"HR",cls:"sv-high"},{val:"148/92",label:"BP",cls:"sv-high"},{val:"28",label:"RR",cls:"sv-high"},{val:"38.4°",label:"Temp",cls:"sv-high"}],symptoms:"Tinnitus for hours. Whole bottle of aspirin. ABG: pH 7.52, pCO2 28, HCO3 22.",answer:"Salicylate Toxicity",options:["Salicylate Toxicity","Sympathomimetic","Serotonin Syndrome","Thyroid Storm"],explanation:"Salicylates: tinnitus + PRIMARY respiratory alkalosis (early) → later HAGMA. Treat: NaHCO3 infusion, target urine pH >7.5."},
-  {difficulty:'medium',vitals:[{val:"95",label:"HR",cls:"sv-normal"},{val:"110/70",label:"BP",cls:"sv-normal"},{val:"18",label:"RR",cls:"sv-normal"},{val:"37.0°",label:"Temp",cls:"sv-normal"}],symptoms:"Drank home-made booze. Visual blurring. Anion gap 24, osmol gap 18. pH 7.22.",answer:"Methanol Poisoning",options:["Methanol Poisoning","Ethylene Glycol","Isopropanol","Ethanol"],explanation:"Methanol: HAGMA + elevated osmol gap + VISUAL SYMPTOMS (formic acid injures retina). Fomepizole + HD."},
-  {difficulty:'hard',vitals:[{val:"142",label:"HR",cls:"sv-high"},{val:"88/55",label:"BP",cls:"sv-low"},{val:"24",label:"RR",cls:"sv-high"},{val:"37.8°",label:"Temp",cls:"sv-high"}],symptoms:"ECG: QRS 130ms, R wave in aVR >3mm. Seizing on arrival. Dilated pupils, skin dry.",answer:"TCA Toxicity",options:["TCA Toxicity","Sympathomimetic","Hyperkalaemia","Na-channel blockade"],explanation:"TCA: anticholinergic features + QRS >100ms + R-wave aVR >3mm + seizures + hypotension. NaHCO3 boluses. NO physostigmine."},
-  {difficulty:'hard',vitals:[{val:"62",label:"HR",cls:"sv-low"},{val:"80/55",label:"BP",cls:"sv-low"},{val:"18",label:"RR",cls:"sv-normal"},{val:"36.6°",label:"Temp",cls:"sv-normal"}],symptoms:"Works at pest control. Excessive secretions, vomiting, pinpoint pupils, fasciculations.",answer:"Organophosphate Poisoning",options:["Organophosphate Poisoning","Opioid","Cholinergic (other)","Clonidine OD"],explanation:"OP poisoning: DUMBELS + bronchorrhoea + fasciculations. Massive atropine + pralidoxime within 24–36h."},
-  {difficulty:'hard',vitals:[{val:"99",label:"HR",cls:"sv-normal"},{val:"100/65",label:"BP",cls:"sv-normal"},{val:"16",label:"RR",cls:"sv-normal"},{val:"37.0°",label:"Temp",cls:"sv-normal"}],symptoms:"SpO2 99%. Multiple family members unwell. Generator in garage. Headache, weakness, confusion.",answer:"Carbon Monoxide Poisoning",options:["Carbon Monoxide Poisoning","Viral illness","Serotonin Syndrome","Sepsis"],explanation:"CO: NORMAL pulse oximetry despite serious toxicity. Multiple family + generator + enclosed space = CO until proven otherwise."},
-  {difficulty:'hard',vitals:[{val:"120",label:"HR",cls:"sv-high"},{val:"135/88",label:"BP",cls:"sv-high"},{val:"22",label:"RR",cls:"sv-normal"},{val:"40.6°",label:"Temp",cls:"sv-high"}],symptoms:"ICU patient on haloperidol ×5 days. Now rigid, drooling, unresponsive. CK 12,000 U/L.",answer:"Neuroleptic Malignant Syndrome",options:["NMS","Serotonin Syndrome","Malignant Hyperthermia","Heat Stroke"],explanation:"NMS: antipsychotic + LEAD-PIPE RIGIDITY + hyperthermia + markedly elevated CK + SLOW onset (days). Dantrolene + bromocriptine."}
+  {difficulty:'easy',vitals:[{val:"148",label:"HR",cls:"sv-high"},{val:"185/110",label:"BP",cls:"sv-high"},{val:"22",label:"RR",cls:"sv-normal"},{val:"38.8°",label:"Temp",cls:"sv-high"}],symptoms:"Patient agitated, diaphoretic, grinding teeth. Dilated pupils. Found at music festival.",answer:"Sympathomimetic",options:["Sympathomimetic","Anticholinergic","Serotonin Syndrome","Cholinergic"],explanation:"Sympathomimetic: agitation + DIAPHORESIS + mydriasis + tachycardia + HTN. Key diff from anticholinergic: DIAPHORESIS (sympatho = wet; anticholinergic = dry). Goldfrank's Ch. 75."},
+  {difficulty:'easy',vitals:[{val:"52",label:"HR",cls:"sv-low"},{val:"88/60",label:"BP",cls:"sv-low"},{val:"10",label:"RR",cls:"sv-low"},{val:"36.1°",label:"Temp",cls:"sv-low"}],symptoms:"Found unconscious in alley. Pinpoint pupils. Slow, shallow breathing.",answer:"Opioid Toxidrome",options:["Opioid Toxidrome","Sedative-Hypnotic","Cholinergic","TCA Toxicity"],explanation:"Classic opioid triad: COMA + MIOSIS + RESPIRATORY DEPRESSION. Sedatives don't cause miosis. (Goldfrank's Ch. 38)"},
+  {difficulty:'easy',vitals:[{val:"110",label:"HR",cls:"sv-high"},{val:"140/90",label:"BP",cls:"sv-high"},{val:"20",label:"RR",cls:"sv-normal"},{val:"39.2°",label:"Temp",cls:"sv-high"}],symptoms:"Confused elderly woman. Hot, DRY, flushed skin. Dilated pupils. Unable to urinate. Took multiple diphenhydramine.",answer:"Anticholinergic",options:["Anticholinergic","Sympathomimetic","Serotonin Syndrome","NMS"],explanation:"Anticholinergic: HOT + DRY + FLUSHED + mydriasis + urinary retention. KEY diff from sympathomimetic: DRY skin. (Goldfrank's Ch. 48)"},
+  {difficulty:'easy',vitals:[{val:"50",label:"HR",cls:"sv-low"},{val:"82/55",label:"BP",cls:"sv-low"},{val:"16",label:"RR",cls:"sv-normal"},{val:"36.8°",label:"Temp",cls:"sv-normal"}],symptoms:"Empty Calan SR (verapamil) bottle. Blood glucose 14.5 mmol/L. First-degree AV block on ECG.",answer:"CCB Overdose",options:["CCB Overdose","Beta Blocker OD","Digoxin Toxicity","Clonidine OD"],explanation:"CCB: bradycardia + hypotension + HYPERGLYCEMIA + AV block. BBs cause HYPOglycemia. Treat: CaCl, high-dose insulin, lipid emulsion. (Goldfrank's Ch. 63)"},
+  {difficulty:'easy',vitals:[{val:"38",label:"HR",cls:"sv-low"},{val:"78/50",label:"BP",cls:"sv-low"},{val:"14",label:"RR",cls:"sv-normal"},{val:"37.0°",label:"Temp",cls:"sv-normal"}],symptoms:"On digoxin for AF. N/V for 2 days. Seeing yellow-green halos. K+ 6.1 mmol/L.",answer:"Digoxin Toxicity",options:["Digoxin Toxicity","CCB Overdose","Beta Blocker OD","Hyperkalaemia"],explanation:"Digoxin toxicity: xanthopsia + bradycardia/AV block + hyperkalaemia. Treat with DigiFab. AVOID calcium. (Goldfrank's Ch. 65)"},
+  {difficulty:'medium',vitals:[{val:"130",label:"HR",cls:"sv-high"},{val:"155/95",label:"BP",cls:"sv-high"},{val:"20",label:"RR",cls:"sv-normal"},{val:"40.1°",label:"Temp",cls:"sv-high"}],symptoms:"Fluoxetine + tramadol started yesterday. Tremor, ankle clonus, hyperreflexia, very anxious.",answer:"Serotonin Syndrome",options:["Serotonin Syndrome","NMS","Sympathomimetic","Anticholinergic"],explanation:"SSRI + tramadol → CLONUS + HYPERREFLEXIA + hyperthermia. Rapid onset. Key diff from NMS: clonus + hyperreflexia vs lead-pipe rigidity. (Goldfrank's Ch. 71)"},
+  {difficulty:'medium',vitals:[{val:"26",label:"HR",cls:"sv-low"},{val:"68/45",label:"BP",cls:"sv-low"},{val:"12",label:"RR",cls:"sv-normal"},{val:"36.5°",label:"Temp",cls:"sv-normal"}],symptoms:"Empty atenolol bottles. Blood glucose 2.4 mmol/L. Bradycardia unresponsive to atropine.",answer:"Beta Blocker OD",options:["Beta Blocker OD","CCB Overdose","Digoxin Toxicity","Vagal excess"],explanation:"BB: bradycardia + hypotension + HYPOGLYCEMIA + bronchospasm. Unlike CCB (hyperglycaemia). Treat: glucagon, high-dose insulin. (Goldfrank's Ch. 63)"},
+  {difficulty:'medium',vitals:[{val:"118",label:"HR",cls:"sv-high"},{val:"148/92",label:"BP",cls:"sv-high"},{val:"28",label:"RR",cls:"sv-high"},{val:"38.4°",label:"Temp",cls:"sv-high"}],symptoms:"Tinnitus for hours. Whole bottle of aspirin. ABG: pH 7.52, pCO2 28, HCO3 22.",answer:"Salicylate Toxicity",options:["Salicylate Toxicity","Sympathomimetic","Serotonin Syndrome","Thyroid Storm"],explanation:"Salicylates: tinnitus + PRIMARY respiratory alkalosis (early) → later HAGMA. Treat: NaHCO3 infusion, target urine pH >7.5. (Goldfrank's Ch. 39)"},
+  {difficulty:'medium',vitals:[{val:"95",label:"HR",cls:"sv-normal"},{val:"110/70",label:"BP",cls:"sv-normal"},{val:"18",label:"RR",cls:"sv-normal"},{val:"37.0°",label:"Temp",cls:"sv-normal"}],symptoms:"Drank home-made booze. Visual blurring. Anion gap 24, osmol gap 18. pH 7.22.",answer:"Methanol Poisoning",options:["Methanol Poisoning","Ethylene Glycol","Isopropanol","Ethanol"],explanation:"Methanol: HAGMA + elevated osmol gap + VISUAL SYMPTOMS (formic acid injures retina). Fomepizole + HD. (Goldfrank's Ch. 109)"},
+  {difficulty:'hard',vitals:[{val:"142",label:"HR",cls:"sv-high"},{val:"88/55",label:"BP",cls:"sv-low"},{val:"24",label:"RR",cls:"sv-high"},{val:"37.8°",label:"Temp",cls:"sv-high"}],symptoms:"ECG: QRS 130ms, R wave in aVR >3mm. Seizing on arrival. Dilated pupils, skin dry.",answer:"TCA Toxicity",options:["TCA Toxicity","Sympathomimetic","Hyperkalaemia","Na-channel blockade"],explanation:"TCA: anticholinergic features + QRS >100ms + R-wave aVR >3mm + seizures + hypotension. NaHCO3 boluses. NO physostigmine. (Goldfrank's Ch. 73)"},
+  {difficulty:'hard',vitals:[{val:"62",label:"HR",cls:"sv-low"},{val:"80/55",label:"BP",cls:"sv-low"},{val:"18",label:"RR",cls:"sv-normal"},{val:"36.6°",label:"Temp",cls:"sv-normal"}],symptoms:"Works at pest control. Excessive secretions, vomiting, pinpoint pupils, fasciculations.",answer:"Organophosphate Poisoning",options:["Organophosphate Poisoning","Opioid","Cholinergic (other)","Clonidine OD"],explanation:"OP poisoning: DUMBELS + bronchorrhoea + fasciculations. Massive atropine + pralidoxime within 24–36h. (Goldfrank's Ch. 113)"},
+  {difficulty:'hard',vitals:[{val:"99",label:"HR",cls:"sv-normal"},{val:"100/65",label:"BP",cls:"sv-normal"},{val:"16",label:"RR",cls:"sv-normal"},{val:"37.0°",label:"Temp",cls:"sv-normal"}],symptoms:"SpO2 99%. Multiple family members unwell. Generator in garage. Headache, weakness, confusion.",answer:"Carbon Monoxide Poisoning",options:["Carbon Monoxide Poisoning","Viral illness","Serotonin Syndrome","Sepsis"],explanation:"CO: NORMAL pulse oximetry despite serious toxicity. Multiple family + generator + enclosed space = CO until proven otherwise. (Goldfrank's Ch. 125)"},
+  {difficulty:'hard',vitals:[{val:"120",label:"HR",cls:"sv-high"},{val:"135/88",label:"BP",cls:"sv-high"},{val:"22",label:"RR",cls:"sv-normal"},{val:"40.6°",label:"Temp",cls:"sv-high"}],symptoms:"ICU patient on haloperidol ×5 days. Now rigid, drooling, unresponsive. CK 12,000 U/L.",answer:"Neuroleptic Malignant Syndrome",options:["NMS","Serotonin Syndrome","Malignant Hyperthermia","Heat Stroke"],explanation:"NMS: antipsychotic + LEAD-PIPE RIGIDITY + hyperthermia + markedly elevated CK + SLOW onset (days). Dantrolene + bromocriptine. (Goldfrank's Ch. 71)"}
 ];
 
 const QUIZ_SOURCE=[
-  {q:"A 24-year-old from a rave — agitation, diaphoresis, HR 148, BP 180/100, dilated pupils, hyperthermia. Best initial treatment?",opts:["Haloperidol 5mg IM","Lorazepam 2mg IV","Metoprolol 5mg IV","Physostigmine 1mg IV"],ans:1,exp:"Sympathomimetic toxidrome. BZDs are first-line. Beta-blockers alone are contraindicated (unopposed α effect). (MoHFW: BZD titration per AIIMS protocol)"},
-  {q:"Hallmark difference between Serotonin Syndrome and NMS:",opts:["SS has higher temps","Clonus/hyperreflexia (SS) vs lead-pipe rigidity (NMS)","Diaphoresis is only in NMS","NMS has faster onset"],ans:1,exp:"SS: clonus, hyperreflexia, rapid onset (minutes–hours). NMS: lead-pipe rigidity, bradyreflexia, slow onset (days–weeks). High CK in NMS."},
-  {q:"Naloxone 0.4mg given → patient wakes, then re-sedated at 30 minutes. Best next step?",opts:["Another 0.4mg bolus only","Start naloxone infusion at 2/3 of reversal dose per hour","Intubate immediately","Give flumazenil 0.2mg IV"],ans:1,exp:"Naloxone half-life 30–90min < most opioids. Start infusion at 2/3 of effective reversal dose per hour. (CDC: community naloxone distribution endorsed)"},
-  {q:"Bradycardia, hypotension, hyperglycaemia, 1st-degree AV block after ingestion. Most likely toxin?",opts:["Beta-blocker","Calcium channel blocker","Digoxin","Clonidine"],ans:1,exp:"Hyperglycaemia is the KEY differentiator: CCBs block pancreatic insulin release → hyperglycaemia. BBs cause HYPOglycaemia."},
-  {q:"SLUDGE / DUMBELS mnemonic describes which toxidrome?",opts:["Anticholinergic","Cholinergic (Organophosphate)","Sympathomimetic","Serotonin Syndrome"],ans:1,exp:"SLUDGE = Salivation, Lacrimation, Urination, Defecation, GI, Emesis. Cholinergic/organophosphate toxidrome. (MoHFW Poison Management)"},
-  {q:"TCA OD with QRS >120ms. First-line treatment?",opts:["Lidocaine 1.5mg/kg IV","Sodium bicarbonate 1–2 mEq/kg IV","Magnesium sulphate 2g IV","Activated charcoal via NG"],ans:1,exp:"NaHCO3 alkalinises serum (increases TCA protein binding) and provides Na load. Physostigmine CONTRAINDICATED in TCA. (CDC/ACMT: serial ECGs until QRS narrows)"},
-  {q:"Hiker collapses at high altitude — ataxia, confusion, severe headache. Most important intervention?",opts:["Acetazolamide 250mg PO","Dexamethasone 8mg IV","Descent to lower altitude","Supplemental O2 via nasal cannula"],ans:2,exp:"HACE — descent is ALWAYS definitive. O2 and dexamethasone are adjuncts only. Acetazolamide is for prophylaxis/mild AMS only."},
-  {q:"Multiple family members have headache, confusion, normal SpO2 after indoor generator use. First action?",opts:["Order ABG with pH only","100% O2 via NRB + order CO-oximetry","Discharge — O2 sat normal","Give hydroxocobalamin empirically"],ans:1,exp:"CO poisoning — pulse oximetry FALSELY NORMAL. Multiple victims + generator + enclosed space = CO. 100% O2 halves CO half-life. (MoHFW/CDC)"},
-  {q:"Which finding best differentiates ethylene glycol from methanol toxicity?",opts:["High anion gap metabolic acidosis","Calcium oxalate crystals / AKI (EG) vs visual loss (MeOH)","Osmol gap elevation","High serum osmolality"],ans:1,exp:"Both cause HAGMA + osmol gap. Methanol = retinal toxicity (formate) → blindness. Ethylene glycol = oxalate crystals → AKI. (WHO/MoHFW)"},
-  {q:"Atropine for organophosphate poisoning should be titrated until:",opts:["HR normalises to 60–100","Pupils are dilated","Bronchial secretions are dry","RBC cholinesterase normalises"],ans:2,exp:"Titrate atropine to DRYING OF SECRETIONS, not HR or pupils. Some patients need hundreds of milligrams. (MoHFW 2019: do NOT stop atropine early)"},
+  {q:"A 24-year-old from a rave — agitation, diaphoresis, HR 148, BP 180/100, dilated pupils, hyperthermia. Best initial treatment?",opts:["Haloperidol 5mg IM","Lorazepam 2mg IV","Metoprolol 5mg IV","Physostigmine 1mg IV"],ans:1,exp:"Sympathomimetic toxidrome. BZDs are first-line. Beta-blockers alone are contraindicated (unopposed α effect). Haloperidol lowers the seizure threshold. (Goldfrank's Ch. 75)"},
+  {q:"Hallmark difference between Serotonin Syndrome and NMS:",opts:["SS has higher temps","Clonus/hyperreflexia (SS) vs lead-pipe rigidity (NMS)","Diaphoresis is only in NMS","NMS has faster onset"],ans:1,exp:"SS: clonus, hyperreflexia, rapid onset (minutes–hours). NMS: lead-pipe rigidity, bradyreflexia, slow onset (days–weeks). High CK in NMS. (Goldfrank's Ch. 71)"},
+  {q:"Naloxone 0.4mg given → patient wakes, then re-sedated at 30 minutes. Best next step?",opts:["Another 0.4mg bolus only","Start naloxone infusion at 2/3 of reversal dose per hour","Intubate immediately","Give flumazenil 0.2mg IV"],ans:1,exp:"Naloxone half-life 30–90min < most opioids. Start infusion at 2/3 of effective reversal dose per hour. (Goldfrank's Ch. 38)"},
+  {q:"Bradycardia, hypotension, hyperglycaemia, 1st-degree AV block after ingestion. Most likely toxin?",opts:["Beta-blocker","Calcium channel blocker","Digoxin","Clonidine"],ans:1,exp:"Hyperglycaemia is the KEY differentiator: CCBs block pancreatic insulin release → hyperglycaemia. BBs cause HYPOglycaemia. (Goldfrank's Ch. 63)"},
+  {q:"SLUDGE / DUMBELS mnemonic describes which toxidrome?",opts:["Anticholinergic","Cholinergic (Organophosphate)","Sympathomimetic","Serotonin Syndrome"],ans:1,exp:"SLUDGE = Salivation, Lacrimation, Urination, Defecation, GI, Emesis. Cholinergic/organophosphate toxidrome. (Goldfrank's Ch. 113)"},
+  {q:"TCA OD with QRS >120ms. First-line treatment?",opts:["Lidocaine 1.5mg/kg IV","Sodium bicarbonate 1–2 mEq/kg IV","Magnesium sulphate 2g IV","Activated charcoal via NG"],ans:1,exp:"NaHCO3 alkalinises serum (increases TCA protein binding) and provides Na load — given as boluses. Physostigmine CONTRAINDICATED in TCA. (Goldfrank's Ch. 73)"},
+  {q:"Hiker collapses at high altitude — ataxia, confusion, severe headache. Most important intervention?",opts:["Acetazolamide 250mg PO","Dexamethasone 8mg IV","Descent to lower altitude","Supplemental O2 via nasal cannula"],ans:2,exp:"HACE — descent is ALWAYS definitive. O2 and dexamethasone are adjuncts only. Acetazolamide is for prophylaxis/mild AMS only. (Goldfrank's Ch. 45)"},
+  {q:"Multiple family members have headache, confusion, normal SpO2 after indoor generator use. First action?",opts:["Order ABG with pH only","100% O2 via NRB + order CO-oximetry","Discharge — O2 sat normal","Give hydroxocobalamin empirically"],ans:1,exp:"CO poisoning — pulse oximetry FALSELY NORMAL. Multiple victims + generator + enclosed space = CO. 100% O2 halves CO half-life. (Goldfrank's Ch. 125)"},
+  {q:"Which finding best differentiates ethylene glycol from methanol toxicity?",opts:["High anion gap metabolic acidosis","Calcium oxalate crystals / AKI (EG) vs visual loss (MeOH)","Osmol gap elevation","High serum osmolality"],ans:1,exp:"Both cause HAGMA + osmol gap. Methanol = retinal toxicity (formate) → blindness. Ethylene glycol = oxalate crystals → AKI. (Goldfrank's Ch. 109–111)"},
+  {q:"Atropine for organophosphate poisoning should be titrated until:",opts:["HR normalises to 60–100","Pupils are dilated","Bronchial secretions are dry","RBC cholinesterase normalises"],ans:2,exp:"Titrate atropine to DRYING OF SECRETIONS, not HR or pupils. Some patients need hundreds of milligrams. (MoHFW 2019; Goldfrank's Ch. 113)"},
   {q:"Snakebite with positive 20WST (blood not clotting). India — first-line management:",opts:["Observation only","Polyvalent Snake Antivenom 10 vials IV","Fresh frozen plasma + platelets","Tranexamic acid"],ans:1,exp:"MoHFW 2016 protocol: PSAV 10 vials IV over 1h. Premedicate with epinephrine 0.25mg SC. Repeat if 20WST still positive at 6h. (Bharat Serums/SIIPL PSAV covers Big Four)"},
-  {q:"Smoke inhalation victim — lactate 12 mmol/L, COHb 18%, not improving on high-flow O2:",opts:["CO poisoning alone — increase FiO2","Suspect cyanide co-poisoning — give hydroxocobalamin","Sepsis — start antibiotics","ARDS — intubate"],ans:1,exp:"High lactate (>10) + smoke inhalation = CN co-poisoning. CO alone does not cause severe lactic acidosis. Hydroxocobalamin 5g IV safe with CO. (CDC CHEMM)"}
+  {q:"Smoke inhalation victim — lactate 12 mmol/L, not improving on high-flow O2:",opts:["CO poisoning alone — increase FiO2","Suspect cyanide co-poisoning — give hydroxocobalamin","Sepsis — start antibiotics","ARDS — intubate"],ans:1,exp:"High lactate (>10) + smoke inhalation = CN co-poisoning. CO alone does not cause severe lactic acidosis. Hydroxocobalamin 5g IV safe with CO. (Goldfrank's Ch. 126)"}
 ];
 
 // ── PATHWAY DATA ──
 const PW_TOX={
-  serotonin:{name:"Serotonin Syndrome",color:"#5c2a6b",agents:"SSRIs, SNRIs, MAOIs, tramadol, fentanyl, linezolid, ondansetron",vitals:{hr:"↑",bp:"↑",rr:"↑",temp:"↑↑"},antidote:"Cyproheptadine 12mg PO/NG → 2mg q2h (max 32mg/d). BZDs. Cooling. ICU if severe.",mnemonic:"Serotonin = CLONUS + hyperreflexia + RAPID onset.",key:"Clonus · Hyperreflexia · Rapid onset"},
-  nms:{name:"Neuroleptic Malignant Syndrome",color:"#0F6E56",agents:"Antipsychotics, dopaminergic withdrawal",vitals:{hr:"↑",bp:"↑↑",rr:"↑",temp:"↑↑↑"},antidote:"Bromocriptine 2.5–10mg TID + Dantrolene 2.5mg/kg IV. Cooling. ICU.",mnemonic:"NMS = RIGIDITY (lead-pipe) + SLOW onset. High CK.",key:"Lead-pipe rigidity · Slow onset · High CK"},
-  anticholinergic:{name:"Anticholinergic",color:"#854F0B",agents:"Antihistamines, TCAs, atropine, jimsonweed",vitals:{hr:"↑",bp:"↑",rr:"nl",temp:"↑"},antidote:"Physostigmine 1–2mg IV (pure anticholinergic only). BZDs. Cooling.",mnemonic:"Mad as a hatter · DRY as a bone · Red as a beet",key:"DRY skin · Urinary retention · Hallucinations"},
-  sympathomimetic:{name:"Sympathomimetic",color:"#C0392B",agents:"Cocaine, amphetamines, MDMA, bath salts",vitals:{hr:"↑",bp:"↑",rr:"↑",temp:"↑"},antidote:"BZDs (first-line). Phentolamine for refractory HTN. No β-blockers alone.",mnemonic:"Like anticholinergic but DIAPHORETIC. Everything UP + AGITATED.",key:"Diaphoresis (WET) · Agitation · HTN + Tachycardia"},
-  tca:{name:"TCA Toxicity",color:"#C0392B",agents:"Amitriptyline, nortriptyline, imipramine",vitals:{hr:"↑",bp:"↓",rr:"↑",temp:"↑"},antidote:"NaHCO3 1–2mEq/kg IV bolus. Target pH 7.45–7.55. NO physostigmine.",mnemonic:"QRS > 100ms = treat with NaHCO3.",key:"Wide QRS · R-wave aVR · Seizures + Hypotension"},
-  cholinergic:{name:"Cholinergic",color:"#0F6E56",agents:"Organophosphates, carbamates, nerve agents",vitals:{hr:"↓",bp:"↓",rr:"↑",temp:"nl"},antidote:"Atropine 2–4mg IV q5-10min to DRY secretions. Pralidoxime 1–2g IV.",mnemonic:"DUMBELS: Defecation, Urination, Miosis, Bradycardia, Emesis, Lacrimation, Salivation",key:"Miosis + WET · DUMBELS · Bronchorrhoea"},
-  opioid:{name:"Opioid",color:"#6b5c2a",agents:"Heroin, morphine, oxycodone, fentanyl",vitals:{hr:"↓",bp:"↓",rr:"↓↓",temp:"↓"},antidote:"Naloxone 0.4–2mg IV/IM/IN. Repeat q2-3min. Infusion for long-acting.",mnemonic:"3 Ms: Miosis · Moribund · Minimal respirations.",key:"Miosis + CNS depression + Resp. depression"},
-  sedative:{name:"Sedative-Hypnotic",color:"#5c6b8a",agents:"BZDs, barbiturates, GHB, ethanol",vitals:{hr:"↓",bp:"↓",rr:"↓",temp:"↓"},antidote:"Supportive. Flumazenil 0.2mg IV q1min (caution: seizures).",mnemonic:"Like opioids but NORMAL pupils. Ataxia + slurred speech.",key:"Normal pupils · Ataxia · No miosis"},
-  salicylate:{name:"Salicylate Toxicity",color:"#854F0B",agents:"Aspirin, oil of wintergreen",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"↑"},antidote:"NaHCO3 infusion — target urine pH >7.5. HD for severe.",mnemonic:"Tinnitus + Hyperventilation + Acid-base chaos = Aspirin.",key:"Tinnitus · HAGMA + Resp. Alkalosis · Hyperventilation"},
-  toxic_alcohol:{name:"Toxic Alcohol (MeOH/EG)",color:"#0F6E56",agents:"Methanol (wood alcohol), Ethylene glycol (antifreeze)",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"nl"},antidote:"Fomepizole 15mg/kg IV. HD for severe MeOH/EG.",mnemonic:"MeOH = Blindness. EG = AKI. Both: Fomepizole + HD.",key:"HAGMA + Osmol gap · Visual changes (MeOH) · AKI (EG)"}
+  serotonin:{name:"Serotonin Syndrome",color:"#5c2a6b",agents:"SSRIs, SNRIs, MAOIs, tramadol, fentanyl, linezolid, ondansetron",vitals:{hr:"↑",bp:"↑",rr:"↑",temp:"↑↑"},antidote:"Cyproheptadine 12mg PO/NG → 2mg q2h (max 32mg/d). BZDs. Cooling. ICU if severe.",mnemonic:"Serotonin = CLONUS + hyperreflexia + RAPID onset. (Goldfrank's Ch. 71)",key:"Clonus · Hyperreflexia · Rapid onset"},
+  nms:{name:"Neuroleptic Malignant Syndrome",color:"#0F6E56",agents:"Antipsychotics, dopaminergic withdrawal",vitals:{hr:"↑",bp:"↑↑",rr:"↑",temp:"↑↑↑"},antidote:"Bromocriptine 2.5–10mg TID + Dantrolene 2.5mg/kg IV. Cooling. ICU.",mnemonic:"NMS = RIGIDITY (lead-pipe) + SLOW onset. High CK. (Goldfrank's Ch. 71)",key:"Lead-pipe rigidity · Slow onset · High CK"},
+  anticholinergic:{name:"Anticholinergic",color:"#854F0B",agents:"Antihistamines, TCAs, atropine, jimsonweed",vitals:{hr:"↑",bp:"↑",rr:"nl",temp:"↑"},antidote:"Physostigmine 1–2mg IV (pure anticholinergic only). BZDs. Cooling.",mnemonic:"Mad as a hatter · DRY as a bone · Red as a beet (Goldfrank's Ch. 48)",key:"DRY skin · Urinary retention · Hallucinations"},
+  sympathomimetic:{name:"Sympathomimetic",color:"#C0392B",agents:"Cocaine, amphetamines, MDMA, bath salts",vitals:{hr:"↑",bp:"↑",rr:"↑",temp:"↑"},antidote:"BZDs (first-line). Phentolamine for refractory HTN. No β-blockers alone.",mnemonic:"Like anticholinergic but DIAPHORETIC. Everything UP + AGITATED. (Goldfrank's Ch. 75)",key:"Diaphoresis (WET) · Agitation · HTN + Tachycardia"},
+  tca:{name:"TCA Toxicity",color:"#C0392B",agents:"Amitriptyline, nortriptyline, imipramine",vitals:{hr:"↑",bp:"↓",rr:"↑",temp:"↑"},antidote:"NaHCO3 1–2mEq/kg IV bolus. Target pH 7.45–7.55. NO physostigmine.",mnemonic:"QRS > 100ms = treat with NaHCO3. (Goldfrank's Ch. 73)",key:"Wide QRS · R-wave aVR · Seizures + Hypotension"},
+  cholinergic:{name:"Cholinergic",color:"#0F6E56",agents:"Organophosphates, carbamates, nerve agents",vitals:{hr:"↓",bp:"↓",rr:"↑",temp:"nl"},antidote:"Atropine 2–4mg IV q5-10min to DRY secretions. Pralidoxime 1–2g IV.",mnemonic:"DUMBELS: Defecation, Urination, Miosis, Bradycardia, Emesis, Lacrimation, Salivation (Goldfrank's Ch. 113)",key:"Miosis + WET · DUMBELS · Bronchorrhoea"},
+  opioid:{name:"Opioid",color:"#6b5c2a",agents:"Heroin, morphine, oxycodone, fentanyl",vitals:{hr:"↓",bp:"↓",rr:"↓↓",temp:"↓"},antidote:"Naloxone 0.4–2mg IV/IM/IN. Repeat q2-3min. Infusion for long-acting.",mnemonic:"3 Ms: Miosis · Moribund · Minimal respirations. (Goldfrank's Ch. 38)",key:"Miosis + CNS depression + Resp. depression"},
+  sedative:{name:"Sedative-Hypnotic",color:"#5c6b8a",agents:"BZDs, barbiturates, GHB, ethanol",vitals:{hr:"↓",bp:"↓",rr:"↓",temp:"↓"},antidote:"Supportive. Flumazenil 0.2mg IV q1min (caution: seizures).",mnemonic:"Like opioids but NORMAL pupils. Ataxia + slurred speech. (Goldfrank's Ch. 80)",key:"Normal pupils · Ataxia · No miosis"},
+  salicylate:{name:"Salicylate Toxicity",color:"#854F0B",agents:"Aspirin, oil of wintergreen",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"↑"},antidote:"NaHCO3 infusion — target urine pH >7.5. HD for severe.",mnemonic:"Tinnitus + Hyperventilation + Acid-base chaos = Aspirin. (Goldfrank's Ch. 39)",key:"Tinnitus · HAGMA + Resp. Alkalosis · Hyperventilation"},
+  toxic_alcohol:{name:"Toxic Alcohol (MeOH/EG)",color:"#0F6E56",agents:"Methanol (wood alcohol), Ethylene glycol (antifreeze)",vitals:{hr:"↑",bp:"nl",rr:"↑↑",temp:"nl"},antidote:"Fomepizole 15mg/kg IV. HD for severe MeOH/EG.",mnemonic:"MeOH = Blindness. EG = AKI. Both: Fomepizole + HD. (Goldfrank's Ch. 109–111)",key:"HAGMA + Osmol gap · Visual changes (MeOH) · AKI (EG)"}
 };
 
 const PW_STEPS=[
-  {id:"pupils",label:"Step 1 — Pupils",icon:"👁️",q:"What are the pupils doing?",sub:"Pupil size is the primary branching point in toxidrome identification.",opts:[{em:"👀",lbl:"MYDRIASIS",sub:"Dilated, >5mm",val:"mydriasis"},{em:"👁️",lbl:"MIOSIS",sub:"Pinpoint",val:"miosis"},{em:"○",lbl:"NORMAL",sub:"Mid-position",val:"normal"}]},
-  {id:"skin_m",label:"Step 2 — Skin",icon:"🌵",q:"What is the skin like?",sub:"Wet vs dry is the key separator when pupils are dilated.",showIf:{pupils:"mydriasis"},opts:[{em:"🌵",lbl:"DRY / FLUSHED",sub:"Dry mucous membranes",val:"dry"},{em:"💧",lbl:"DIAPHORETIC",sub:"Wet, sweating",val:"wet"}]},
-  {id:"ecg_m",label:"Step 3 — ECG",icon:"📈",q:"What does the ECG show?",sub:"QRS width separates TCA from pure anticholinergic.",showIf:{pupils:"mydriasis",skin_m:"dry"},opts:[{em:"📈",lbl:"WIDE QRS",sub:">100ms or R-wave aVR",val:"wide"},{em:"➖",lbl:"NORMAL QRS",sub:"<100ms",val:"normal_qrs"}]},
-  {id:"tone_mw",label:"Step 3 — Muscle Tone",icon:"💪",q:"What is the muscle tone / reflexes?",sub:"Diaphoretic + dilated pupils — clonus/hyperreflexia separates SS.",showIf:{pupils:"mydriasis",skin_m:"wet"},opts:[{em:"⚡",lbl:"HYPERREFLEXIA / CLONUS",sub:"Hunter criteria met",val:"hyperreflexia"},{em:"➖",lbl:"NORMAL TONE",sub:"No clonus",val:"normal"}]},
-  {id:"skin_i",label:"Step 2 — Secretions",icon:"💦",q:"What is the skin / secretions like?",sub:"Pinpoint pupils — skin separates cholinergic from opioid/sedative.",showIf:{pupils:"miosis"},opts:[{em:"💧",lbl:"DIAPHORETIC / SECRETIONS",sub:"Wet, bronchorrhoea",val:"wet"},{em:"🌵",lbl:"DRY / NORMAL",sub:"No excess secretions",val:"dry"}]},
-  {id:"resp_id",label:"Step 3 — Breathing",icon:"🫁",q:"What is the respiratory pattern?",sub:"Opioids cause deep respiratory depression. Sedatives have more preserved but depressed breathing.",showIf:{pupils:"miosis",skin_i:"dry"},opts:[{em:"⬇️",lbl:"RESP. DEPRESSION",sub:"Slow, shallow",val:"dep"},{em:"➖",lbl:"RELATIVELY PRESERVED",sub:"Mildly reduced",val:"norm"}]},
-  {id:"anion_n",label:"Step 2 — Anion Gap",icon:"🧪",q:"Is there a metabolic gap?",sub:"Normal pupils — check for metabolic derangement.",showIf:{pupils:"normal"},opts:[{em:"⬆️",lbl:"ELEVATED AG / OSMOL GAP",sub:"HAGMA and/or osmol gap",val:"gap"},{em:"➖",lbl:"NORMAL",sub:"No significant gap",val:"no_gap"}]},
-  {id:"tinnitus",label:"Step 3 — Symptoms",icon:"🔊",q:"Tinnitus or hyperventilation present?",sub:"Both salicylates and toxic alcohols cause HAGMA — tinnitus distinguishes.",showIf:{pupils:"normal",anion_n:"gap"},opts:[{em:"🔊",lbl:"TINNITUS + HYPERVENTILATION",sub:"Aspirin-type features",val:"tinnitus"},{em:"👁️",lbl:"VISUAL CHANGES / INTOXICATED",sub:"Alcohol-type features",val:"visual"}]}
+  {id:"pupils",label:"Step 1 — Pupils",icon:"eye",q:"What are the pupils doing?",sub:"Pupil size is the primary branching point in toxidrome identification.",opts:[{icon:"eye",lbl:"MYDRIASIS",sub:"Dilated, >5mm",val:"mydriasis"},{icon:"eye",lbl:"MIOSIS",sub:"Pinpoint",val:"miosis"},{icon:"eye",lbl:"NORMAL",sub:"Mid-position",val:"normal"}]},
+  {id:"skin_m",label:"Step 2 — Skin",icon:"droplet",q:"What is the skin like?",sub:"Wet vs dry is the key separator when pupils are dilated.",showIf:{pupils:"mydriasis"},opts:[{icon:"wind",lbl:"DRY / FLUSHED",sub:"Dry mucous membranes",val:"dry"},{icon:"droplet",lbl:"DIAPHORETIC",sub:"Wet, sweating",val:"wet"}]},
+  {id:"ecg_m",label:"Step 3 — ECG",icon:"heart",q:"What does the ECG show?",sub:"QRS width separates TCA from pure anticholinergic.",showIf:{pupils:"mydriasis",skin_m:"dry"},opts:[{icon:"heart",lbl:"WIDE QRS",sub:">100ms or R-wave aVR",val:"wide"},{icon:"heart",lbl:"NORMAL QRS",sub:"<100ms",val:"normal_qrs"}]},
+  {id:"tone_mw",label:"Step 3 — Muscle Tone",icon:"bolt",q:"What is the muscle tone / reflexes?",sub:"Diaphoretic + dilated pupils — clonus/hyperreflexia separates SS.",showIf:{pupils:"mydriasis",skin_m:"wet"},opts:[{icon:"bolt",lbl:"HYPERREFLEXIA / CLONUS",sub:"Hunter criteria met",val:"hyperreflexia"},{icon:"bolt",lbl:"NORMAL TONE",sub:"No clonus",val:"normal"}]},
+  {id:"skin_i",label:"Step 2 — Secretions",icon:"droplet",q:"What is the skin / secretions like?",sub:"Pinpoint pupils — skin separates cholinergic from opioid/sedative.",showIf:{pupils:"miosis"},opts:[{icon:"droplet",lbl:"DIAPHORETIC / SECRETIONS",sub:"Wet, bronchorrhoea",val:"wet"},{icon:"wind",lbl:"DRY / NORMAL",sub:"No excess secretions",val:"dry"}]},
+  {id:"resp_id",label:"Step 3 — Breathing",icon:"wind",q:"What is the respiratory pattern?",sub:"Opioids cause deep respiratory depression. Sedatives have more preserved but depressed breathing.",showIf:{pupils:"miosis",skin_i:"dry"},opts:[{icon:"wind",lbl:"RESP. DEPRESSION",sub:"Slow, shallow",val:"dep"},{icon:"wind",lbl:"RELATIVELY PRESERVED",sub:"Mildly reduced",val:"norm"}]},
+  {id:"anion_n",label:"Step 2 — Anion Gap",icon:"flask",q:"Is there a metabolic gap?",sub:"Normal pupils — check for metabolic derangement.",showIf:{pupils:"normal"},opts:[{icon:"flask",lbl:"ELEVATED AG / OSMOL GAP",sub:"HAGMA and/or osmol gap",val:"gap"},{icon:"flask",lbl:"NORMAL",sub:"No significant gap",val:"no_gap"}]},
+  {id:"tinnitus",label:"Step 3 — Symptoms",icon:"warning",q:"Tinnitus or hyperventilation present?",sub:"Both salicylates and toxic alcohols cause HAGMA — tinnitus distinguishes.",showIf:{pupils:"normal",anion_n:"gap"},opts:[{icon:"warning",lbl:"TINNITUS + HYPERVENTILATION",sub:"Aspirin-type features",val:"tinnitus"},{icon:"eye",lbl:"VISUAL CHANGES / INTOXICATED",sub:"Alcohol-type features",val:"visual"}]}
 ];
 
 const PW_RES=[
@@ -997,15 +969,15 @@ function pwRender(){
   vis.forEach((step,idx)=>{
     const answered=pwC[step.id]!==undefined;const isNext=!answered&&!res;
     const div=document.createElement('div');div.className='pw-step';
-    if(answered){const chosen=step.opts.find(o=>o.val===pwC[step.id]);div.innerHTML=`<div class="pw-answered"><div class="pw-check">✓</div><div><strong>${step.label.split('—')[1]?.trim()}</strong>: ${chosen?.em} ${chosen?.lbl}</div></div>`;}
-    else{div.innerHTML=`<div class="pw-qcard ${isNext?'active':''}"><div class="pw-qlbl">${step.icon} ${step.label}</div><div class="pw-qtitle">${step.q}</div><div class="pw-qsub">${step.sub}</div><div class="pw-opts">${step.opts.map(o=>`<button class="pw-opt" onclick="pwChoose('${step.id}','${o.val}')"><span class="pw-opt-em">${o.em}</span><div><div class="pw-opt-lbl">${o.lbl}</div><div class="pw-opt-sub">${o.sub}</div></div></button>`).join('')}</div></div>`;}
+    if(answered){const chosen=step.opts.find(o=>o.val===pwC[step.id]);div.innerHTML=`<div class="pw-answered"><div class="pw-check">&#10003;</div><div><strong>${step.label.split('—')[1]?.trim()}</strong>: ${chosen?.lbl}</div></div>`;}
+    else{div.innerHTML=`<div class="pw-qcard ${isNext?'active':''}"><div class="pw-qlbl">${step.label}</div><div class="pw-qtitle">${step.q}</div><div class="pw-qsub">${step.sub}</div><div class="pw-opts">${step.opts.map(o=>`<button class="pw-opt" onclick="pwChoose('${step.id}','${o.val}')"><span class="pw-opt-em"><svg><use href="#ic-${o.icon}"/></svg></span><div><div class="pw-opt-lbl">${o.lbl}</div><div class="pw-opt-sub">${o.sub}</div></div></button>`).join('')}</div></div>`;}
     tree.appendChild(div);
     if(idx<vis.length-1||res){const c=document.createElement('div');c.className='pw-connector';tree.appendChild(c);}
     setTimeout(()=>div.classList.add('vis'),idx*60);
   });
   if(res){
     const tox=PW_TOX[res.r];const rDiv=document.createElement('div');rDiv.className='pw-step';
-    rDiv.innerHTML=`<div class="pw-result-node" style="border-color:${tox.color}"><div class="pw-res-lbl" style="color:${tox.color}">Identified Toxidrome</div><div class="pw-res-name" style="color:${tox.color}">${tox.name}</div><button class="pw-goto" style="color:${tox.color};border-color:${tox.color}" onclick="pwOpenDetail('${res.r}')">View Management →</button></div>`;
+    rDiv.innerHTML=`<div class="pw-result-node" style="border-color:${tox.color}"><div class="pw-res-lbl" style="color:${tox.color}">Identified Toxidrome</div><div class="pw-res-name" style="color:${tox.color}">${tox.name}</div><button class="pw-goto" style="color:${tox.color};border-color:${tox.color}" onclick="pwOpenDetail('${res.r}')">View Management &rarr;</button></div>`;
     tree.appendChild(rDiv);setTimeout(()=>rDiv.classList.add('vis'),vis.length*60);
     document.getElementById('pw-sb-title').textContent=tox.name;
     document.getElementById('pw-placeholder').style.display='none';
@@ -1017,7 +989,7 @@ function pwRender(){
     <div style="padding:13px 17px"><div class="mne-box">${tox.mnemonic}</div></div>`;
   }
 }
-function pwOpenDetail(key){const tName={serotonin:'Serotonin Syndrome',nms:'Neuroleptic',anticholinergic:'Anticholinergic',sympathomimetic:'Sympathomimetic',cholinergic:'Cholinergic',opioid:'Opioid',sedative:'Sedative',tca:'TCA',salicylate:'Salicylate',toxic_alcohol:'Toxic'}[key]||key;const t=TOXIDROMES.find(x=>x.name.toLowerCase().includes(tName.toLowerCase()));if(t)showDetailPanel(buildToxDetail(t));}
+function pwOpenDetail(key){const tName={serotonin:'Serotonin',nms:'Neuroleptic',anticholinergic:'Anticholinergic',sympathomimetic:'Sympathomimetic',cholinergic:'Cholinergic',opioid:'Opioid',sedative:'Sedative',tca:'TCA',salicylate:'Salicylate',toxic_alcohol:'Toxic'}[key]||key;const t=TOXIDROMES.find(x=>x.name.toLowerCase().includes(tName.toLowerCase()));if(t)showDetailPanel(buildToxDetail(t));}
 
 // ── RENDER TOX LIST ──
 let toxFilter='all',toxSearch='';
@@ -1034,12 +1006,12 @@ function renderToxList(){
       <div class="tox-row-stripe" style="background:${col}"></div>
       <div class="tox-row-info">
         <div class="tox-row-name">${t.name}</div>
-        <div class="tox-row-preview">${t.agents.substring(0,60)}…</div>
+        <div class="tox-row-preview">${t.agents.substring(0,60)}&hellip;</div>
       </div>
       <div class="tox-row-vitals">
         <span class="vbadge ${vc(t.vitals.hr)}">HR${t.vitals.hr}</span>
         <span class="vbadge ${vc(t.vitals.bp)}">BP${t.vitals.bp}</span>
-        <span class="vbadge ${vc(t.vitals.temp)}">T°${t.vitals.temp}</span>
+        <span class="vbadge ${vc(t.vitals.temp)}">T&deg;${t.vitals.temp}</span>
       </div>
       <span class="tox-cat-tag" style="color:${col};border-color:${col}30;background:${col}10">${t.catLabel}</span>
     </div>`;
@@ -1055,7 +1027,7 @@ function renderEnvList(){
     const row=document.createElement('div');row.className='tox-row env-row';
     row.innerHTML=`<div class="tox-row-main">
       <div class="tox-row-stripe" style="background:var(--teal)"></div>
-      <div class="tox-row-info"><div class="tox-row-name">${e.name}</div><div class="tox-row-preview">${e.description.substring(0,65)}…</div></div>
+      <div class="tox-row-info"><div class="tox-row-name">${e.name}</div><div class="tox-row-preview">${e.description.substring(0,65)}&hellip;</div></div>
       <span class="tox-cat-tag" style="color:var(--teal);border-color:var(--teal-mid);background:var(--teal-dim)">${e.catLabel}</span>
     </div>`;
     row.onclick=()=>{document.querySelectorAll('.tox-row,.env-row').forEach(r=>r.classList.remove('selected'));row.classList.add('selected');showDetailPanel(buildEnvDetail(e));};
@@ -1093,10 +1065,10 @@ function loadCalc(idx){
         <label>${f.label}</label>
         ${f.type==='select'?`<select id="cf-${f.id}">${f.opts.map(o=>`<option>${o}</option>`).join('')}</select>`:`<input id="cf-${f.id}" type="${f.type}" placeholder="${f.ph||''}" ${f.id==='wt'&&savedWt?`value="${savedWt}"`:''}`}>
       </div>`).join('')}
-      <button class="btn-calc" onclick="runCalc()">Calculate →</button>
+      <button class="btn-calc" onclick="runCalc()">Calculate &rarr;</button>
     </div>
     <div class="calc-results" id="calc-results"></div>
-    ${calc.warn?`<div class="calc-warn">⚠️ ${calc.warn}</div>`:''}`;
+    ${calc.warn?`<div class="calc-warn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:4px"><use href="#ic-warning"/></svg>${calc.warn}</div>`:''}`;
 }
 function runCalc(){
   const calc=CALCULATORS[activeCalc];const fields={};
@@ -1119,12 +1091,14 @@ function renderCompare(){
   out.innerHTML=`<div class="cmp-grid">
     <div class="cmp-col"><div class="cmp-head"><div class="cmp-head-name" style="color:var(--teal)">${a.name}</div><span class="tox-cat-tag" style="color:var(--teal);border-color:var(--teal-mid);background:var(--teal-dim)">${a.catLabel}</span></div>${fields.map(f=>`<div class="cmp-row"><div class="cmp-row-lbl">${f.l}</div><div class="cmp-row-val ${isDiff(f.va,f.vb)?'cmp-diff':''}">${f.va}</div></div>`).join('')}</div>
     <div class="cmp-col"><div class="cmp-head"><div class="cmp-head-name" style="color:var(--red)">${b.name}</div><span class="tox-cat-tag" style="color:var(--red);border-color:var(--red-mid);background:var(--red-dim)">${b.catLabel}</span></div>${fields.map(f=>`<div class="cmp-row"><div class="cmp-row-lbl">${f.l}</div><div class="cmp-row-val ${isDiff(f.va,f.vb)?'cmp-diff':''}">${f.vb}</div></div>`).join('')}</div>
-  </div><div style="font-family:var(--mono);font-size:11px;color:var(--text3);padding:8px 15px;background:var(--surface2);border:1px solid var(--border2);border-top:none;border-radius:0 0 var(--r-lg) var(--r-lg)"><span style="color:var(--red)">■</span> Highlighted fields differ between the two toxidromes</div>`;
+  </div><div style="font-family:var(--mono);font-size:11px;color:var(--text3);padding:8px 15px;background:var(--surface2);border:1px solid var(--border2);border-top:none;border-radius:0 0 var(--r-lg) var(--r-lg)"><span style="color:var(--red)">&#9632;</span> Highlighted fields differ between the two toxidromes</div>`;
 }
 
 // ── SYMPTOM BUILDER ──
 let selectedSyms=new Set();
-function renderBuilderChips(){document.getElementById('sb-chips').innerHTML=SYM_OPTIONS.map(s=>`<div class="sb-chip${selectedSyms.has(s.id)?' sel':''}" onclick="toggleSym('${s.id}')"><span class="sb-icon">${s.icon}</span>${s.label}</div>`).join('');}
+function renderBuilderChips(){
+  document.getElementById('sb-chips').innerHTML=SYM_OPTIONS.map(s=>`<div class="sb-chip${selectedSyms.has(s.id)?' sel':''}" onclick="toggleSym('${s.id}')"><span class="sb-icon"><svg><use href="#ic-${s.icon}"/></svg></span>${s.label}</div>`).join('');
+}
 function toggleSym(id){if(selectedSyms.has(id))selectedSyms.delete(id);else selectedSyms.add(id);document.getElementById('sb-count').textContent=selectedSyms.size+' selected';renderBuilderChips();renderBuilderResults();}
 function clearBuilder(){selectedSyms.clear();document.getElementById('sb-count').textContent='0 selected';renderBuilderChips();renderBuilderResults();}
 function renderBuilderResults(){
@@ -1133,7 +1107,7 @@ function renderBuilderResults(){
   const scored=TOXIDROMES.map(t=>{const matched=t.symTags.filter(s=>selectedSyms.has(s));const pct=Math.round((matched.length/Math.max(selectedSyms.size,t.symTags.length))*100);return{t,matched,pct};}).filter(x=>x.matched.length>0).sort((a,b)=>b.pct-a.pct);
   if(!scored.length){out.innerHTML='<div class="sb-empty">No close matches.</div>';return;}
   const col=cat=>CAT_COLORS[cat]||'#C0392B';
-  out.innerHTML=scored.map(({t,matched,pct})=>`<div class="sb-result"><div class="sb-result-bar" style="background:${col(t.category)}"></div><div class="sb-result-body"><div class="sb-result-name">${t.name}</div><div class="sb-match-pct">${pct}% match · ${matched.length} symptoms</div><div class="sb-track"><div class="sb-fill" style="width:${pct}%;background:${col(t.category)}"></div></div><div class="sb-tags">${matched.map(m=>{const sym=SYM_OPTIONS.find(s=>s.id===m);return`<span class="sb-stag">${sym?sym.label:m}</span>`;}).join('')}</div><button class="sb-goto" onclick="openToxByName('${t.name}')">View full card →</button></div></div>`).join('');
+  out.innerHTML=scored.map(({t,matched,pct})=>`<div class="sb-result"><div class="sb-result-bar" style="background:${col(t.category)}"></div><div class="sb-result-body"><div class="sb-result-name">${t.name}</div><div class="sb-match-pct">${pct}% match &middot; ${matched.length} symptoms</div><div class="sb-track"><div class="sb-fill" style="width:${pct}%;background:${col(t.category)}"></div></div><div class="sb-tags">${matched.map(m=>{const sym=SYM_OPTIONS.find(s=>s.id===m);return`<span class="sb-stag">${sym?sym.label:m}</span>`;}).join('')}</div><button class="sb-goto" onclick="openToxByName('${t.name}')">View full card &rarr;</button></div></div>`).join('');
 }
 function openToxByName(name){showTab('toxidromes');setTimeout(()=>{const t=TOXIDROMES.find(x=>x.name===name);if(t)showDetailPanel(buildToxDetail(t));},100);}
 
@@ -1144,7 +1118,7 @@ function shuffleCases(){caseOrder=caseOrder.sort(()=>Math.random()-.5);caseIdx=0
 function toggleTimer(){timerOn=!timerOn;const btn=document.getElementById('timer-toggle');btn.classList.toggle('on',timerOn);btn.textContent=timerOn?'Timer ON':'Enable Timer';if(!timerOn){clearInterval(timerInterval);document.getElementById('timer-disp').textContent='30s';document.getElementById('timer-disp').classList.remove('warn');}else startTimer();}
 function startTimer(){clearInterval(timerInterval);timerSecs=30;updateTimer();timerInterval=setInterval(()=>{timerSecs--;updateTimer();if(timerSecs<=5)document.getElementById('timer-disp').classList.add('warn');if(timerSecs<=0){clearInterval(timerInterval);autoTimeout();}},1000);}
 function updateTimer(){document.getElementById('timer-disp').textContent=timerSecs+'s';}
-function autoTimeout(){document.querySelectorAll('.choice-btn').forEach(b=>b.disabled=true);mTotal++;document.getElementById('m-total').textContent=mTotal;const c=CASES[caseOrder[caseIdx%CASES.length]];const fb=document.getElementById('m-feedback');fb.className='fb-box show fb-bad';fb.innerHTML=`<strong style="color:var(--red)">⏱ Time's up!</strong> — Answer: <strong>${c.answer}</strong>. ${c.explanation}`;}
+function autoTimeout(){document.querySelectorAll('.choice-btn').forEach(b=>b.disabled=true);mTotal++;document.getElementById('m-total').textContent=mTotal;const c=CASES[caseOrder[caseIdx%CASES.length]];const fb=document.getElementById('m-feedback');fb.className='fb-box show fb-bad';fb.innerHTML=`<strong style="color:var(--red)">Time's up!</strong> — Answer: <strong>${c.answer}</strong>. ${c.explanation}`;}
 function renderMatcher(){
   const c=CASES[caseOrder[caseIdx%CASES.length]];
   document.getElementById('m-case').innerHTML=`${(caseIdx%CASES.length)+1}/${CASES.length} <span class="diff-pill diff-${c.difficulty}">${c.difficulty}</span>`;
@@ -1162,13 +1136,13 @@ function checkAnswer(chosen,cd,btn){
   else{btn.classList.add('wrong');document.querySelectorAll('.choice-btn').forEach(b=>{if(b.textContent===cd.answer)b.classList.add('correct');});}
   document.getElementById('m-score').textContent=mScore;document.getElementById('m-correct').textContent=mCorrect;document.getElementById('m-total').textContent=mTotal;document.getElementById('timer-disp').classList.remove('warn');
   const fb=document.getElementById('m-feedback');fb.className='fb-box show '+(ok?'fb-ok':'fb-bad');
-  fb.innerHTML=`<strong style="color:${ok?'var(--teal)':'var(--red)'}">${ok?'✓ Correct':'✗ Incorrect'}</strong> — ${cd.explanation}`;
+  fb.innerHTML=`<strong style="color:${ok?'var(--teal)':'var(--red)'}">${ok?'Correct':'Incorrect'}</strong> &mdash; ${cd.explanation}`;
 }
 function nextCase(){caseIdx++;renderMatcher();}
 
 // ── SPRINT ──
 let sprintCases=[],sprintIdx=0,sprintScore=0,sprintInterval=null,sprintSecs=30,sprintMode=5,sprintAnswered=false;
-function initSprint(){document.getElementById('sprint-content').innerHTML=`<div class="sprint-start"><h3>⚡ Toxidrome Sprint</h3><p>Rapid-fire cases. 30 seconds per case. One shot.</p><div class="sprint-modes"><button class="sprint-mode-btn sel" onclick="selMode(5,this)">5 cases</button><button class="sprint-mode-btn" onclick="selMode(10,this)">10 cases</button><button class="sprint-mode-btn" onclick="selMode(20,this)">Full 20</button></div><button class="btn btn-primary" onclick="startSprint()" style="padding:10px 28px;font-size:14px">Start Sprint →</button></div>`;}
+function initSprint(){document.getElementById('sprint-content').innerHTML=`<div class="sprint-start"><h3>Toxidrome Sprint</h3><p>Rapid-fire cases. 30 seconds per case. One shot.</p><div class="sprint-modes"><button class="sprint-mode-btn sel" onclick="selMode(5,this)">5 cases</button><button class="sprint-mode-btn" onclick="selMode(10,this)">10 cases</button><button class="sprint-mode-btn" onclick="selMode(20,this)">Full 20</button></div><button class="btn btn-primary" onclick="startSprint()" style="padding:10px 28px;font-size:14px">Start Sprint &rarr;</button></div>`;}
 function selMode(n,btn){sprintMode=n;document.querySelectorAll('.sprint-mode-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');}
 function startSprint(){sprintCases=[...CASES.keys()].sort(()=>Math.random()-.5).slice(0,sprintMode);sprintIdx=0;sprintScore=0;renderSprintCase();}
 function renderSprintCase(){
@@ -1176,14 +1150,14 @@ function renderSprintCase(){
   clearInterval(sprintInterval);sprintSecs=30;sprintAnswered=false;
   const c=CASES[sprintCases[sprintIdx]];
   document.getElementById('sprint-content').innerHTML=`<div class="sprint-wrap">
-    <div class="sprint-head"><div><div class="sprint-meta">Case ${sprintIdx+1} of ${sprintCases.length} · Score: ${sprintScore}</div></div><div class="sprint-timer" id="sp-timer">30</div></div>
+    <div class="sprint-head"><div><div class="sprint-meta">Case ${sprintIdx+1} of ${sprintCases.length} &middot; Score: ${sprintScore}</div></div><div class="sprint-timer" id="sp-timer">30</div></div>
     <div class="sprint-case"><div class="sprint-vitals">${c.vitals.map(v=>`<div class="sprint-vital-box"><div class="sv-val ${v.cls}">${v.val}</div><div class="sv-lbl">${v.label}</div></div>`).join('')}</div><div class="sprint-symptoms">${c.symptoms}</div><div class="sprint-choices">${c.options.map(o=>`<button class="sprint-choice" onclick="sprintAnswer('${o.replace(/'/g,"\\'")}','${c.answer.replace(/'/g,"\\'")}')">${o}</button>`).join('')}</div><div id="sp-fb" style="margin-top:9px;font-size:12px;line-height:1.6;color:var(--text3)"></div></div>
   </div>`;
   sprintInterval=setInterval(()=>{sprintSecs--;const t=document.getElementById('sp-timer');if(t){t.textContent=sprintSecs;t.classList.toggle('warn',sprintSecs<=5);}if(sprintSecs<=0){clearInterval(sprintInterval);sprintTimeout();}},1000);
 }
-function sprintAnswer(chosen,answer){if(sprintAnswered)return;sprintAnswered=true;clearInterval(sprintInterval);const ok=chosen===answer;if(ok)sprintScore++;document.querySelectorAll('.sprint-choice').forEach(b=>{b.disabled=true;if(b.textContent===answer)b.classList.add('correct');else if(b.textContent===chosen&&!ok)b.classList.add('wrong');});const c=CASES[sprintCases[sprintIdx]];const fb=document.getElementById('sp-fb');if(fb){fb.style.color=ok?'var(--teal)':'var(--red)';fb.innerHTML=`<strong>${ok?'✓ Correct':'✗ Incorrect'}</strong> — ${c.explanation}`;}setTimeout(()=>{sprintIdx++;renderSprintCase();},ok?1100:1900);}
-function sprintTimeout(){if(sprintAnswered)return;sprintAnswered=true;const c=CASES[sprintCases[sprintIdx]];document.querySelectorAll('.sprint-choice').forEach(b=>{b.disabled=true;if(b.textContent===c.answer)b.classList.add('correct');});const fb=document.getElementById('sp-fb');if(fb){fb.style.color='var(--red)';fb.innerHTML=`<strong>⏱ Time's up!</strong> — Answer: <strong>${c.answer}</strong>`;}setTimeout(()=>{sprintIdx++;renderSprintCase();},1800);}
-function endSprint(){const pct=Math.round((sprintScore/sprintMode)*100);const grade=pct>=90?'A':pct>=80?'B':pct>=70?'C':pct>=60?'D':'F';const msg=pct>=80?'Excellent — board ready! 🎯':pct>=60?'Good — review missed topics.':'More practice needed.';document.getElementById('sprint-content').innerHTML=`<div class="sprint-result"><div class="sprint-score-big">${sprintScore}/${sprintMode}</div><div style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-top:5px">Grade ${grade} · ${pct}%</div><div style="font-size:14px;color:var(--text2);margin-top:12px">${msg}</div><div style="display:flex;gap:8px;justify-content:center;margin-top:22px;flex-wrap:wrap"><button class="btn btn-primary" onclick="startSprint()">↺ Sprint Again</button><button class="btn btn-ghost" onclick="initSprint()">Change Mode</button></div></div>`;}
+function sprintAnswer(chosen,answer){if(sprintAnswered)return;sprintAnswered=true;clearInterval(sprintInterval);const ok=chosen===answer;if(ok)sprintScore++;document.querySelectorAll('.sprint-choice').forEach(b=>{b.disabled=true;if(b.textContent===answer)b.classList.add('correct');else if(b.textContent===chosen&&!ok)b.classList.add('wrong');});const c=CASES[sprintCases[sprintIdx]];const fb=document.getElementById('sp-fb');if(fb){fb.style.color=ok?'var(--teal)':'var(--red)';fb.innerHTML=`<strong>${ok?'Correct':'Incorrect'}</strong> &mdash; ${c.explanation}`;}setTimeout(()=>{sprintIdx++;renderSprintCase();},ok?1100:1900);}
+function sprintTimeout(){if(sprintAnswered)return;sprintAnswered=true;const c=CASES[sprintCases[sprintIdx]];document.querySelectorAll('.sprint-choice').forEach(b=>{b.disabled=true;if(b.textContent===c.answer)b.classList.add('correct');});const fb=document.getElementById('sp-fb');if(fb){fb.style.color='var(--red)';fb.innerHTML=`<strong>Time's up!</strong> &mdash; Answer: <strong>${c.answer}</strong>`;}setTimeout(()=>{sprintIdx++;renderSprintCase();},1800);}
+function endSprint(){const pct=Math.round((sprintScore/sprintMode)*100);const grade=pct>=90?'A':pct>=80?'B':pct>=70?'C':pct>=60?'D':'F';const msg=pct>=80?'Excellent — board ready!':pct>=60?'Good — review missed topics.':'More practice needed.';document.getElementById('sprint-content').innerHTML=`<div class="sprint-result"><div class="sprint-score-big">${sprintScore}/${sprintMode}</div><div style="font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-top:5px">Grade ${grade} &middot; ${pct}%</div><div style="font-size:14px;color:var(--text2);margin-top:12px">${msg}</div><div style="display:flex;gap:8px;justify-content:center;margin-top:22px;flex-wrap:wrap"><button class="btn btn-primary" onclick="startSprint()">&#8635; Sprint Again</button><button class="btn btn-ghost" onclick="initSprint()">Change Mode</button></div></div>`;}
 
 // ── QUIZ ──
 let quizOrder=[],quizIdx=0,quizScore=0,quizAnswered=false;
@@ -1195,13 +1169,13 @@ function renderQuiz(){
   const card=document.getElementById('quiz-card');
   if(quizIdx>=QUIZ_SOURCE.length){
     const pct=Math.round((quizScore/QUIZ_SOURCE.length)*100);
-    const msg=pct>=80?'Excellent — ready for Boards! 🎯':pct>=60?'Good work — review missed topics.':'Review toxidromes and try again.';
-    card.innerHTML=`<div class="quiz-result"><div class="quiz-score-big">${quizScore}/${QUIZ_SOURCE.length}</div><div class="quiz-grade">Final Score · ${pct}%</div><div class="quiz-msg">${msg}</div><div class="quiz-actions"><button class="btn btn-primary" onclick="restartQuiz()">↺ Restart</button><button class="btn btn-ghost" onclick="showTab('toxidromes')">Review Toxidromes</button></div></div>`;
+    const msg=pct>=80?'Excellent — ready for Boards!':pct>=60?'Good work — review missed topics.':'Review toxidromes and try again.';
+    card.innerHTML=`<div class="quiz-result"><div class="quiz-score-big">${quizScore}/${QUIZ_SOURCE.length}</div><div class="quiz-grade">Final Score &middot; ${pct}%</div><div class="quiz-msg">${msg}</div><div class="quiz-actions"><button class="btn btn-primary" onclick="restartQuiz()">&#8635; Restart</button><button class="btn btn-ghost" onclick="showTab('toxidromes')">Review Toxidromes</button></div></div>`;
     if(counter)counter.textContent='Complete';return;
   }
   if(counter)counter.textContent=`Question ${quizIdx+1} of ${QUIZ_SOURCE.length}`;if(live)live.textContent=`Score: ${quizScore}`;
   const q=QUIZ_SOURCE[quizOrder[quizIdx]];quizAnswered=false;
-  card.innerHTML=`<div class="quiz-q">${q.q}</div><div class="quiz-opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQuiz(${i})"><span class="opt-key">${String.fromCharCode(65+i)}</span>${o}</button>`).join('')}</div><div class="quiz-exp" id="quiz-exp"><strong>Explanation:</strong> ${q.exp}</div><div class="quiz-nav"><button class="btn btn-primary" id="quiz-next" onclick="nextQuestion()" style="display:none">Next →</button></div>`;
+  card.innerHTML=`<div class="quiz-q">${q.q}</div><div class="quiz-opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQuiz(${i})"><span class="opt-key">${String.fromCharCode(65+i)}</span>${o}</button>`).join('')}</div><div class="quiz-exp" id="quiz-exp"><strong>Explanation:</strong> ${q.exp}</div><div class="quiz-nav"><button class="btn btn-primary" id="quiz-next" onclick="nextQuestion()" style="display:none">Next &rarr;</button></div>`;
 }
 function answerQuiz(chosen){if(quizAnswered)return;quizAnswered=true;const q=QUIZ_SOURCE[quizOrder[quizIdx]];document.querySelectorAll('.quiz-opt').forEach(o=>o.disabled=true);document.querySelectorAll('.quiz-opt')[chosen].classList.add(chosen===q.ans?'correct':'wrong');if(chosen!==q.ans)document.querySelectorAll('.quiz-opt')[q.ans].classList.add('correct');if(chosen===q.ans)quizScore++;document.getElementById('quiz-exp').classList.add('show');const nb=document.getElementById('quiz-next');if(nb)nb.style.display='inline-block';const live=document.getElementById('quiz-score-live');if(live)live.textContent=`Score: ${quizScore}`;}
 function nextQuestion(){quizIdx++;renderQuiz();}
@@ -1211,7 +1185,8 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('panel-quiz'
 // ── INIT ──
 window.addEventListener('DOMContentLoaded',()=>{
   renderToxList();renderEnvList();renderAntidotes();renderCalcList();populateCmpSelects();renderBuilderChips();renderMatcher();shuffleQuiz();renderQuiz();pwReset();
-  const h=location.hash.slice(1);const panels=['overview','toxidromes','antidotes','calculator','compare','environmental','builder','matcher','sprint','pathway','quiz'];if(panels.includes(h))showTab(h);
+  const h=location.hash.slice(1);const panels=['toxidromes','antidotes','calculator','compare','environmental','builder','matcher','sprint','pathway','quiz'];
+  if(panels.includes(h))showTab(h);
 });
 window.addEventListener('scroll',()=>{document.getElementById('back-top').classList.toggle('show',window.scrollY>300);},{passive:true});
 </script>
