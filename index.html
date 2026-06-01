@@ -10,12 +10,9 @@
 <meta name="apple-mobile-web-app-title" content="Elements.EM">
 <meta name="description" content="Clinical Field Guide to Toxicology & Environmental Emergencies">
 <link rel="manifest" href="manifest.json" id="manifest-link">
-  <!-- Favicons -->
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512x512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180x180.png">
 <title>Elements.EM — Toxicology & Environmental Emergencies</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,15 +62,11 @@ header{
 }
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;cursor:pointer}
 .logo-mark{
-  width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;
-  font-family:var(--sans);font-size:15px;font-weight:700;color:#fff;line-height:1;
-  letter-spacing:-.02em;
+  width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
 }
-.logo-text{display:flex;flex-direction:column;gap:0}
-.logo-name{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;line-height:1}
-.logo-sub{font-family:var(--mono);font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:3px}
-  
+.logo-mark svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .logo-text{display:flex;flex-direction:column;gap:0}
 .logo-name{font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1}
 .logo-sub{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:2px}
@@ -181,9 +174,9 @@ header{
 .nav-sep{width:1px;background:var(--border2);margin:10px 4px;flex-shrink:0}
 
 /* ── LAYOUT ── */
-.app-layout{display:flex;height:calc(100vh - var(--hdr) - var(--nav));overflow:hidden;position:relative}
+.app-layout{display:flex;height:calc(100vh - var(--hdr) - var(--nav));overflow:hidden;position:relative;background:var(--bg)}
 .app-layout.no-panel .right-panel,.app-layout.no-panel .panel-toggle{display:none!important}
-.left-pane{flex:1;overflow-y:auto;padding:22px;min-width:0}
+.left-pane{flex:1;overflow-y:auto;padding:22px;min-width:0;background:var(--bg)}
 .right-panel{
   width:var(--sidebar-w);background:var(--surface);
   border-left:1px solid var(--border2);overflow-y:auto;flex-shrink:0;
@@ -559,32 +552,58 @@ footer{
   font-family:var(--sans);font-size:12px;
   border-top:1px solid rgba(0,0,0,.15);
 }
-.footer-inner{
+.footer-top{
   max-width:1400px;margin:0 auto;
-  padding:28px 24px;
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;
+  padding:32px 28px 24px;
+  display:grid;grid-template-columns:1.2fr 1fr 0.8fr;gap:32px;
 }
-.footer-col-title{font-family:var(--display);font-size:14px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:-.02em}
-.footer-col-text{font-size:11.5px;line-height:1.7;color:rgba(255,255,255,.6)}
-.footer-col-text a{color:rgba(255,255,255,.8);text-decoration:underline;text-underline-offset:2px}
-.footer-refs{display:flex;flex-direction:column;gap:5px}
-.footer-ref{display:flex;align-items:flex-start;gap:7px;font-size:11px;color:rgba(255,255,255,.6);line-height:1.5}
-.footer-ref-num{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.4);flex-shrink:0;margin-top:2px}
+.footer-brand-block{display:flex;flex-direction:column;gap:12px}
+.footer-brand-logo{display:flex;align-items:center;gap:10px}
+.footer-brand-logo-mark{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.footer-brand-name{font-family:var(--display);font-size:16px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1}
+.footer-brand-tagline{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:2px}
+.footer-brand-desc{font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.7;max-width:300px}
+.footer-poison{display:flex;flex-direction:column;gap:5px;margin-top:4px}
+.footer-poison-title{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px}
+.footer-poison a{font-size:11.5px;color:rgba(255,255,255,.75);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color var(--t)}
+.footer-poison a:hover{color:#fff}
+.footer-block-title{font-family:var(--display);font-size:13px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-.02em}
+.footer-refs-block{display:flex;flex-direction:column}
+.footer-refs-list{display:flex;flex-direction:column;gap:6px}
+.footer-ref-compact{display:flex;align-items:flex-start;gap:8px;font-size:11px;color:rgba(255,255,255,.6);line-height:1.55}
+.footer-ref-num{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.35);flex-shrink:0;margin-top:2px;min-width:12px}
+.footer-utils-block{display:flex;flex-direction:column}
+.footer-kbd-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 10px}
+.footer-kbd-grid span{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:5px}
+.footer-kbd-grid kbd{font-size:9px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:1px 5px;color:rgba(255,255,255,.75)}
 .footer-bottom{
   border-top:1px solid rgba(255,255,255,.1);
-  padding:14px 24px;
+  padding:14px 28px;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  max-width:1400px;margin:0 auto;
 }
-.footer-logo{display:flex;align-items:center;gap:8px}
-.footer-logo-text{font-family:var(--display);font-size:14px;font-weight:800;color:#fff;letter-spacing:-.02em}
-.footer-logo-sub{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.footer-bottom-logo{display:flex;align-items:center;gap:8px}
+.footer-bottom-logo-mark{width:22px;height:22px;border-radius:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center}
+.footer-bottom-logo-mark svg{width:12px;height:12px;stroke:rgba(255,255,255,.5);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.footer-bottom-logoname{font-family:var(--display);font-size:13px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:-.02em}
 .footer-disclaimer{font-family:var(--mono);font-size:9.5px;color:rgba(255,255,255,.4);text-align:center;flex:1;padding:0 16px;line-height:1.6}
-.footer-credits{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.35);text-align:right;white-space:nowrap}
-.footer-credits a{color:rgba(255,255,255,.5);text-decoration:none}
+.footer-credits{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,.35);text-align:right;line-height:1.6}
+.footer-credits a{color:rgba(255,255,255,.55);text-decoration:none;transition:color var(--t)}
 .footer-credits a:hover{color:#fff}
-.footer-kbd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
-.footer-kbd span{display:flex;align-items:center;gap:4px;font-size:10px;color:rgba(255,255,255,.45);font-family:var(--mono)}
-.footer-kbd kbd{font-size:9px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:1px 5px;color:rgba(255,255,255,.7)}
+@media(max-width:900px){
+  .footer-top{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media(max-width:600px){
+  .footer-top{grid-template-columns:1fr;gap:20px;padding:24px 18px 18px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:8px;padding:14px 18px}
+  .footer-credits{text-align:center}
+  .footer-disclaimer{padding:0}
+}
 
 /* ── MOBILE ── */
 @media(max-width:700px){
@@ -617,6 +636,32 @@ footer{
 :focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:var(--r-sm)}
 button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ── KB HINT ── */
+.kb-hint{
+  position:fixed;bottom:16px;left:50%;transform:translateX(-50%);
+  background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-xl);
+  padding:8px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  box-shadow:var(--shadow-lg);z-index:9000;font-size:10px;color:var(--text3);
+  font-family:var(--mono);opacity:0;pointer-events:none;transition:opacity .2s;
+  max-width:90vw;
+}
+.kb-hint.show{opacity:1;pointer-events:all}
+.kb-hint span{display:flex;align-items:center;gap:4px;white-space:nowrap}
+
+/* ── PROGRESS BAR ── */
+.progress-bar{height:3px;background:var(--border2);border-radius:2px;overflow:hidden;margin-bottom:10px}
+.progress-fill{height:100%;background:var(--green);border-radius:2px;transition:width .3s ease}
+/* ── SKELETON LOADER ── */
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+.tox-skel-row{
+  height:58px;border-radius:var(--r-lg);margin-bottom:4px;
+  background:linear-gradient(90deg,var(--surface) 25%,var(--surface2) 50%,var(--surface) 75%);
+  background-size:800px 100%;animation:shimmer 1.4s infinite linear;
+  border:1.5px solid var(--border);
+}
+
+.quiz-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:16px}
 </style>
 </head>
 <body>
@@ -663,7 +708,7 @@ button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 <!-- HEADER -->
 <header>
   <div class="logo" onclick="showTab('toxidromes')" title="ELEMENTS.EM Home">
-    <div class="logo-mark">⚕</div>
+    <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M12 2C8 6 8 10 12 12c4-2 4-6 0-10z"/></svg></div>
     <div class="logo-text">
       <div class="logo-name">ELEMENTS.EM</div>
       <div class="logo-sub">Toxicology Field Guide</div>
@@ -773,7 +818,15 @@ button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
         <button class="fchip" onclick="setToxFilter('serotonin',this)">Serotonin/NMS</button>
         <button class="fchip" onclick="setToxFilter('cardiac',this)">Cardiac</button>
       </div>
-      <div class="tox-list" id="tox-list"></div>
+      <div class="tox-list" id="tox-list">
+        <!-- skeleton placeholders shown until JS renders -->
+        <div class="tox-skeleton" id="tox-skeleton">
+          <div class="tox-skel-row"></div><div class="tox-skel-row"></div>
+          <div class="tox-skel-row"></div><div class="tox-skel-row"></div>
+          <div class="tox-skel-row"></div><div class="tox-skel-row"></div>
+          <div class="tox-skel-row"></div><div class="tox-skel-row"></div>
+        </div>
+      </div>
     </div>
 
     <!-- ANTIDOTES -->
@@ -1022,9 +1075,9 @@ button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
+<div class="footer-bottom">
     <div class="footer-bottom-logo">
-      <div style="width:20px;height:20px;border-radius:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:rgba(255,255,255,.5)">⚕</div>
+      <div class="footer-bottom-logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M12 2C8 6 8 10 12 12c4-2 4-6 0-10z"/></svg></div>
       <span class="footer-bottom-logoname">Elements.EM</span>
     </div>
     <div class="footer-disclaimer">⚠ Educational &amp; rapid-reference use only. Not a substitute for clinical judgment or institutional protocols. Always verify doses before administration.</div>
@@ -1039,6 +1092,26 @@ button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 
 <script>
 window.addEventListener('scroll',()=>{document.getElementById('back-top').classList.toggle('show',window.scrollY>300);},{passive:true});
+
+// Hide skeleton once tox-list has real content
+const _toxObs = new MutationObserver(()=>{
+  const list = document.getElementById('tox-list');
+  const skel = document.getElementById('tox-skeleton');
+  if(list && skel && list.children.length > 1){
+    skel.style.display = 'none';
+    _toxObs.disconnect();
+  }
+});
+const _toxList = document.getElementById('tox-list');
+if(_toxList) _toxObs.observe(_toxList, {childList:true});
+
+// KB hint toggle with ?
+document.addEventListener('keydown', e=>{
+  if(e.key === '?' && !e.target.matches('input,textarea,select')){
+    document.getElementById('kb-hint')?.classList.toggle('show');
+  }
+  if(e.key === 'Escape') document.getElementById('kb-hint')?.classList.remove('show');
+});
 </script>
 <div class="kb-hint" id="kb-hint" role="tooltip" aria-label="Keyboard shortcuts">
   <span><kbd>T</kbd> Toxidromes</span>
