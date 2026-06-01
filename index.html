@@ -58,10 +58,15 @@ header{
 }
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;cursor:pointer}
 .logo-mark{
-  width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;
-  font-family:var(--display);font-size:18px;font-weight:800;color:#fff;line-height:1;
+  width:32px;height:32px;border-radius:7px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:15px;font-weight:700;color:#fff;line-height:1;
+  letter-spacing:-.02em;
 }
+.logo-text{display:flex;flex-direction:column;gap:0}
+.logo-name{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;line-height:1}
+.logo-sub{font-family:var(--mono);font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:3px}
+  
 .logo-text{display:flex;flex-direction:column;gap:0}
 .logo-name{font-family:var(--display);font-size:17px;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1}
 .logo-sub{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:2px}
@@ -596,10 +601,11 @@ footer{
   .header-center{max-width:160px}
   .nav-inner{padding:0 10px}
   .footer-inner{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .footer-disclaimer{padding:6px 0}
+  .footer-top{grid-template-columns:1fr;gap:18px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:8px}
+  footer-disclaimer{padding:4px 0}
 }
-
+ 
 /* ── FOCUS ── */
 :focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:var(--r-sm)}
 button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
@@ -966,66 +972,59 @@ button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-col-title">References</div>
-      <div class="footer-refs">
-        <div class="footer-ref"><span class="footer-ref-num">1</span><span>Goldfrank LR et al. <em>Goldfrank's Toxicologic Emergencies</em>, 12th ed. McGraw-Hill; 2023.</span></div>
-        <div class="footer-ref"><span class="footer-ref-num">2</span><span>Ministry of Health & Family Welfare. <em>National Treatment Guidelines for Acute Poisoning Management</em>. MoHFW, Govt. of India; 2019.</span></div>
-        <div class="footer-ref"><span class="footer-ref-num">3</span><span>MoHFW. <em>National Guidelines for Snakebite Management</em>. 2016.</span></div>
-        <div class="footer-ref"><span class="footer-ref-num">4</span><span>AIIMS National Poison Information Centre. <em>Clinical Toxicology Protocols</em>. AIIMS New Delhi.</span></div>
-        <div class="footer-ref"><span class="footer-ref-num">5</span><span>Decker BS et al. EXTRIP workgroup. Extracorporeal treatment for salicylate poisoning. <em>Ann Intern Med.</em> 2015;163(3):181–189.</span></div>
+  <div class="footer-top">
+    <div class="footer-brand-block">
+      <div class="footer-brand-logo">
+        <div class="footer-brand-logo-mark">⚕</div>
+        <div>
+          <div class="footer-brand-name">Elements.EM</div>
+          <div class="footer-brand-tagline">Clinical Toxicology Field Guide</div>
+        </div>
+      </div>
+      <div class="footer-brand-desc">Free, offline-capable clinical reference for emergency physicians, residents, and paramedics. Built for Indian EDs with MoHFW protocols.</div>
+      <div class="footer-poison">
+        <div class="footer-poison-title">Poison Control 24×7</div>
+        <a href="tel:01126589391">🏥 AIIMS NPIC · 011-26589391</a>
+        <a href="sms:9999404505">📱 SMS · 9999-404-505</a>
       </div>
     </div>
-    <div>
-      <div class="footer-col-title">About</div>
-      <div class="footer-col-text">
-        <p>ELEMENTS.EM is a free, offline-capable clinical field guide for emergency physicians, residents, and paramedics managing toxicological and environmental emergencies.</p>
-        <br>
-        <p>All dosing recommendations are derived from peer-reviewed sources and national guidelines. This tool is intended for educational and rapid-reference use only — not as a substitute for clinical judgment.</p>
-        <br>
-        <p>Built for use in Indian emergency departments, with Indian poison control resources and MoHFW protocols integrated.</p>
+    <div class="footer-refs-block">
+      <div class="footer-block-title">References</div>
+      <div class="footer-refs-list">
+        <div class="footer-ref-compact"><span class="footer-ref-num">1</span><span>Goldfrank LR et al. <em>Goldfrank's Toxicologic Emergencies</em>, 12th ed. McGraw-Hill; 2023.</span></div>
+        <div class="footer-ref-compact"><span class="footer-ref-num">2</span><span>MoHFW. <em>National Treatment Guidelines for Acute Poisoning Management</em>. Govt. of India; 2019.</span></div>
+        <div class="footer-ref-compact"><span class="footer-ref-num">3</span><span>MoHFW. <em>National Guidelines for Snakebite Management</em>. 2016.</span></div>
+        <div class="footer-ref-compact"><span class="footer-ref-num">4</span><span>AIIMS NPIC. <em>Clinical Toxicology Protocols</em>. AIIMS New Delhi.</span></div>
+        <div class="footer-ref-compact"><span class="footer-ref-num">5</span><span>Decker BS et al. EXTRIP workgroup. Salicylate poisoning. <em>Ann Intern Med.</em> 2015;163(3):181–189.</span></div>
       </div>
     </div>
-    <div>
-      <div class="footer-col-title">Keyboard Shortcuts</div>
-      <div class="footer-kbd">
-        <span><kbd>T</kbd> Toxidromes</span>
-        <span><kbd>A</kbd> Antidotes</span>
-        <span><kbd>C</kbd> Calculator</span>
-        <span><kbd>X</kbd> Compare</span>
-        <span><kbd>E</kbd> Environmental</span>
-        <span><kbd>P</kbd> Pathway</span>
-        <span><kbd>Q</kbd> Practice</span>
-        <span><kbd>/</kbd> Search</span>
-        <span><kbd>Esc</kbd> Close panel</span>
-        <span><kbd>A–D</kbd> Quiz answers</span>
-        <span><kbd>Enter</kbd> Next question</span>
-      </div>
-      <br>
-      <div class="footer-col-title" style="margin-top:4px">Poison Control</div>
-      <div class="footer-col-text">
-        <p>🏥 AIIMS NPIC: <a href="tel:01126589391">011-26589391</a></p>
-        <p>📱 SMS Helpline: <a href="sms:9999404505">9999-404-505</a></p>
-        <p>Available 24×7 for clinician consultation</p>
+    <div class="footer-utils-block">
+      <div>
+        <div class="footer-block-title">Shortcuts</div>
+        <div class="footer-kbd-grid">
+          <span><kbd>T</kbd> Toxidromes</span>
+          <span><kbd>A</kbd> Antidotes</span>
+          <span><kbd>C</kbd> Calc</span>
+          <span><kbd>X</kbd> Compare</span>
+          <span><kbd>E</kbd> Environ.</span>
+          <span><kbd>P</kbd> Pathway</span>
+          <span><kbd>Q</kbd> Practice</span>
+          <span><kbd>/</kbd> Search</span>
+          <span><kbd>Esc</kbd> Close</span>
+        </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-logo">
-      <div class="logo-mark" style="width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:14px;color:#fff">⚕</div>
-      <div>
-        <div class="footer-logo-text">ELEMENTS.EM</div>
-        <div class="footer-logo-sub">Clinical Toxicology Field Guide</div>
-      </div>
+    <div class="footer-bottom-logo">
+      <div style="width:20px;height:20px;border-radius:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:rgba(255,255,255,.5)">⚕</div>
+      <span class="footer-bottom-logoname">Elements.EM</span>
     </div>
-    <div class="footer-disclaimer">
-      ⚠ For educational and rapid-reference use only. Not a substitute for clinical judgment or institutional protocols. Always verify doses before administration.
-    </div>
+    <div class="footer-disclaimer">⚠ Educational &amp; rapid-reference use only. Not a substitute for clinical judgment or institutional protocols. Always verify doses before administration.</div>
     <div class="footer-credits">
-      Designed & Developed by Dr. Siddhi Naik
-      <a href="https://ped-resus.vercel.app" target="_blank">ped-resus.vercel.app</a><br>
-      Emergency Physician 
+     Designed & Developed by Dr. Siddhi Naik · Emergency Physician<br>
+      Also created <br>
+      <a href="https://ped-resus.vercel.app" target="_blank">ped-resus.vercel.app</a>
     </div>
   </div>
 </footer>
