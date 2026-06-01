@@ -1,4 +1,3 @@
-<script>
 // ── DARK MODE ──
 function toggleDark(){
   document.body.classList.toggle('dark');
@@ -15,7 +14,6 @@ if(localStorage.getItem('tp-dark')==='1'){
 }
 
 // ── TABS WITH/WITHOUT PANEL ──
-// Tabs that use the right detail panel
 const PANEL_TABS=new Set(['toxidromes','environmental']);
 let panelOpen=true;
 
@@ -31,7 +29,6 @@ function showTab(id,tab){
       if((t.getAttribute('onclick')||'').includes("'"+id+"'")) t.classList.add('active');
     });
   }
-  // Show/hide right panel based on tab
   const al=document.getElementById('app-layout');
   const pt=document.getElementById('panel-toggle');
   if(PANEL_TABS.has(id)){
@@ -107,13 +104,20 @@ function showDetailPanel(html,toxName){
   dp.innerHTML=html;
   dp.scrollTop=0;
   if(toxName) addToRecent(toxName);
-  setTimeout(()=>{
-    renderPerfChart('quiz-perf-canvas','quiz');
-    renderPerfChart('sprint-perf-canvas','sprint');
-  },100);
+  // FIX 8: Only render perf charts if we're currently on the practice tab,
+  // not on every toxidrome row click.
+  const practicePanel=document.getElementById('panel-practice');
+  if(practicePanel&&practicePanel.classList.contains('active')){
+    setTimeout(()=>{
+      renderPerfChart('quiz-perf-canvas','quiz');
+      renderPerfChart('sprint-perf-canvas','sprint');
+    },100);
+  }
 }
 
 // ── BODY MAP (SVG with animated dots) ──
+// FIX 7: Widen viewBox to 160px and use a separate right-side text column
+// so label text never gets clipped by the 90px boundary.
 function buildBodyMap(tox){
   const regions=getBodyRegions(tox);
   let dots='';
@@ -123,9 +127,11 @@ function buildBodyMap(tox){
       <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite" begin="${r.x*0.01}s"/>
     </circle>
     <circle cx="${r.x}" cy="${r.y}" r="10" fill="${color}" opacity="0.18"/>`;
-    if(r.label) dots+=`<text x="${r.x+12}" y="${r.y+4}" font-size="8.5" fill="${color}" font-family="DM Mono,monospace">${r.label}</text>`;
+    // Labels now rendered at x=100 (safe zone) instead of dot.x+12
+    if(r.label) dots+=`<text x="100" y="${r.y+4}" font-size="8.5" fill="${color}" font-family="DM Mono,monospace">${r.label}</text>`;
   });
-  return `<svg width="90" height="200" viewBox="0 0 90 200" xmlns="http://www.w3.org/2000/svg">
+  // viewBox widened to 0 0 200 200 to accommodate right-side labels
+  return `<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <ellipse cx="45" cy="22" rx="16" ry="18" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.2"/>
   <rect x="40" y="38" width="10" height="10" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.2"/>
   <rect x="25" y="47" width="40" height="60" rx="4" fill="var(--surface2)" stroke="var(--border2)" stroke-width="1.2"/>
@@ -570,7 +576,8 @@ function loadCalc(idx){
   activeCalc=idx;
   document.querySelectorAll('.calc-sb-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
   const calc=CALCULATORS[idx];
-  const savedWt=sessionStorage.getItem('tp-last-weight')||'';
+  // FIX 9: Use localStorage (not sessionStorage) so weight persists across sessions.
+  const savedWt=localStorage.getItem('tp-last-weight')||'';
   document.getElementById('calc-main').innerHTML=`
     <div class="calc-name">${calc.name}</div>
     <div class="calc-ind">${calc.ind}</div>
@@ -592,7 +599,8 @@ function runCalc(){
   const fields={};
   calc.fields.forEach(f=>{const el=document.getElementById('cf-'+f.id);if(el)fields[f.id]=el.value;});
   const wtEl=document.getElementById('cf-wt');
-  if(wtEl&&wtEl.value) sessionStorage.setItem('tp-last-weight',wtEl.value);
+  // FIX 9 (cont): localStorage instead of sessionStorage for weight.
+  if(wtEl&&wtEl.value) localStorage.setItem('tp-last-weight',wtEl.value);
   const results=calc.calc(fields);
   const box=document.getElementById('calc-results');
   box.className='calc-results show';
@@ -646,8 +654,9 @@ function renderCompare(){
 // ── SYMPTOM BUILDER ──
 let selectedSyms=new Set();
 function renderBuilderChips(){
+  // FIX 6: Use class "sb-chip-icon" to match CSS (was "sb-icon").
   document.getElementById('sb-chips').innerHTML=SYM_OPTIONS.map(s=>`<div class="sb-chip${selectedSyms.has(s.id)?' sel':''}" onclick="toggleSym('${s.id}')">
-    <span class="sb-icon"><svg><use href="#ic-${s.icon}"/></svg></span>${s.label}
+    <span class="sb-chip-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#ic-${s.icon}"/></svg></span>${s.label}
   </div>`).join('');
 }
 function toggleSym(id){
@@ -761,6 +770,8 @@ function checkAnswer(chosen,cd,btn){
 function nextCase(){caseIdx++;renderMatcher();}
 
 // ── SPRINT ──
+// FIX 5: Sprint vital rendering used sv-val/sv-lbl classes but sprint CSS uses vbox-val/vbox-lbl.
+// Unified to use the shared vbox-val / vbox-lbl classes throughout.
 let sprintCases=[],sprintIdx=0,sprintScore=0,sprintInterval=null,sprintSecs=30,sprintMode=5,sprintAnswered=false;
 function initSprint(){
   document.getElementById('sprint-content').innerHTML=`<div class="sprint-start">
@@ -787,13 +798,14 @@ function renderSprintCase(){
   if(sprintIdx>=sprintCases.length){endSprint();return;}
   clearInterval(sprintInterval);sprintSecs=30;sprintAnswered=false;
   const c=CASES[sprintCases[sprintIdx]];
+  // FIX 5: Use vbox-val / vbox-lbl (matches shared CSS) instead of sv-val / sv-lbl.
   document.getElementById('sprint-content').innerHTML=`<div class="sprint-wrap">
     <div class="sprint-head">
       <div><div class="sprint-meta">Case ${sprintIdx+1} of ${sprintCases.length} &middot; Score: ${sprintScore}</div></div>
       <div class="sprint-timer" id="sp-timer">30</div>
     </div>
     <div class="sprint-case">
-      <div class="sprint-vitals">${c.vitals.map(v=>`<div class="sprint-vital-box"><div class="sv-val ${v.cls}">${v.val}</div><div class="sv-lbl">${v.label}</div></div>`).join('')}</div>
+      <div class="sprint-vitals">${c.vitals.map(v=>`<div class="sprint-vital-box"><div class="vbox-val ${v.cls}">${v.val}</div><div class="vbox-lbl">${v.label}</div></div>`).join('')}</div>
       <div class="sprint-symptoms">${c.symptoms}</div>
       <div class="sprint-choices">${c.options.map(o=>`<button class="sprint-choice" onclick="sprintAnswer('${o.replace(/'/g,"\\'")}','${c.answer.replace(/'/g,"\\'")}')">${o}</button>`).join('')}</div>
       <div id="sp-fb" style="margin-top:9px;font-size:12px;line-height:1.6;color:var(--text3)"></div>
@@ -887,7 +899,8 @@ function answerQuiz(chosen){
   if(chosen!==q.ans){
     document.querySelectorAll('.quiz-opt')[q.ans].classList.add('correct');
     if(q.topic) quizMissed.push(q.topic);
-    recordSRSMiss(q.topic||'');
+    // FIX 12: Only call recordSRSMiss when topic is non-empty.
+    if(q.topic) recordSRSMiss(q.topic);
   }
   if(chosen===q.ans) quizScore++;
   document.getElementById('quiz-exp').classList.add('show');
@@ -920,15 +933,13 @@ function toggleFav(name){
   else{favorites.add(name);showToast('Added to favorites ★');}
   localStorage.setItem('tp-favs',JSON.stringify([...favorites]));
   renderToxList();
-  renderFavoritesSection();
+  renderAboveToxList();
 }
-function renderFavoritesSection(){
-  const existing=document.getElementById('fav-section');if(existing)existing.remove();
-  if(!favorites.size)return;
+function renderFavoritesSection(container){
+  if(!favorites.size) return;
   const sec=document.createElement('div');sec.id='fav-section';sec.className='fav-section';
   sec.innerHTML=`<div class="fav-section-title">★ Quick Access</div><div class="tox-list" id="fav-list"></div>`;
-  const toxList=document.getElementById('tox-list');
-  toxList.parentNode.insertBefore(sec,toxList);
+  container.appendChild(sec);
   const fl=document.getElementById('fav-list');
   [...favorites].forEach(name=>{
     const t=TOXIDROMES.find(x=>x.name===name);if(!t)return;
@@ -946,6 +957,23 @@ function renderFavoritesSection(){
     fl.appendChild(row);
   });
 }
+// FIX 13: Render both favorites and recent into a single wrapper container that
+// sits above #tox-list. One insertBefore call, no ordering races.
+function renderAboveToxList(){
+  const toxList=document.getElementById('tox-list');
+  if(!toxList) return;
+  // Remove existing above-list wrapper if present
+  const existing=document.getElementById('above-tox-list');
+  if(existing) existing.remove();
+  // Only create wrapper if there's something to show
+  if(!favorites.size && !recentViewed.length) return;
+  const wrapper=document.createElement('div');
+  wrapper.id='above-tox-list';
+  toxList.parentNode.insertBefore(wrapper, toxList);
+  // Recent section first (most immediately useful), then favorites
+  if(recentViewed.length) renderRecentSection(wrapper);
+  if(favorites.size) renderFavoritesSection(wrapper);
+}
 
 // ── TOAST ──
 function showToast(msg){
@@ -954,10 +982,16 @@ function showToast(msg){
   setTimeout(()=>t.classList.remove('show'),2000);
 }
 
-// ── GLOBAL SEARCH ──
+// ── GLOBAL SEARCH (with debounce) ──
+// FIX 10: Debounce the global search to avoid synchronous DOM rebuild on every keystroke.
+let _gsearchTimer=null;
 function globalSearch(q){
+  clearTimeout(_gsearchTimer);
+  if(!q.trim()){document.getElementById('gsearch-dd').classList.remove('open');return;}
+  _gsearchTimer=setTimeout(()=>_doGlobalSearch(q),120);
+}
+function _doGlobalSearch(q){
   const dd=document.getElementById('gsearch-dd');
-  if(!q.trim()){dd.classList.remove('open');return;}
   const s=q.toLowerCase();
   const toxHits=TOXIDROMES.filter(t=>[t.name,t.agents,t.symptoms,t.catLabel].some(x=>x.toLowerCase().includes(s))).slice(0,5);
   const antHits=ANTIDOTES.filter(a=>[a.drug,a.indication].some(x=>x.toLowerCase().includes(s))).slice(0,4);
@@ -988,13 +1022,38 @@ function gsearchGo(type,name){
   }
 }
 
-// ── POISON CONTROL (from original) ──
+// ── POISON CONTROL ──
 function callPoison(){
   if(confirm('Call AIIMS Poison Control Centre?\n\n011-26589391\n\nThis will open your phone dialler.'))
     window.location.href='tel:01126589391';
 }
 
 // ── PRINT CARD ──
+// FIX 4: Add CSS for .print-card-only to the document at runtime if not already present,
+// so the class is not silently undefined. Minimal targeted print CSS injected once.
+(function ensurePrintCSS(){
+  if(document.getElementById('tp-print-style')) return;
+  const style=document.createElement('style');
+  style.id='tp-print-style';
+  style.textContent=`
+    @media print {
+      body.print-card-only .app-layout,
+      body.print-card-only .top-bar,
+      body.print-card-only .left-nav,
+      body.print-card-only #right-panel .rpp {
+        display: none !important;
+      }
+      body.print-card-only #detail-panel {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 800px !important;
+        margin: 0 auto;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
 function printCard(){
   document.body.classList.add('print-card-only');
   window.print();
@@ -1008,16 +1067,16 @@ function addToRecent(name){
   recentViewed.unshift(name);
   recentViewed=recentViewed.slice(0,6);
   localStorage.setItem('tp-recent',JSON.stringify(recentViewed));
-  renderRecentSection();
+  renderAboveToxList();
 }
-function renderRecentSection(){
-  const existing=document.getElementById('recent-section');if(existing)existing.remove();
-  if(!recentViewed.length)return;
-  const toxList=document.getElementById('tox-list');
+// FIX 13 (cont): renderRecentSection now takes a container arg and appends into it,
+// instead of doing its own insertBefore which could race with renderFavoritesSection.
+function renderRecentSection(container){
+  if(!recentViewed.length) return;
   const sec=document.createElement('div');sec.id='recent-section';sec.className='recent-section';
   sec.innerHTML=`<div class="recent-label">Recently Viewed</div>
     <div class="recent-pills">${recentViewed.map(n=>`<button class="recent-pill" onclick="openToxByName('${n.replace(/'/g,"\\'")}')">${n}</button>`).join('')}</div>`;
-  toxList.parentNode.insertBefore(sec,toxList);
+  container.appendChild(sec);
 }
 
 // ── PERFORMANCE TRACKING ──
@@ -1040,12 +1099,10 @@ function renderPerfChart(canvasId,type){
   }
   const pad=12;const iw=W-pad*2;const ih=H-pad*2;
   ctx.clearRect(0,0,W,H);
-  // 80% guideline
-  ctx.strokeStyle='rgba(128,128,128,0.15)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
   const y80=pad+ih*(1-0.8);
+  ctx.strokeStyle='rgba(128,128,128,0.15)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
   ctx.beginPath();ctx.moveTo(pad,y80);ctx.lineTo(W-pad,y80);ctx.stroke();
   ctx.setLineDash([]);
-  // line + dots
   const xs=arr.map((_,i)=>pad+i*(iw/Math.max(arr.length-1,1)));
   const ys=arr.map(p=>pad+ih*(1-p.pct/100));
   ctx.strokeStyle='var(--green,#0B4D3B)';ctx.lineWidth=2;ctx.beginPath();
@@ -1061,7 +1118,8 @@ function clearPerf(type){
 
 // ── SPACED REPETITION ──
 function recordSRSMiss(name){
-  if(!name)return;
+  // FIX 12: Guard against empty/falsy name to avoid polluting the SRS store.
+  if(!name||!name.trim()) return;
   const missed=JSON.parse(localStorage.getItem('tp-srs')||'{}');
   missed[name]=(missed[name]||0)+1;
   localStorage.setItem('tp-srs',JSON.stringify(missed));
@@ -1076,7 +1134,6 @@ function renderNomogram(){
   const apapVal=+document.getElementById('cf-apap')?.value||0;
   const hrsVal=+document.getElementById('cf-hrs')?.value||0;
   const wrap=document.getElementById('calc-results');if(!wrap)return;
-  // Remove old nomogram if exists
   const old=document.getElementById('nomo-canvas-container');if(old)old.remove();
   const cont=document.createElement('div');cont.id='nomo-canvas-container';cont.className='nomo-wrap';
   cont.innerHTML=`<div class="nomo-title">Rumack-Matthew Nomogram</div>
@@ -1091,9 +1148,7 @@ function renderNomogram(){
   const maxH=24,maxL=350;
   function tx(h){return pl+(h/maxH)*iw;}
   function ty(l){return pt+((maxL-l)/maxL)*ih;}
-  // Treatment line: 150 at 4h, halving every 4h
   const treatLine=[];for(let t=4;t<=24;t+=0.5){treatLine.push({t,lvl:150*Math.pow(0.5,(t-4)/4)});}
-  // Background zones
   ctx.fillStyle='rgba(192,57,43,0.07)';ctx.beginPath();
   ctx.moveTo(tx(4),ty(150));
   treatLine.forEach(p=>ctx.lineTo(tx(p.t),ty(p.lvl)));
@@ -1102,28 +1157,23 @@ function renderNomogram(){
   ctx.moveTo(tx(4),ty(150));
   treatLine.forEach(p=>ctx.lineTo(tx(p.t),ty(p.lvl)));
   ctx.lineTo(tx(24),ty(maxL));ctx.lineTo(tx(4),ty(maxL));ctx.closePath();ctx.fill();
-  // Grid
   ctx.strokeStyle='rgba(128,128,128,0.12)';ctx.lineWidth=1;
   [50,100,150,200,250,300].forEach(l=>{ctx.beginPath();ctx.moveTo(pl,ty(l));ctx.lineTo(W-pr,ty(l));ctx.stroke();});
   [4,8,12,16,20,24].forEach(t=>{ctx.beginPath();ctx.moveTo(tx(t),pt);ctx.lineTo(tx(t),pt+ih);ctx.stroke();});
-  // Axes
   ctx.strokeStyle='rgba(128,128,128,0.4)';ctx.lineWidth=1.5;
   ctx.beginPath();ctx.moveTo(pl,pt);ctx.lineTo(pl,pt+ih);ctx.lineTo(pl+iw,pt+ih);ctx.stroke();
-  // Axis labels
   ctx.fillStyle='rgba(128,128,128,0.8)';ctx.font='9px DM Mono,monospace';ctx.textAlign='center';
   [0,4,8,12,16,20,24].forEach(t=>{ctx.fillText(t,tx(t),pt+ih+12);});
   ctx.textAlign='right';
   [50,100,150,200,250,300].forEach(l=>{ctx.fillText(l,pl-4,ty(l)+3);});
   ctx.save();ctx.translate(12,pt+ih/2);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillText('APAP mcg/mL',0,0);ctx.restore();
   ctx.textAlign='center';ctx.fillText('Hours post-ingestion',pl+iw/2,220-2);
-  // Treatment line
   ctx.strokeStyle='#C0392B';ctx.lineWidth=2;ctx.setLineDash([5,3]);ctx.beginPath();
   treatLine.forEach((p,i)=>{if(i===0)ctx.moveTo(tx(p.t),ty(p.lvl));else ctx.lineTo(tx(p.t),ty(p.lvl));});
   ctx.stroke();ctx.setLineDash([]);
   ctx.font='bold 9px DM Mono,monospace';
   ctx.fillStyle='#C0392B';ctx.textAlign='left';ctx.fillText('TREAT ABOVE LINE',tx(4.2),ty(160));
   ctx.fillStyle='#0F6E56';ctx.fillText('SAFE BELOW LINE',tx(4.2),ty(70));
-  // Plot patient
   if(apapVal>0&&hrsVal>=4&&hrsVal<=24){
     const px=tx(hrsVal);const py=ty(apapVal);
     ctx.fillStyle='#1A1A1A';ctx.beginPath();ctx.arc(px,py,5,0,Math.PI*2);ctx.fill();
@@ -1138,15 +1188,51 @@ function renderNomogram(){
   }
 }
 
-// ── PWA / SERVICE WORKER ──
+// ── PWA INSTALL ──
+// FIX 1+2+3: Unified install system. Single deferredPwa variable.
+// doInstall() is the canonical handler, wired to both the header button (onclick="doInstall()")
+// and the banner button (#pwa-install). The banner element (#pwa-prompt) is created
+// dynamically if it doesn't already exist in the HTML, so it never throws silently.
 let deferredPwa=null;
+
+function _ensurePwaBanner(){
+  if(document.getElementById('pwa-prompt')) return;
+  const banner=document.createElement('div');
+  banner.id='pwa-prompt';
+  banner.className='pwa-prompt';
+  banner.innerHTML=`<div class="pwa-text">Install ToxidromeAI for offline access</div>
+    <div style="display:flex;gap:8px">
+      <button id="pwa-install" class="btn btn-primary" onclick="doInstall()">Install</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('pwa-prompt').classList.remove('show');localStorage.setItem('tp-pwa-dismissed','1')">Not now</button>
+    </div>`;
+  document.body.appendChild(banner);
+}
+
+async function doInstall(){
+  if(!deferredPwa) return;
+  deferredPwa.prompt();
+  const{outcome}=await deferredPwa.userChoice;
+  if(outcome==='accepted'){
+    const banner=document.getElementById('pwa-prompt');
+    if(banner) banner.classList.remove('show');
+  }
+  deferredPwa=null;
+}
+
 window.addEventListener('beforeinstallprompt',e=>{
-  e.preventDefault();deferredPwa=e;
-  setTimeout(()=>{if(!localStorage.getItem('tp-pwa-dismissed'))document.getElementById('pwa-prompt').classList.add('show');},3000);
+  e.preventDefault();
+  deferredPwa=e;
+  _ensurePwaBanner();
+  setTimeout(()=>{
+    if(!localStorage.getItem('tp-pwa-dismissed')){
+      document.getElementById('pwa-prompt').classList.add('show');
+    }
+  },3000);
 });
-window.addEventListener('online',()=>document.getElementById('offline-banner').classList.remove('show'));
-window.addEventListener('offline',()=>document.getElementById('offline-banner').classList.add('show'));
-if(!navigator.onLine) document.getElementById('offline-banner').classList.add('show');
+
+window.addEventListener('online',()=>{const b=document.getElementById('offline-banner');if(b)b.classList.remove('show');});
+window.addEventListener('offline',()=>{const b=document.getElementById('offline-banner');if(b)b.classList.add('show');});
+if(!navigator.onLine){const b=document.getElementById('offline-banner');if(b)b.classList.add('show');}
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
 }
@@ -1164,13 +1250,14 @@ document.addEventListener('keydown',e=>{
 
 // ── SCROLL TO TOP ──
 window.addEventListener('scroll',()=>{
-  document.getElementById('back-top').classList.toggle('show',window.scrollY>300);
+  const bt=document.getElementById('back-top');
+  if(bt) bt.classList.toggle('show',window.scrollY>300);
 },{passive:true});
 
 // ── INIT ──
 window.addEventListener('DOMContentLoaded',()=>{
   renderToxList();
-  renderFavoritesSection();
+  renderAboveToxList();   // replaces the two separate renderFavoritesSection / renderRecentSection init calls
   renderEnvList();
   renderAntidotes();
   renderCalcList();
@@ -1180,22 +1267,8 @@ window.addEventListener('DOMContentLoaded',()=>{
   shuffleQuiz();
   renderQuiz();
   pwReset();
-  renderRecentSection();
   renderPerfChart('quiz-perf-canvas','quiz');
   renderPerfChart('sprint-perf-canvas','sprint');
-
-  // PWA install button
-  const pwaBtn=document.getElementById('pwa-install');
-  if(pwaBtn) pwaBtn.onclick=async()=>{
-    if(deferredPwa){
-      deferredPwa.prompt();
-      const{outcome}=await deferredPwa.userChoice;
-      if(outcome==='accepted') document.getElementById('pwa-prompt').classList.remove('show');
-      deferredPwa=null;
-    }
-  };
-  const pwaDismiss=document.querySelector('#pwa-prompt .btn-ghost');
-  if(pwaDismiss) pwaDismiss.addEventListener('click',()=>{localStorage.setItem('tp-pwa-dismissed','1');});
 
   // Restore tab from URL hash
   const h=location.hash.slice(1);
